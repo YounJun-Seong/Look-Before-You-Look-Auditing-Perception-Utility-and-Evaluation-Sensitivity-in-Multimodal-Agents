@@ -3,8 +3,9 @@
 Code, preregistrations, frozen artifacts, evaluation manifests, raw rollout
 logs, and result files for the paper *Look Before You Look: Auditing
 Perception Utility and Evaluation Sensitivity in Multimodal Agents*
-(AAMAS 2027 submission). The supplementary document is in
-`paper/supplementary/supplementary.pdf`.
+(AAMAS 2027 submission). The supplementary document is
+[`supplementary.pdf`](supplementary.pdf) at the repository root (source in
+`paper/supplementary/`).
 
 The audit asks, for a frozen vision-language reader under a fixed visual-token
 budget, *when* additional perception (Crop / OCR / HighRes vs. Stop) actually

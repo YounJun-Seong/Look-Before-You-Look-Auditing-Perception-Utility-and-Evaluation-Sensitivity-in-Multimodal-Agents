@@ -1,0 +1,145 @@
+[
+ {
+  "run": "Qwen2.5-VL-7B / original",
+  "log": "logs/fresh_vqav2_orig.jsonl",
+  "n_states": 250,
+  "n_eval": 179,
+  "parse_fail_rollouts": 0,
+  "labels": {
+   "NEUTRAL": 140,
+   "HARM": 9,
+   "AMBIGUOUS": 71,
+   "HELP": 30
+  },
+  "stop_acc": 0.448,
+  "highres_acc": 0.6073333333333334,
+  "verbose_stop_share": 0.396,
+  "help_prev": 0.16759776536312848,
+  "help_format_flip_share": 0.7666666666666667,
+  "ynno_collapse_share": 0.006802721088435374,
+  "conf_roc": 0.42774049217002236,
+  "conf_roc_ci": [
+   0.31505328164235896,
+   0.5440124414530761
+  ]
+ },
+ {
+  "run": "Qwen2.5-VL-7B / one-word",
+  "log": "logs/fresh_vqav2_oneword.jsonl",
+  "n_states": 250,
+  "n_eval": 228,
+  "parse_fail_rollouts": 0,
+  "labels": {
+   "NEUTRAL": 206,
+   "HARM": 8,
+   "AMBIGUOUS": 22,
+   "HELP": 14
+  },
+  "stop_acc": 0.78,
+  "highres_acc": 0.8066666666666666,
+  "verbose_stop_share": 0.032,
+  "help_prev": 0.06140350877192982,
+  "help_format_flip_share": 0.07142857142857142,
+  "ynno_collapse_share": 0.061224489795918366,
+  "conf_roc": 0.8965287049399199,
+  "conf_roc_ci": [
+   0.8386404293381038,
+   0.9456195650891414
+  ]
+ },
+ {
+  "run": "LLaVA-1.6-Mistral-7B / original",
+  "log": "logs/fresh_vqav2_llava_orig.jsonl",
+  "n_states": 250,
+  "n_eval": 245,
+  "parse_fail_rollouts": 0,
+  "labels": {
+   "NEUTRAL": 237,
+   "AMBIGUOUS": 5,
+   "HARM": 2,
+   "HELP": 6
+  },
+  "stop_acc": 0.8273333333333333,
+  "highres_acc": 0.8466666666666667,
+  "verbose_stop_share": 0.056,
+  "help_prev": 0.024489795918367346,
+  "help_format_flip_share": 0.0,
+  "ynno_collapse_share": 0.02040816326530612,
+  "conf_roc": 0.7768479776847979,
+  "conf_roc_ci": [
+   0.5470001033111215,
+   0.9492677824267782
+  ]
+ },
+ {
+  "run": "LLaVA-1.6-Mistral-7B / one-word",
+  "log": "logs/fresh_vqav2_llava_oneword.jsonl",
+  "n_states": 250,
+  "n_eval": 233,
+  "parse_fail_rollouts": 1,
+  "labels": {
+   "NEUTRAL": 229,
+   "AMBIGUOUS": 17,
+   "HELP": 4
+  },
+  "stop_acc": 0.6553333333333332,
+  "highres_acc": 0.646,
+  "verbose_stop_share": 0.02,
+  "help_prev": 0.017167381974248927,
+  "help_format_flip_share": 0.25,
+  "ynno_collapse_share": 0.38095238095238093,
+  "conf_roc": 0.7521834061135371,
+  "conf_roc_ci": [
+   0.3288625167935513,
+   0.9805585750519671
+  ]
+ },
+ {
+  "run": "LLaVA (coarse 16) / original",
+  "log": "logs/fresh_vqav2_llava_c16_orig.jsonl",
+  "n_states": 250,
+  "n_eval": 239,
+  "parse_fail_rollouts": 0,
+  "labels": {
+   "NEUTRAL": 216,
+   "HELP": 19,
+   "AMBIGUOUS": 11,
+   "HARM": 4
+  },
+  "stop_acc": 0.78,
+  "highres_acc": 0.8466666666666667,
+  "verbose_stop_share": 0.064,
+  "help_prev": 0.0794979079497908,
+  "help_format_flip_share": 0.10526315789473684,
+  "ynno_collapse_share": 0.02040816326530612,
+  "conf_roc": 0.767464114832536,
+  "conf_roc_ci": [
+   0.6317189345438818,
+   0.8835381973537216
+  ]
+ },
+ {
+  "run": "LLaVA (coarse 16) / one-word",
+  "log": "logs/fresh_vqav2_llava_c16_oneword.jsonl",
+  "n_states": 250,
+  "n_eval": 228,
+  "parse_fail_rollouts": 1,
+  "labels": {
+   "NEUTRAL": 215,
+   "AMBIGUOUS": 22,
+   "HELP": 12,
+   "HARM": 1
+  },
+  "stop_acc": 0.628,
+  "highres_acc": 0.646,
+  "verbose_stop_share": 0.012,
+  "help_prev": 0.05263157894736842,
+  "help_format_flip_share": 0.0,
+  "ynno_collapse_share": 0.4013605442176871,
+  "conf_roc": 0.7152777777777778,
+  "conf_roc_ci": [
+   0.5461321528045976,
+   0.871566369838684
+  ]
+ }
+]

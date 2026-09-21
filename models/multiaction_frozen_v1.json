@@ -1,0 +1,18 @@
+{
+ "artifact": "models/multiaction_frozen_v1.pkl",
+ "train_states": 396,
+ "feature_code_sha256_16": "9ffb093db8333d60",
+ "git": "7ecf27d",
+ "seed": 20260828,
+ "alpha": 1.0,
+ "conf_rank": "ECDF of train STOP mean logprob (mean of replays)",
+ "best_fixed_frozen": "HIGHRES",
+ "fixed_arm_training_scores": {
+  "STOP": 0.4890572390572391,
+  "CROP": 0.5380882235048902,
+  "OCR": 0.5180976430976431,
+  "HIGHRES": 0.5707070707070707
+ },
+ "prereg": "paper/PREREG_MULTIACTION_HELDOUT.md",
+ "refit_on_heldout": false
+}

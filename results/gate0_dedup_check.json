@@ -1,0 +1,254 @@
+{
+  "all": {
+    "label": "all",
+    "n": 196,
+    "accuracy": {
+      "coarse_stop_r2": 0.37244897959183676,
+      "coarse_stop_r1": 0.33163265306122447,
+      "full_image_r2": 0.413265306122449,
+      "oracle_cf": 0.5,
+      "oracle_naive_r1": 0.6479591836734694,
+      "oracle_dummy_cf": 0.35714285714285715,
+      "fixed_policies": {
+        "HIGHRES#0": 0.4387755102040816,
+        "OCR#0": 0.3826530612244898,
+        "STOP#0": 0.37244897959183676,
+        "CROP#0": 0.42857142857142855,
+        "CROP#1": 0.3520408163265306,
+        "CROP#2": 0.37244897959183676,
+        "CROP#3": 0.3877551020408163,
+        "CROP#4": 0.3622448979591837,
+        "CROP#5": 0.3979591836734694,
+        "CROP#6": 0.3520408163265306,
+        "CROP#7": 0.3010204081632653
+      },
+      "best_fixed_cf": 0.40204081632653066,
+      "best_fixed_choice": "CROP#0:12,CROP#5:4,OCR#0:3"
+    },
+    "headroom": {
+      "H_net": 0.12755102040816327,
+      "H_ci": [
+        0.07653061224489796,
+        0.17857142857142858
+      ],
+      "H_floor": "base",
+      "P_policy": 0.0979591836734694,
+      "P_ci": [
+        0.050510204081632655,
+        0.1464413265306123
+      ],
+      "oracle_minus_base": 0.12755102040816324,
+      "luck_floor_gain": -0.015306122448979609
+    },
+    "diversity": {
+      "n_decisive": 79,
+      "distribution": {
+        "STOP": 0.34177215189873417,
+        "CROP": 0.46835443037974683,
+        "OCR": 0.1518987341772152,
+        "HIGHRES": 0.0379746835443038
+      },
+      "counts": {
+        "STOP": 27,
+        "CROP": 37,
+        "OCR": 12,
+        "HIGHRES": 3
+      },
+      "max_share": 0.46835443037974683,
+      "n_families_over_10pct": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.12244897959183673,
+      "OCR": 0.00510204081632653,
+      "HIGHRES": 0.015306122448979591
+    },
+    "harm": {
+      "dmg_rate": 0.1377551020408163,
+      "by_family": {
+        "CROP": 0.4642857142857143,
+        "OCR": 0.10714285714285714,
+        "HIGHRES": 0.16071428571428573
+      }
+    },
+    "recovery_overlap": {
+      "none": 88,
+      "CROP": 24,
+      "CROP+HIGHRES": 13,
+      "CROP+HIGHRES+OCR": 6,
+      "CROP+OCR": 4,
+      "HIGHRES": 3,
+      "OCR": 1,
+      "HIGHRES+OCR": 1
+    },
+    "reliability": {
+      "per_action_agreement": 0.8798701298701299,
+      "top1_family_agreement": 0.7088607594936709,
+      "parse_failures": 0,
+      "rows": 7000
+    }
+  },
+  "clean": {
+    "label": "clean",
+    "n": 196,
+    "accuracy": {
+      "coarse_stop_r2": 0.37244897959183676,
+      "coarse_stop_r1": 0.33163265306122447,
+      "full_image_r2": 0.413265306122449,
+      "oracle_cf": 0.5,
+      "oracle_naive_r1": 0.6479591836734694,
+      "oracle_dummy_cf": 0.35714285714285715,
+      "fixed_policies": {
+        "HIGHRES#0": 0.4387755102040816,
+        "OCR#0": 0.3826530612244898,
+        "STOP#0": 0.37244897959183676,
+        "CROP#0": 0.42857142857142855,
+        "CROP#1": 0.3520408163265306,
+        "CROP#2": 0.37244897959183676,
+        "CROP#3": 0.3877551020408163,
+        "CROP#4": 0.3622448979591837,
+        "CROP#5": 0.3979591836734694,
+        "CROP#6": 0.3520408163265306,
+        "CROP#7": 0.3010204081632653
+      },
+      "best_fixed_cf": 0.40204081632653066,
+      "best_fixed_choice": "CROP#0:12,CROP#5:4,OCR#0:3"
+    },
+    "headroom": {
+      "H_net": 0.12755102040816327,
+      "H_ci": [
+        0.07653061224489796,
+        0.17857142857142858
+      ],
+      "H_floor": "base",
+      "P_policy": 0.0979591836734694,
+      "P_ci": [
+        0.050510204081632655,
+        0.1464413265306123
+      ],
+      "oracle_minus_base": 0.12755102040816324,
+      "luck_floor_gain": -0.015306122448979609
+    },
+    "diversity": {
+      "n_decisive": 79,
+      "distribution": {
+        "STOP": 0.34177215189873417,
+        "CROP": 0.46835443037974683,
+        "OCR": 0.1518987341772152,
+        "HIGHRES": 0.0379746835443038
+      },
+      "counts": {
+        "STOP": 27,
+        "CROP": 37,
+        "OCR": 12,
+        "HIGHRES": 3
+      },
+      "max_share": 0.46835443037974683,
+      "n_families_over_10pct": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.12244897959183673,
+      "OCR": 0.00510204081632653,
+      "HIGHRES": 0.015306122448979591
+    },
+    "harm": {
+      "dmg_rate": 0.1377551020408163,
+      "by_family": {
+        "CROP": 0.4642857142857143,
+        "OCR": 0.10714285714285714,
+        "HIGHRES": 0.16071428571428573
+      }
+    },
+    "recovery_overlap": {
+      "none": 88,
+      "CROP": 24,
+      "CROP+HIGHRES": 13,
+      "CROP+HIGHRES+OCR": 6,
+      "CROP+OCR": 4,
+      "HIGHRES": 3,
+      "OCR": 1,
+      "HIGHRES+OCR": 1
+    },
+    "reliability": {
+      "per_action_agreement": 0.8798701298701299,
+      "top1_family_agreement": 0.7088607594936709,
+      "parse_failures": 0,
+      "rows": 7000
+    }
+  },
+  "bottleneck_all": {
+    "n": 28,
+    "share_of_all": 0.14285714285714285,
+    "recovery_rate": 0.9285714285714286,
+    "solve_rate_by_family": {
+      "STOP": 0.0,
+      "CROP": 0.7857142857142857,
+      "OCR": 0.21428571428571427,
+      "HIGHRES": 0.7142857142857143
+    },
+    "best_family": {
+      "STOP": 0.0,
+      "CROP": 0.6538461538461539,
+      "OCR": 0.23076923076923078,
+      "HIGHRES": 0.11538461538461539
+    },
+    "best_family_counts": {
+      "STOP": 0,
+      "CROP": 17,
+      "OCR": 6,
+      "HIGHRES": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.21428571428571427,
+      "OCR": 0.0,
+      "HIGHRES": 0.10714285714285714
+    },
+    "overlap": {
+      "CROP+HIGHRES": 11,
+      "CROP": 6,
+      "CROP+HIGHRES+OCR": 5,
+      "HIGHRES": 3,
+      "none": 2,
+      "HIGHRES+OCR": 1
+    }
+  },
+  "bottleneck_clean": {
+    "n": 28,
+    "share_of_all": 0.14285714285714285,
+    "recovery_rate": 0.9285714285714286,
+    "solve_rate_by_family": {
+      "STOP": 0.0,
+      "CROP": 0.7857142857142857,
+      "OCR": 0.21428571428571427,
+      "HIGHRES": 0.7142857142857143
+    },
+    "best_family": {
+      "STOP": 0.0,
+      "CROP": 0.6538461538461539,
+      "OCR": 0.23076923076923078,
+      "HIGHRES": 0.11538461538461539
+    },
+    "best_family_counts": {
+      "STOP": 0,
+      "CROP": 17,
+      "OCR": 6,
+      "HIGHRES": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.21428571428571427,
+      "OCR": 0.0,
+      "HIGHRES": 0.10714285714285714
+    },
+    "overlap": {
+      "CROP+HIGHRES": 11,
+      "CROP": 6,
+      "CROP+HIGHRES+OCR": 5,
+      "HIGHRES": 3,
+      "none": 2,
+      "HIGHRES+OCR": 1
+    }
+  }
+}

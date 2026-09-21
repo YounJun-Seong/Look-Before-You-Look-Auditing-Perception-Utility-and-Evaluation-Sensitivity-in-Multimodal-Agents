@@ -1,0 +1,84 @@
+{
+  "version": "gate_frozen_v2.2_pointwise",
+  "created": "2026-08-18T14:48:46",
+  "features": [
+    "ans_chars",
+    "ans_tokens",
+    "ans_words",
+    "is_numeric",
+    "is_yesno",
+    "has_hedge",
+    "q_chars",
+    "q_words",
+    "q_is_howmany",
+    "q_is_what",
+    "q_is_isare",
+    "conf_x_yesno",
+    "conf_x_numeric",
+    "conf_x_other",
+    "conf_x_len",
+    "conf_x_hedge"
+  ],
+  "feature_code_sha1": "4aa94bac82c6",
+  "hyper": {
+    "max_iter": 4000,
+    "class_weight": "balanced",
+    "C": 0.5,
+    "solver": "lbfgs",
+    "random_state": 0
+  },
+  "conf_transform": {
+    "kind": "development empirical CDF (pooled, source-agnostic)",
+    "n": 601,
+    "note": "percentile = 1 - searchsorted(dev, x)/n; the lockbox never contributes to this transform"
+  },
+  "protocol": {
+    "positives": "HELP (replicate-consistent)",
+    "negatives": "NEUTRAL + HARM",
+    "excluded": "AMBIGUOUS",
+    "score": "predict_proba[:,1]; higher = LOOK",
+    "missing_values": "none permitted; a state lacking STOP or HIGHRES rollouts is dropped",
+    "refit_on_lockbox": false,
+    "threshold_tuning_on_lockbox": false,
+    "evaluation": "single pass; lift@prevalence-matched LOOK rate + fixed 5/10/15/20% budgets; ROC; PR-AUC/prev; bootstrap CI as supporting evidence only",
+    "GO": {
+      "textvqa": {
+        "lift@1x": 1.3,
+        "roc": 0.6
+      },
+      "vqav2": {
+        "lift@1x": 1.5,
+        "roc": 0.6
+      },
+      "and": "no catastrophic reversal in either regime"
+    }
+  },
+  "train": {
+    "n": 601,
+    "positives": 89,
+    "sources": {
+      "textvqa": 230,
+      "vqav2": 371
+    },
+    "ids_sha1": "5a9a518e52b90afa"
+  },
+  "coefficients": {
+    "ans_chars": -0.5327,
+    "ans_tokens": 0.2762,
+    "ans_words": 1.2228,
+    "is_numeric": -0.4708,
+    "is_yesno": -0.6172,
+    "has_hedge": -0.2602,
+    "q_chars": -0.521,
+    "q_words": 0.5291,
+    "q_is_howmany": 0.0126,
+    "q_is_what": 0.1093,
+    "q_is_isare": 0.5525,
+    "conf_x_yesno": 0.2508,
+    "conf_x_numeric": 0.7168,
+    "conf_x_other": 0.4106,
+    "conf_x_len": -0.1793,
+    "conf_x_hedge": 0.1787
+  },
+  "git": "d49e3b3"
+}

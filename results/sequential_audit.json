@@ -1,0 +1,334 @@
+{
+ "prereg": "paper/PREREG_SEQUENTIAL.md",
+ "n_states": 100,
+ "q": {
+  "strict": {
+   "q1": {
+    "center": {
+     "one_step": 0.7283333333333333,
+     "seq_oracle_gain": 0.09333333333333332,
+     "ci95": [
+      0.04666666666666666,
+      0.145
+     ]
+    },
+    "ocr": {
+     "one_step": 0.6933333333333332,
+     "seq_oracle_gain": 0.09166666666666667,
+     "ci95": [
+      0.04166666666666667,
+      0.145
+     ]
+    }
+   },
+   "q2": [
+    {
+     "a1": "center",
+     "changed": false,
+     "correct_a1": false,
+     "n": 18,
+     "share": {
+      "stay": 0.0,
+      "tr": 0.8333333333333334,
+      "hi": 0.16666666666666666
+     },
+     "continuation_gain": 0.25925925925925924
+    },
+    {
+     "a1": "center",
+     "changed": false,
+     "correct_a1": true,
+     "n": 62,
+     "share": {
+      "stay": 0.0,
+      "tr": 1.0,
+      "hi": 0.0
+     },
+     "continuation_gain": 0.016129032258064516
+    },
+    {
+     "a1": "center",
+     "changed": true,
+     "correct_a1": false,
+     "n": 10,
+     "share": {
+      "stay": 0.0,
+      "tr": 1.0,
+      "hi": 0.0
+     },
+     "continuation_gain": 0.2666666666666666
+    },
+    {
+     "a1": "center",
+     "changed": true,
+     "correct_a1": true,
+     "n": 10,
+     "share": {
+      "stay": 0.0,
+      "tr": 0.9,
+      "hi": 0.1
+     },
+     "continuation_gain": 0.2
+    },
+    {
+     "a1": "ocr",
+     "changed": false,
+     "correct_a1": false,
+     "n": 13,
+     "share": {
+      "stay": 0.0,
+      "tr": 0.8461538461538461,
+      "hi": 0.15384615384615385
+     },
+     "continuation_gain": 0.23076923076923078
+    },
+    {
+     "a1": "ocr",
+     "changed": false,
+     "correct_a1": true,
+     "n": 60,
+     "share": {
+      "stay": 0.016666666666666666,
+      "tr": 0.9833333333333333,
+      "hi": 0.0
+     },
+     "continuation_gain": 0.0
+    },
+    {
+     "a1": "ocr",
+     "changed": true,
+     "correct_a1": false,
+     "n": 20,
+     "share": {
+      "stay": 0.0,
+      "tr": 0.9,
+      "hi": 0.1
+     },
+     "continuation_gain": 0.21666666666666665
+    },
+    {
+     "a1": "ocr",
+     "changed": true,
+     "correct_a1": true,
+     "n": 7,
+     "share": {
+      "stay": 0.14285714285714285,
+      "tr": 0.8571428571428571,
+      "hi": 0.0
+     },
+     "continuation_gain": 0.0
+    }
+   ],
+   "q3": {
+    "center": {
+     "p_help": 0.15,
+     "auc_answer_changed": 0.696078431372549,
+     "auc_answer_len": 0.5580392156862745
+    },
+    "ocr": {
+     "p_help": 0.1,
+     "auc_answer_changed": 0.7388888888888888,
+     "auc_answer_len": 0.5427777777777778
+    }
+   },
+   "q4": {
+    "center": {
+     "acc": 0.7283333333333333,
+     "vtok": 235.09
+    },
+    "ocr": {
+     "acc": 0.6933333333333332,
+     "vtok": 0.0
+    },
+    "crop_tr": {
+     "acc": 0.7666666666666666,
+     "vtok": 242.71
+    },
+    "highres": {
+     "acc": 0.7349999999999999,
+     "vtok": 309.25
+    },
+    "center->crop_tr": {
+     "acc": 0.7899999999999998,
+     "vtok": 477.8
+    },
+    "center->highres": {
+     "acc": 0.7366666666666666,
+     "vtok": 544.34
+    },
+    "ocr->crop_tr": {
+     "acc": 0.75,
+     "vtok": 242.71
+    },
+    "ocr->highres": {
+     "acc": 0.7249999999999999,
+     "vtok": 309.25
+    }
+   }
+  },
+  "lenient": {
+   "q1": {
+    "center": {
+     "one_step": 0.7916666666666665,
+     "seq_oracle_gain": 0.09166666666666666,
+     "ci95": [
+      0.04333333333333333,
+      0.145
+     ]
+    },
+    "ocr": {
+     "one_step": 0.8116666666666665,
+     "seq_oracle_gain": 0.075,
+     "ci95": [
+      0.028333333333333335,
+      0.12666666666666668
+     ]
+    }
+   },
+   "q2": [
+    {
+     "a1": "center",
+     "changed": false,
+     "correct_a1": false,
+     "n": 14,
+     "share": {
+      "stay": 0.0,
+      "tr": 0.6428571428571429,
+      "hi": 0.35714285714285715
+     },
+     "continuation_gain": 0.45238095238095244
+    },
+    {
+     "a1": "center",
+     "changed": false,
+     "correct_a1": true,
+     "n": 66,
+     "share": {
+      "stay": 0.0,
+      "tr": 1.0,
+      "hi": 0.0
+     },
+     "continuation_gain": 0.0
+    },
+    {
+     "a1": "center",
+     "changed": true,
+     "correct_a1": false,
+     "n": 8,
+     "share": {
+      "stay": 0.0,
+      "tr": 1.0,
+      "hi": 0.0
+     },
+     "continuation_gain": 0.33333333333333326
+    },
+    {
+     "a1": "center",
+     "changed": true,
+     "correct_a1": true,
+     "n": 12,
+     "share": {
+      "stay": 0.08333333333333333,
+      "tr": 0.8333333333333334,
+      "hi": 0.08333333333333333
+     },
+     "continuation_gain": 0.02777777777777778
+    },
+    {
+     "a1": "ocr",
+     "changed": false,
+     "correct_a1": false,
+     "n": 8,
+     "share": {
+      "stay": 0.0,
+      "tr": 0.625,
+      "hi": 0.375
+     },
+     "continuation_gain": 0.5
+    },
+    {
+     "a1": "ocr",
+     "changed": false,
+     "correct_a1": true,
+     "n": 65,
+     "share": {
+      "stay": 0.015384615384615385,
+      "tr": 0.9846153846153847,
+      "hi": 0.0
+     },
+     "continuation_gain": 0.0
+    },
+    {
+     "a1": "ocr",
+     "changed": true,
+     "correct_a1": false,
+     "n": 12,
+     "share": {
+      "stay": 0.08333333333333333,
+      "tr": 0.75,
+      "hi": 0.16666666666666666
+     },
+     "continuation_gain": 0.25
+    },
+    {
+     "a1": "ocr",
+     "changed": true,
+     "correct_a1": true,
+     "n": 15,
+     "share": {
+      "stay": 0.06666666666666667,
+      "tr": 0.9333333333333333,
+      "hi": 0.0
+     },
+     "continuation_gain": -0.022222222222222223
+    }
+   ],
+   "q3": {
+    "center": {
+     "p_help": 0.14,
+     "auc_answer_changed": 0.6744186046511628,
+     "auc_answer_len": 0.630813953488372
+    },
+    "ocr": {
+     "p_help": 0.11,
+     "auc_answer_changed": 0.7058222676200204,
+     "auc_answer_len": 0.5607763023493361
+    }
+   },
+   "q4": {
+    "center": {
+     "acc": 0.7916666666666665,
+     "vtok": 235.09
+    },
+    "ocr": {
+     "acc": 0.8116666666666665,
+     "vtok": 0.0
+    },
+    "crop_tr": {
+     "acc": 0.825,
+     "vtok": 242.71
+    },
+    "highres": {
+     "acc": 0.84,
+     "vtok": 309.25
+    },
+    "center->crop_tr": {
+     "acc": 0.8316666666666667,
+     "vtok": 477.8
+    },
+    "center->highres": {
+     "acc": 0.8383333333333333,
+     "vtok": 544.34
+    },
+    "ocr->crop_tr": {
+     "acc": 0.8283333333333333,
+     "vtok": 242.71
+    },
+    "ocr->highres": {
+     "acc": 0.835,
+     "vtok": 309.25
+    }
+   }
+  }
+ }
+}

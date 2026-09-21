@@ -1,0 +1,319 @@
+{
+  "pooled": {
+    "label": "pooled",
+    "n": 200,
+    "accuracy": {
+      "coarse_stop_r2": 0.6,
+      "coarse_stop_r1": 0.6466666666666666,
+      "full_image_r2": 0.755,
+      "oracle_cf": 0.7883333333333334,
+      "oracle_naive_r1": 0.8816666666666666,
+      "oracle_dummy_cf": 0.83,
+      "fixed_policies": {
+        "HIGHRES#0": 0.72,
+        "OCR#0": 0.66,
+        "STOP#0": 0.6,
+        "CROP#0": 0.7083333333333333,
+        "CROP#1": 0.6983333333333333,
+        "CROP#2": 0.7133333333333333,
+        "CROP#3": 0.6766666666666665,
+        "CROP#4": 0.6983333333333333,
+        "CROP#5": 0.7066666666666666,
+        "CROP#6": 0.6633333333333333,
+        "CROP#7": 0.6583333333333333
+      },
+      "best_fixed_cf": 0.6908333333333333,
+      "best_fixed_choice": "CROP#2:11,CROP#4:4,CROP#5:3"
+    },
+    "headroom": {
+      "H_net": -0.02666666666666667,
+      "H_ci": [
+        -0.0934166666666666,
+        0.04000000000000001
+      ],
+      "H_floor": "dummy",
+      "P_policy": 0.0975,
+      "P_ci": [
+        0.04716666666666667,
+        0.14766666666666667
+      ],
+      "oracle_minus_base": 0.18833333333333346,
+      "luck_floor_gain": 0.22999999999999998
+    },
+    "diversity": {
+      "n_decisive": 81,
+      "distribution": {
+        "STOP": 0.32098765432098764,
+        "CROP": 0.4567901234567901,
+        "OCR": 0.19753086419753085,
+        "HIGHRES": 0.024691358024691357
+      },
+      "counts": {
+        "STOP": 26,
+        "CROP": 37,
+        "OCR": 16,
+        "HIGHRES": 2
+      },
+      "max_share": 0.4567901234567901,
+      "n_families_over_10pct": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.115,
+      "OCR": 0.005,
+      "HIGHRES": 0.01
+    },
+    "harm": {
+      "dmg_rate": 0.13,
+      "by_family": {
+        "CROP": 0.16101694915254236,
+        "OCR": 0.1016949152542373,
+        "HIGHRES": 0.0423728813559322
+      }
+    },
+    "recovery_overlap": {
+      "none": 27,
+      "CROP": 23,
+      "CROP+HIGHRES": 14,
+      "CROP+HIGHRES+OCR": 10,
+      "CROP+OCR": 5,
+      "HIGHRES": 2,
+      "OCR": 1
+    },
+    "reliability": {
+      "per_action_agreement": 0.9586363636363636,
+      "top1_family_agreement": 0.7777777777777778,
+      "parse_failures": 0,
+      "rows": 7000
+    }
+  },
+  "per_dataset": [
+    {
+      "label": "textvqa",
+      "n": 200,
+      "accuracy": {
+        "coarse_stop_r2": 0.6,
+        "coarse_stop_r1": 0.6466666666666666,
+        "full_image_r2": 0.755,
+        "oracle_cf": 0.7883333333333334,
+        "oracle_naive_r1": 0.8816666666666666,
+        "oracle_dummy_cf": 0.83,
+        "fixed_policies": {
+          "HIGHRES#0": 0.72,
+          "OCR#0": 0.66,
+          "STOP#0": 0.6,
+          "CROP#0": 0.7083333333333333,
+          "CROP#1": 0.6983333333333333,
+          "CROP#2": 0.7133333333333333,
+          "CROP#3": 0.6766666666666665,
+          "CROP#4": 0.6983333333333333,
+          "CROP#5": 0.7066666666666666,
+          "CROP#6": 0.6633333333333333,
+          "CROP#7": 0.6583333333333333
+        },
+        "best_fixed_cf": 0.6908333333333333,
+        "best_fixed_choice": "CROP#2:11,CROP#4:4,CROP#5:3"
+      },
+      "headroom": {
+        "H_net": -0.02666666666666667,
+        "H_ci": [
+          -0.09333333333333334,
+          0.04000000000000001
+        ],
+        "H_floor": "dummy",
+        "P_policy": 0.0975,
+        "P_ci": [
+          0.046479166666666676,
+          0.14667499999999994
+        ],
+        "oracle_minus_base": 0.18833333333333346,
+        "luck_floor_gain": 0.22999999999999998
+      },
+      "diversity": {
+        "n_decisive": 81,
+        "distribution": {
+          "STOP": 0.32098765432098764,
+          "CROP": 0.4567901234567901,
+          "OCR": 0.19753086419753085,
+          "HIGHRES": 0.024691358024691357
+        },
+        "counts": {
+          "STOP": 26,
+          "CROP": 37,
+          "OCR": 16,
+          "HIGHRES": 2
+        },
+        "max_share": 0.4567901234567901,
+        "n_families_over_10pct": 3
+      },
+      "exclusive_solve": {
+        "STOP": 0.0,
+        "CROP": 0.115,
+        "OCR": 0.005,
+        "HIGHRES": 0.01
+      },
+      "harm": {
+        "dmg_rate": 0.13,
+        "by_family": {
+          "CROP": 0.16101694915254236,
+          "OCR": 0.1016949152542373,
+          "HIGHRES": 0.0423728813559322
+        }
+      },
+      "recovery_overlap": {
+        "none": 27,
+        "CROP": 23,
+        "CROP+HIGHRES": 14,
+        "CROP+HIGHRES+OCR": 10,
+        "CROP+OCR": 5,
+        "HIGHRES": 2,
+        "OCR": 1
+      },
+      "reliability": {
+        "per_action_agreement": 0.9586363636363636,
+        "top1_family_agreement": 0.7777777777777778,
+        "parse_failures": 0,
+        "rows": 7000
+      }
+    }
+  ],
+  "verdict": {
+    "verdict": "STOP",
+    "H_net": -0.02666666666666667,
+    "H_ci_low": -0.0934166666666666,
+    "P_policy": 0.0975,
+    "P_ci_low": 0.04716666666666667,
+    "dmg_rate": 0.13,
+    "datasets_diverse": 1,
+    "n_datasets": 1
+  },
+  "bottleneck": {
+    "n": 32,
+    "share_of_all": 0.16,
+    "recovery_rate": 0.96875,
+    "solve_rate_by_family": {
+      "STOP": 0.0,
+      "CROP": 0.90625,
+      "OCR": 0.34375,
+      "HIGHRES": 0.625
+    },
+    "best_family": {
+      "STOP": 0.0,
+      "CROP": 0.5806451612903226,
+      "OCR": 0.3548387096774194,
+      "HIGHRES": 0.06451612903225806
+    },
+    "best_family_counts": {
+      "STOP": 0,
+      "CROP": 18,
+      "OCR": 11,
+      "HIGHRES": 2
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.25,
+      "OCR": 0.0,
+      "HIGHRES": 0.0625
+    },
+    "overlap": {
+      "CROP+HIGHRES": 10,
+      "CROP+HIGHRES+OCR": 8,
+      "CROP": 8,
+      "CROP+OCR": 3,
+      "HIGHRES": 2,
+      "none": 1
+    }
+  },
+  "strata": {
+    "dataset": [
+      {
+        "label": "_none",
+        "n": 200,
+        "accuracy": {
+          "coarse_stop_r2": 0.6,
+          "coarse_stop_r1": 0.6466666666666666,
+          "full_image_r2": 0.755,
+          "oracle_cf": 0.7883333333333334,
+          "oracle_naive_r1": 0.8816666666666666,
+          "oracle_dummy_cf": 0.83,
+          "fixed_policies": {
+            "HIGHRES#0": 0.72,
+            "OCR#0": 0.66,
+            "STOP#0": 0.6,
+            "CROP#0": 0.7083333333333333,
+            "CROP#1": 0.6983333333333333,
+            "CROP#2": 0.7133333333333333,
+            "CROP#3": 0.6766666666666665,
+            "CROP#4": 0.6983333333333333,
+            "CROP#5": 0.7066666666666666,
+            "CROP#6": 0.6633333333333333,
+            "CROP#7": 0.6583333333333333
+          },
+          "best_fixed_cf": 0.6908333333333333,
+          "best_fixed_choice": "CROP#2:11,CROP#4:4,CROP#5:3"
+        },
+        "headroom": {
+          "H_net": -0.02666666666666667,
+          "H_ci": [
+            -0.09666666666666666,
+            0.03666666666666667
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.0975,
+          "P_ci": [
+            0.049808333333333336,
+            0.14478749999999999
+          ],
+          "oracle_minus_base": 0.18833333333333346,
+          "luck_floor_gain": 0.22999999999999998
+        },
+        "diversity": {
+          "n_decisive": 81,
+          "distribution": {
+            "STOP": 0.32098765432098764,
+            "CROP": 0.4567901234567901,
+            "OCR": 0.19753086419753085,
+            "HIGHRES": 0.024691358024691357
+          },
+          "counts": {
+            "STOP": 26,
+            "CROP": 37,
+            "OCR": 16,
+            "HIGHRES": 2
+          },
+          "max_share": 0.4567901234567901,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.115,
+          "OCR": 0.005,
+          "HIGHRES": 0.01
+        },
+        "harm": {
+          "dmg_rate": 0.13,
+          "by_family": {
+            "CROP": 0.16101694915254236,
+            "OCR": 0.1016949152542373,
+            "HIGHRES": 0.0423728813559322
+          }
+        },
+        "recovery_overlap": {
+          "none": 27,
+          "CROP": 23,
+          "CROP+HIGHRES": 14,
+          "CROP+HIGHRES+OCR": 10,
+          "CROP+OCR": 5,
+          "HIGHRES": 2,
+          "OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9586363636363636,
+          "top1_family_agreement": 0.7777777777777778,
+          "parse_failures": 0,
+          "rows": 7000
+        }
+      }
+    ]
+  }
+}

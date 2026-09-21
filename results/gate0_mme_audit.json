@@ -1,0 +1,3820 @@
+{
+  "pooled": {
+    "label": "pooled",
+    "n": 196,
+    "accuracy": {
+      "coarse_stop_r2": 0.37244897959183676,
+      "coarse_stop_r1": 0.33163265306122447,
+      "full_image_r2": 0.413265306122449,
+      "oracle_cf": 0.5,
+      "oracle_naive_r1": 0.6479591836734694,
+      "oracle_dummy_cf": 0.35714285714285715,
+      "fixed_policies": {
+        "HIGHRES#0": 0.4387755102040816,
+        "OCR#0": 0.3826530612244898,
+        "STOP#0": 0.37244897959183676,
+        "CROP#0": 0.42857142857142855,
+        "CROP#1": 0.3520408163265306,
+        "CROP#2": 0.37244897959183676,
+        "CROP#3": 0.3877551020408163,
+        "CROP#4": 0.3622448979591837,
+        "CROP#5": 0.3979591836734694,
+        "CROP#6": 0.3520408163265306,
+        "CROP#7": 0.3010204081632653
+      },
+      "best_fixed_cf": 0.40204081632653066,
+      "best_fixed_choice": "CROP#0:12,CROP#5:4,OCR#0:3"
+    },
+    "headroom": {
+      "H_net": 0.12755102040816327,
+      "H_ci": [
+        0.07653061224489796,
+        0.17857142857142858
+      ],
+      "H_floor": "base",
+      "P_policy": 0.0979591836734694,
+      "P_ci": [
+        0.051007653061224505,
+        0.1469387755102041
+      ],
+      "oracle_minus_base": 0.12755102040816324,
+      "luck_floor_gain": -0.015306122448979609
+    },
+    "diversity": {
+      "n_decisive": 79,
+      "distribution": {
+        "STOP": 0.34177215189873417,
+        "CROP": 0.46835443037974683,
+        "OCR": 0.1518987341772152,
+        "HIGHRES": 0.0379746835443038
+      },
+      "counts": {
+        "STOP": 27,
+        "CROP": 37,
+        "OCR": 12,
+        "HIGHRES": 3
+      },
+      "max_share": 0.46835443037974683,
+      "n_families_over_10pct": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.12244897959183673,
+      "OCR": 0.00510204081632653,
+      "HIGHRES": 0.015306122448979591
+    },
+    "harm": {
+      "dmg_rate": 0.1377551020408163,
+      "by_family": {
+        "CROP": 0.4642857142857143,
+        "OCR": 0.10714285714285714,
+        "HIGHRES": 0.16071428571428573
+      }
+    },
+    "recovery_overlap": {
+      "none": 88,
+      "CROP": 24,
+      "CROP+HIGHRES": 13,
+      "CROP+HIGHRES+OCR": 6,
+      "CROP+OCR": 4,
+      "HIGHRES": 3,
+      "OCR": 1,
+      "HIGHRES+OCR": 1
+    },
+    "reliability": {
+      "per_action_agreement": 0.8798701298701299,
+      "top1_family_agreement": 0.7088607594936709,
+      "parse_failures": 0,
+      "rows": 7000
+    }
+  },
+  "per_dataset": [
+    {
+      "label": "mme_realworld",
+      "n": 196,
+      "accuracy": {
+        "coarse_stop_r2": 0.37244897959183676,
+        "coarse_stop_r1": 0.33163265306122447,
+        "full_image_r2": 0.413265306122449,
+        "oracle_cf": 0.5,
+        "oracle_naive_r1": 0.6479591836734694,
+        "oracle_dummy_cf": 0.35714285714285715,
+        "fixed_policies": {
+          "HIGHRES#0": 0.4387755102040816,
+          "OCR#0": 0.3826530612244898,
+          "STOP#0": 0.37244897959183676,
+          "CROP#0": 0.42857142857142855,
+          "CROP#1": 0.3520408163265306,
+          "CROP#2": 0.37244897959183676,
+          "CROP#3": 0.3877551020408163,
+          "CROP#4": 0.3622448979591837,
+          "CROP#5": 0.3979591836734694,
+          "CROP#6": 0.3520408163265306,
+          "CROP#7": 0.3010204081632653
+        },
+        "best_fixed_cf": 0.40204081632653066,
+        "best_fixed_choice": "CROP#0:12,CROP#5:4,OCR#0:3"
+      },
+      "headroom": {
+        "H_net": 0.12755102040816327,
+        "H_ci": [
+          0.07653061224489796,
+          0.17857142857142858
+        ],
+        "H_floor": "base",
+        "P_policy": 0.0979591836734694,
+        "P_ci": [
+          0.050510204081632655,
+          0.1449107142857142
+        ],
+        "oracle_minus_base": 0.12755102040816324,
+        "luck_floor_gain": -0.015306122448979609
+      },
+      "diversity": {
+        "n_decisive": 79,
+        "distribution": {
+          "STOP": 0.34177215189873417,
+          "CROP": 0.46835443037974683,
+          "OCR": 0.1518987341772152,
+          "HIGHRES": 0.0379746835443038
+        },
+        "counts": {
+          "STOP": 27,
+          "CROP": 37,
+          "OCR": 12,
+          "HIGHRES": 3
+        },
+        "max_share": 0.46835443037974683,
+        "n_families_over_10pct": 3
+      },
+      "exclusive_solve": {
+        "STOP": 0.0,
+        "CROP": 0.12244897959183673,
+        "OCR": 0.00510204081632653,
+        "HIGHRES": 0.015306122448979591
+      },
+      "harm": {
+        "dmg_rate": 0.1377551020408163,
+        "by_family": {
+          "CROP": 0.4642857142857143,
+          "OCR": 0.10714285714285714,
+          "HIGHRES": 0.16071428571428573
+        }
+      },
+      "recovery_overlap": {
+        "none": 88,
+        "CROP": 24,
+        "CROP+HIGHRES": 13,
+        "CROP+HIGHRES+OCR": 6,
+        "CROP+OCR": 4,
+        "HIGHRES": 3,
+        "OCR": 1,
+        "HIGHRES+OCR": 1
+      },
+      "reliability": {
+        "per_action_agreement": 0.8798701298701299,
+        "top1_family_agreement": 0.7088607594936709,
+        "parse_failures": 0,
+        "rows": 7000
+      }
+    }
+  ],
+  "verdict": {
+    "verdict": "CONDITIONAL",
+    "H_net": 0.12755102040816327,
+    "H_ci_low": 0.07653061224489796,
+    "P_policy": 0.0979591836734694,
+    "P_ci_low": 0.051007653061224505,
+    "dmg_rate": 0.1377551020408163,
+    "datasets_diverse": 1,
+    "n_datasets": 1
+  },
+  "bottleneck": {
+    "n": 28,
+    "share_of_all": 0.14285714285714285,
+    "recovery_rate": 0.9285714285714286,
+    "solve_rate_by_family": {
+      "STOP": 0.0,
+      "CROP": 0.7857142857142857,
+      "OCR": 0.21428571428571427,
+      "HIGHRES": 0.7142857142857143
+    },
+    "best_family": {
+      "STOP": 0.0,
+      "CROP": 0.6538461538461539,
+      "OCR": 0.23076923076923078,
+      "HIGHRES": 0.11538461538461539
+    },
+    "best_family_counts": {
+      "STOP": 0,
+      "CROP": 17,
+      "OCR": 6,
+      "HIGHRES": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.21428571428571427,
+      "OCR": 0.0,
+      "HIGHRES": 0.10714285714285714
+    },
+    "overlap": {
+      "CROP+HIGHRES": 11,
+      "CROP": 6,
+      "CROP+HIGHRES+OCR": 5,
+      "HIGHRES": 3,
+      "none": 2,
+      "HIGHRES+OCR": 1
+    }
+  },
+  "strata": {
+    "subtask": [
+      {
+        "label": "Autonomous_Driving",
+        "n": 79,
+        "accuracy": {
+          "coarse_stop_r2": 0.26582278481012656,
+          "coarse_stop_r1": 0.24050632911392406,
+          "full_image_r2": 0.2911392405063291,
+          "oracle_cf": 0.3670886075949367,
+          "oracle_naive_r1": 0.5189873417721519,
+          "oracle_dummy_cf": 0.3037974683544304,
+          "fixed_policies": {
+            "HIGHRES#0": 0.35443037974683544,
+            "OCR#0": 0.26582278481012656,
+            "STOP#0": 0.26582278481012656,
+            "CROP#0": 0.31645569620253167,
+            "CROP#1": 0.26582278481012656,
+            "CROP#2": 0.27848101265822783,
+            "CROP#3": 0.3037974683544304,
+            "CROP#4": 0.24050632911392406,
+            "CROP#5": 0.3291139240506329,
+            "CROP#6": 0.25316455696202533,
+            "CROP#7": 0.20253164556962025
+          },
+          "best_fixed_cf": 0.3075949367088608,
+          "best_fixed_choice": "CROP#0:11,CROP#5:7,CROP#3:1"
+        },
+        "headroom": {
+          "H_net": 0.06329113924050633,
+          "H_ci": [
+            -0.012658227848101266,
+            0.13924050632911392
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.059493670886075954,
+          "P_ci": [
+            -0.006329113924050637,
+            0.12537974683544298
+          ],
+          "oracle_minus_base": 0.10126582278481017,
+          "luck_floor_gain": 0.03797468354430383
+        },
+        "diversity": {
+          "n_decisive": 25,
+          "distribution": {
+            "STOP": 0.32,
+            "CROP": 0.64,
+            "OCR": 0.04,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 8,
+            "CROP": 16,
+            "OCR": 1,
+            "HIGHRES": 0
+          },
+          "max_share": 0.64,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.13924050632911392,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.10126582278481013,
+          "by_family": {
+            "CROP": 0.5333333333333333,
+            "OCR": 0.0,
+            "HIGHRES": 0.13333333333333333
+          }
+        },
+        "recovery_overlap": {
+          "none": 47,
+          "CROP": 11,
+          "CROP+HIGHRES": 5,
+          "CROP+OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8814729574223246,
+          "top1_family_agreement": 0.64,
+          "parse_failures": 0,
+          "rows": 3726
+        }
+      },
+      {
+        "label": "Diagram and Table",
+        "n": 12,
+        "accuracy": {
+          "coarse_stop_r2": 0.5833333333333334,
+          "coarse_stop_r1": 0.6666666666666666,
+          "full_image_r2": 0.5,
+          "oracle_cf": 0.75,
+          "oracle_naive_r1": 0.8333333333333334,
+          "oracle_dummy_cf": 0.7142857142857143,
+          "fixed_policies": {
+            "HIGHRES#0": 0.75,
+            "OCR#0": 0.4166666666666667,
+            "STOP#0": 0.5833333333333334,
+            "CROP#0": 0.5,
+            "CROP#1": 0.4166666666666667,
+            "CROP#2": 0.4166666666666667,
+            "CROP#3": 0.5,
+            "CROP#4": 0.5833333333333334,
+            "CROP#5": 0.5,
+            "CROP#6": 0.6666666666666666,
+            "CROP#7": 0.5833333333333334
+          },
+          "best_fixed_cf": 0.45833333333333326,
+          "best_fixed_choice": "STOP#0:10,OCR#0:7,HIGHRES#0:3"
+        },
+        "headroom": {
+          "H_net": 0.14285714285714285,
+          "H_ci": [
+            0.0,
+            0.42857142857142855
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.2916666666666667,
+          "P_ci": [
+            0.075,
+            0.5210416666666665
+          ],
+          "oracle_minus_base": 0.16666666666666663,
+          "luck_floor_gain": 0.13095238095238093
+        },
+        "diversity": {
+          "n_decisive": 9,
+          "distribution": {
+            "STOP": 0.6666666666666666,
+            "CROP": 0.0,
+            "OCR": 0.2222222222222222,
+            "HIGHRES": 0.1111111111111111
+          },
+          "counts": {
+            "STOP": 6,
+            "CROP": 0,
+            "OCR": 2,
+            "HIGHRES": 1
+          },
+          "max_share": 0.6666666666666666,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.08333333333333333,
+          "HIGHRES": 0.08333333333333333
+        },
+        "harm": {
+          "dmg_rate": 0.5,
+          "by_family": {
+            "CROP": 0.7142857142857143,
+            "OCR": 0.5714285714285714,
+            "HIGHRES": 0.2857142857142857
+          }
+        },
+        "recovery_overlap": {
+          "none": 2,
+          "HIGHRES": 1,
+          "CROP+OCR": 1,
+          "OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8333333333333334,
+          "top1_family_agreement": 0.8888888888888888,
+          "parse_failures": 0,
+          "rows": 442
+        }
+      },
+      {
+        "label": "Monitoring",
+        "n": 54,
+        "accuracy": {
+          "coarse_stop_r2": 0.37037037037037035,
+          "coarse_stop_r1": 0.25925925925925924,
+          "full_image_r2": 0.2777777777777778,
+          "oracle_cf": 0.48148148148148145,
+          "oracle_naive_r1": 0.5925925925925926,
+          "oracle_dummy_cf": 0.5,
+          "fixed_policies": {
+            "HIGHRES#0": 0.2962962962962963,
+            "OCR#0": 0.35185185185185186,
+            "STOP#0": 0.37037037037037035,
+            "CROP#0": 0.35185185185185186,
+            "CROP#1": 0.2962962962962963,
+            "CROP#2": 0.3148148148148148,
+            "CROP#3": 0.2962962962962963,
+            "CROP#4": 0.2962962962962963,
+            "CROP#5": 0.37037037037037035,
+            "CROP#6": 0.2222222222222222,
+            "CROP#7": 0.2037037037037037
+          },
+          "best_fixed_cf": 0.30185185185185187,
+          "best_fixed_choice": "CROP#5:8,CROP#2:7,CROP#1:3"
+        },
+        "headroom": {
+          "H_net": 0.16666666666666666,
+          "H_ci": [
+            0.0,
+            0.4166666666666667
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.1796296296296296,
+          "P_ci": [
+            0.09717592592592594,
+            0.2750462962962963
+          ],
+          "oracle_minus_base": 0.1111111111111111,
+          "luck_floor_gain": 0.12962962962962965
+        },
+        "diversity": {
+          "n_decisive": 19,
+          "distribution": {
+            "STOP": 0.42105263157894735,
+            "CROP": 0.5263157894736842,
+            "OCR": 0.0,
+            "HIGHRES": 0.05263157894736842
+          },
+          "counts": {
+            "STOP": 8,
+            "CROP": 10,
+            "OCR": 0,
+            "HIGHRES": 1
+          },
+          "max_share": 0.5263157894736842,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.14814814814814814,
+          "OCR": 0.0,
+          "HIGHRES": 0.018518518518518517
+        },
+        "harm": {
+          "dmg_rate": 0.14814814814814814,
+          "by_family": {
+            "CROP": 0.5714285714285714,
+            "OCR": 0.07142857142857142,
+            "HIGHRES": 0.21428571428571427
+          }
+        },
+        "recovery_overlap": {
+          "none": 29,
+          "CROP": 8,
+          "CROP+HIGHRES": 2,
+          "HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8855218855218855,
+          "top1_family_agreement": 0.8421052631578947,
+          "parse_failures": 0,
+          "rows": 1608
+        }
+      },
+      {
+        "label": "OCR with Complex Context",
+        "n": 36,
+        "accuracy": {
+          "coarse_stop_r2": 0.6111111111111112,
+          "coarse_stop_r1": 0.5833333333333334,
+          "full_image_r2": 0.8888888888888888,
+          "oracle_cf": 0.75,
+          "oracle_naive_r1": 0.9444444444444444,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8055555555555556,
+            "OCR#0": 0.7222222222222222,
+            "STOP#0": 0.6111111111111112,
+            "CROP#0": 0.8055555555555556,
+            "CROP#1": 0.6111111111111112,
+            "CROP#2": 0.6944444444444444,
+            "CROP#3": 0.6388888888888888,
+            "CROP#4": 0.6666666666666666,
+            "CROP#5": 0.6388888888888888,
+            "CROP#6": 0.6111111111111112,
+            "CROP#7": 0.5833333333333334
+          },
+          "best_fixed_cf": 0.7638888888888888,
+          "best_fixed_choice": "HIGHRES#0:11,CROP#0:7,OCR#0:2"
+        },
+        "headroom": {
+          "H_net": 0.1388888888888889,
+          "H_ci": [
+            0.027777777777777776,
+            0.25
+          ],
+          "H_floor": "base",
+          "P_policy": -0.013888888888888883,
+          "P_ci": [
+            -0.1388888888888889,
+            0.10701388888888884
+          ],
+          "oracle_minus_base": 0.13888888888888884,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 19,
+          "distribution": {
+            "STOP": 0.21052631578947367,
+            "CROP": 0.3157894736842105,
+            "OCR": 0.42105263157894735,
+            "HIGHRES": 0.05263157894736842
+          },
+          "counts": {
+            "STOP": 4,
+            "CROP": 6,
+            "OCR": 8,
+            "HIGHRES": 1
+          },
+          "max_share": 0.42105263157894735,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.08333333333333333,
+          "OCR": 0.0,
+          "HIGHRES": 0.027777777777777776
+        },
+        "harm": {
+          "dmg_rate": 0.1111111111111111,
+          "by_family": {
+            "CROP": 0.2222222222222222,
+            "OCR": 0.05555555555555555,
+            "HIGHRES": 0.05555555555555555
+          }
+        },
+        "recovery_overlap": {
+          "CROP+HIGHRES+OCR": 6,
+          "CROP": 3,
+          "none": 3,
+          "CROP+HIGHRES": 3,
+          "CROP+OCR": 1,
+          "HIGHRES+OCR": 1,
+          "HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8636363636363636,
+          "top1_family_agreement": 0.5789473684210527,
+          "parse_failures": 0,
+          "rows": 864
+        }
+      },
+      {
+        "label": "Remote Sensing",
+        "n": 15,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.3333333333333333,
+          "oracle_cf": 0.4666666666666667,
+          "oracle_naive_r1": 0.6666666666666666,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.26666666666666666,
+            "OCR#0": 0.26666666666666666,
+            "STOP#0": 0.2,
+            "CROP#0": 0.3333333333333333,
+            "CROP#1": 0.3333333333333333,
+            "CROP#2": 0.26666666666666666,
+            "CROP#3": 0.4666666666666667,
+            "CROP#4": 0.3333333333333333,
+            "CROP#5": 0.2,
+            "CROP#6": 0.4666666666666667,
+            "CROP#7": 0.26666666666666666
+          },
+          "best_fixed_cf": 0.3066666666666667,
+          "best_fixed_choice": "CROP#4:10,CROP#3:5,CROP#0:2"
+        },
+        "headroom": {
+          "H_net": 0.26666666666666666,
+          "H_ci": [
+            0.06666666666666667,
+            0.5016666666666652
+          ],
+          "H_floor": "base",
+          "P_policy": 0.16,
+          "P_ci": [
+            0.01999999999999999,
+            0.3269999999999997
+          ],
+          "oracle_minus_base": 0.26666666666666666,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 7,
+          "distribution": {
+            "STOP": 0.14285714285714285,
+            "CROP": 0.7142857142857143,
+            "OCR": 0.14285714285714285,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 5,
+            "OCR": 1,
+            "HIGHRES": 0
+          },
+          "max_share": 0.7142857142857143,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.13333333333333333,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.06666666666666667,
+          "by_family": {
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.5
+          }
+        },
+        "recovery_overlap": {
+          "none": 7,
+          "CROP+HIGHRES": 3,
+          "CROP": 2,
+          "CROP+OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9272727272727272,
+          "top1_family_agreement": 0.7142857142857143,
+          "parse_failures": 0,
+          "rows": 360
+        }
+      }
+    ],
+    "category": [
+      {
+        "label": "Attention_TrafficSignal",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.3333333333333333,
+          "coarse_stop_r1": 0.5,
+          "full_image_r2": 0.3333333333333333,
+          "oracle_cf": 0.3333333333333333,
+          "oracle_naive_r1": 0.5,
+          "oracle_dummy_cf": 0.3333333333333333,
+          "fixed_policies": {
+            "HIGHRES#0": 0.3333333333333333,
+            "OCR#0": 0.3333333333333333,
+            "STOP#0": 0.3333333333333333,
+            "CROP#0": 0.3333333333333333,
+            "CROP#1": 0.3333333333333333,
+            "CROP#2": 0.5,
+            "CROP#3": 0.16666666666666666,
+            "CROP#4": 0.0,
+            "CROP#5": 0.5,
+            "CROP#6": 0.3333333333333333,
+            "CROP#7": 0.16666666666666666
+          },
+          "best_fixed_cf": 0.3333333333333333,
+          "best_fixed_choice": "STOP#0:20"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 3,
+          "distribution": {
+            "STOP": 0.6666666666666666,
+            "CROP": 0.3333333333333333,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 2,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.6666666666666666,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.16666666666666666,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.3333333333333333,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8939393939393939,
+          "top1_family_agreement": 0.6666666666666666,
+          "parse_failures": 0,
+          "rows": 276
+        }
+      },
+      {
+        "label": "Attribute_Motion_MultiPedestrians",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.16666666666666666,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.16666666666666666,
+          "oracle_naive_r1": 0.5,
+          "oracle_dummy_cf": 0.16666666666666666,
+          "fixed_policies": {
+            "HIGHRES#0": 0.16666666666666666,
+            "OCR#0": 0.0,
+            "STOP#0": 0.16666666666666666,
+            "CROP#0": 0.3333333333333333,
+            "CROP#1": 0.0,
+            "CROP#2": 0.16666666666666666,
+            "CROP#3": 0.3333333333333333,
+            "CROP#4": 0.16666666666666666,
+            "CROP#5": 0.16666666666666666,
+            "CROP#6": 0.16666666666666666,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.16666666666666666,
+          "best_fixed_choice": "CROP#3:10,HIGHRES#0:4,STOP#0:3"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            -0.5,
+            0.5
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            -0.5,
+            0.5
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 2,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.3333333333333333,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4,
+          "CROP": 2
+        },
+        "reliability": {
+          "per_action_agreement": 0.8787878787878788,
+          "top1_family_agreement": 0.5,
+          "parse_failures": 0,
+          "rows": 276
+        }
+      },
+      {
+        "label": "Attribute_Motion_MultiVehicles",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.16666666666666666,
+          "coarse_stop_r1": 0.16666666666666666,
+          "full_image_r2": 0.16666666666666666,
+          "oracle_cf": 0.3333333333333333,
+          "oracle_naive_r1": 0.5,
+          "oracle_dummy_cf": 0.16666666666666666,
+          "fixed_policies": {
+            "HIGHRES#0": 0.16666666666666666,
+            "OCR#0": 0.16666666666666666,
+            "STOP#0": 0.16666666666666666,
+            "CROP#0": 0.16666666666666666,
+            "CROP#1": 0.16666666666666666,
+            "CROP#2": 0.16666666666666666,
+            "CROP#3": 0.3333333333333333,
+            "CROP#4": 0.16666666666666666,
+            "CROP#5": 0.16666666666666666,
+            "CROP#6": 0.16666666666666666,
+            "CROP#7": 0.16666666666666666
+          },
+          "best_fixed_cf": 0.16666666666666666,
+          "best_fixed_choice": "CROP#0:10,CROP#3:8,STOP#0:2"
+        },
+        "headroom": {
+          "H_net": 0.16666666666666666,
+          "H_ci": [
+            0.0,
+            0.5
+          ],
+          "H_floor": "base",
+          "P_policy": 0.16666666666666666,
+          "P_ci": [
+            0.0,
+            0.5
+          ],
+          "oracle_minus_base": 0.16666666666666666,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.16666666666666666,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9848484848484849,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 276
+        }
+      },
+      {
+        "label": "Attribute_Motion_Pedestrain",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.5,
+          "coarse_stop_r1": 0.3333333333333333,
+          "full_image_r2": 0.16666666666666666,
+          "oracle_cf": 0.5,
+          "oracle_naive_r1": 0.5,
+          "oracle_dummy_cf": 0.5,
+          "fixed_policies": {
+            "HIGHRES#0": 0.5,
+            "OCR#0": 0.3333333333333333,
+            "STOP#0": 0.5,
+            "CROP#0": 0.16666666666666666,
+            "CROP#1": 0.5,
+            "CROP#2": 0.3333333333333333,
+            "CROP#3": 0.3333333333333333,
+            "CROP#4": 0.16666666666666666,
+            "CROP#5": 0.5,
+            "CROP#6": 0.5,
+            "CROP#7": 0.3333333333333333
+          },
+          "best_fixed_cf": 0.3666666666666667,
+          "best_fixed_choice": "STOP#0:10,CROP#2:8,CROP#5:2"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.13333333333333333,
+          "P_ci": [
+            0.0,
+            0.4000000000000001
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.5,
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.16666666666666666,
+          "by_family": {
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3,
+          "CROP+HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9090909090909091,
+          "top1_family_agreement": 0.5,
+          "parse_failures": 0,
+          "rows": 276
+        }
+      },
+      {
+        "label": "Attribute_Motion_Vehicle",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.16666666666666666,
+          "coarse_stop_r1": 0.16666666666666666,
+          "full_image_r2": 0.16666666666666666,
+          "oracle_cf": 0.3333333333333333,
+          "oracle_naive_r1": 0.5,
+          "oracle_dummy_cf": 0.16666666666666666,
+          "fixed_policies": {
+            "HIGHRES#0": 0.16666666666666666,
+            "OCR#0": 0.16666666666666666,
+            "STOP#0": 0.16666666666666666,
+            "CROP#0": 0.16666666666666666,
+            "CROP#1": 0.16666666666666666,
+            "CROP#2": 0.3333333333333333,
+            "CROP#3": 0.3333333333333333,
+            "CROP#4": 0.16666666666666666,
+            "CROP#5": 0.16666666666666666,
+            "CROP#6": 0.16666666666666666,
+            "CROP#7": 0.16666666666666666
+          },
+          "best_fixed_cf": 0.16666666666666666,
+          "best_fixed_choice": "OCR#0:10,STOP#0:5,CROP#2:5"
+        },
+        "headroom": {
+          "H_net": 0.16666666666666666,
+          "H_ci": [
+            0.0,
+            0.5
+          ],
+          "H_floor": "base",
+          "P_policy": 0.16666666666666666,
+          "P_ci": [
+            0.0,
+            0.5
+          ],
+          "oracle_minus_base": 0.16666666666666666,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.5,
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.16666666666666666,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.16666666666666666,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 1.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9090909090909091,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 276
+        }
+      },
+      {
+        "label": "Attribute_Visual_TrafficSignal",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.4,
+          "full_image_r2": 0.4,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.6,
+          "oracle_dummy_cf": 0.4,
+          "fixed_policies": {
+            "HIGHRES#0": 0.4,
+            "OCR#0": 0.4,
+            "STOP#0": 0.4,
+            "CROP#0": 0.4,
+            "CROP#1": 0.4,
+            "CROP#2": 0.4,
+            "CROP#3": 0.4,
+            "CROP#4": 0.4,
+            "CROP#5": 0.4,
+            "CROP#6": 0.4,
+            "CROP#7": 0.4
+          },
+          "best_fixed_cf": 0.4,
+          "best_fixed_choice": "CROP#5:10,STOP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 1.0,
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 0,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.2,
+          "by_family": {
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3
+        },
+        "reliability": {
+          "per_action_agreement": 0.9636363636363636,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 276
+        }
+      },
+      {
+        "label": "Character Identification",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.5,
+          "coarse_stop_r1": 0.3333333333333333,
+          "full_image_r2": 0.8333333333333334,
+          "oracle_cf": 0.8333333333333334,
+          "oracle_naive_r1": 0.8333333333333334,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8333333333333334,
+            "OCR#0": 0.6666666666666666,
+            "STOP#0": 0.5,
+            "CROP#0": 0.5,
+            "CROP#1": 0.5,
+            "CROP#2": 0.6666666666666666,
+            "CROP#3": 0.5,
+            "CROP#4": 0.3333333333333333,
+            "CROP#5": 0.3333333333333333,
+            "CROP#6": 0.3333333333333333,
+            "CROP#7": 0.5
+          },
+          "best_fixed_cf": 0.5833333333333334,
+          "best_fixed_choice": "CROP#2:10,OCR#0:9,STOP#0:1"
+        },
+        "headroom": {
+          "H_net": 0.3333333333333333,
+          "H_ci": [
+            0.0,
+            0.6666666666666666
+          ],
+          "H_floor": "base",
+          "P_policy": 0.25,
+          "P_ci": [
+            0.0,
+            0.5833333333333334
+          ],
+          "oracle_minus_base": 0.33333333333333337,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 4,
+          "distribution": {
+            "STOP": 0.25,
+            "CROP": 0.25,
+            "OCR": 0.5,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 1,
+            "OCR": 2,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.16666666666666666,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.16666666666666666,
+          "by_family": {
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "CROP": 1,
+          "HIGHRES+OCR": 1,
+          "CROP+HIGHRES+OCR": 1,
+          "none": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8787878787878788,
+          "top1_family_agreement": 0.75,
+          "parse_failures": 0,
+          "rows": 144
+        }
+      },
+      {
+        "label": "Object_Count",
+        "n": 4,
+        "accuracy": {
+          "coarse_stop_r2": 0.5,
+          "coarse_stop_r1": 0.5,
+          "full_image_r2": 1.0,
+          "oracle_cf": 0.75,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": 0.75,
+          "fixed_policies": {
+            "HIGHRES#0": 1.0,
+            "OCR#0": 0.5,
+            "STOP#0": 0.5,
+            "CROP#0": 0.75,
+            "CROP#1": 0.5,
+            "CROP#2": 0.75,
+            "CROP#3": 0.5,
+            "CROP#4": 1.0,
+            "CROP#5": 0.75,
+            "CROP#6": 0.75,
+            "CROP#7": 0.5
+          },
+          "best_fixed_cf": 0.625,
+          "best_fixed_choice": "CROP#0:15,STOP#0:5"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.125,
+          "P_ci": [
+            0.0,
+            0.375
+          ],
+          "oracle_minus_base": 0.25,
+          "luck_floor_gain": 0.25
+        },
+        "diversity": {
+          "n_decisive": 3,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 3,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "CROP+HIGHRES": 3
+        },
+        "reliability": {
+          "per_action_agreement": 0.7727272727272727,
+          "top1_family_agreement": 0.3333333333333333,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Objects_Identify",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.4,
+          "full_image_r2": 0.4,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 0.8,
+          "oracle_dummy_cf": 0.8,
+          "fixed_policies": {
+            "HIGHRES#0": 0.6,
+            "OCR#0": 0.2,
+            "STOP#0": 0.2,
+            "CROP#0": 0.4,
+            "CROP#1": 0.2,
+            "CROP#2": 0.2,
+            "CROP#3": 0.4,
+            "CROP#4": 0.4,
+            "CROP#5": 0.6,
+            "CROP#6": 0.2,
+            "CROP#7": 0.2
+          },
+          "best_fixed_cf": 0.32,
+          "best_fixed_choice": "CROP#0:10,CROP#5:6,STOP#0:4"
+        },
+        "headroom": {
+          "H_net": -0.2,
+          "H_ci": [
+            -0.6,
+            0.0
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.27999999999999997,
+          "P_ci": [
+            0.0,
+            0.6799999999999999
+          ],
+          "oracle_minus_base": 0.39999999999999997,
+          "luck_floor_gain": 0.6000000000000001
+        },
+        "diversity": {
+          "n_decisive": 3,
+          "distribution": {
+            "STOP": 0.3333333333333333,
+            "CROP": 0.6666666666666666,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 2,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.6666666666666666,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.2,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 1.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 2,
+          "CROP": 1,
+          "CROP+HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.7272727272727273,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Person/counting",
+        "n": 1,
+        "note": "too small to audit"
+      },
+      {
+        "label": "Prediction_Intention_Ego",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.0,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.2,
+          "oracle_cf": 0.0,
+          "oracle_naive_r1": 0.4,
+          "oracle_dummy_cf": 0.0,
+          "fixed_policies": {
+            "HIGHRES#0": 0.2,
+            "OCR#0": 0.0,
+            "STOP#0": 0.0,
+            "CROP#0": 0.2,
+            "CROP#1": 0.4,
+            "CROP#2": 0.0,
+            "CROP#3": 0.2,
+            "CROP#4": 0.0,
+            "CROP#5": 0.0,
+            "CROP#6": 0.0,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.16,
+          "best_fixed_choice": "CROP#0:10,OCR#0:8,STOP#0:2"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": -0.16,
+          "P_ci": [
+            -0.4800000000000001,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8909090909090909,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Prediction_Intention_Pedestrian",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.4,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.6,
+          "oracle_dummy_cf": 0.2,
+          "fixed_policies": {
+            "HIGHRES#0": 0.4,
+            "OCR#0": 0.4,
+            "STOP#0": 0.4,
+            "CROP#0": 0.4,
+            "CROP#1": 0.2,
+            "CROP#2": 0.2,
+            "CROP#3": 0.2,
+            "CROP#4": 0.2,
+            "CROP#5": 0.4,
+            "CROP#6": 0.2,
+            "CROP#7": 0.4
+          },
+          "best_fixed_cf": 0.4,
+          "best_fixed_choice": "CROP#0:14,STOP#0:6"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": -0.2
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8363636363636363,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Prediction_Intention_Vehicle",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.4,
+          "full_image_r2": 0.6,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 0.8,
+          "oracle_dummy_cf": 0.2,
+          "fixed_policies": {
+            "HIGHRES#0": 0.6,
+            "OCR#0": 0.4,
+            "STOP#0": 0.4,
+            "CROP#0": 0.4,
+            "CROP#1": 0.2,
+            "CROP#2": 0.2,
+            "CROP#3": 0.4,
+            "CROP#4": 0.4,
+            "CROP#5": 0.4,
+            "CROP#6": 0.2,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.3,
+          "best_fixed_choice": "OCR#0:10,CROP#3:5,STOP#0:5"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.3,
+          "P_ci": [
+            0.0,
+            0.6
+          ],
+          "oracle_minus_base": 0.19999999999999996,
+          "luck_floor_gain": -0.2
+        },
+        "diversity": {
+          "n_decisive": 3,
+          "distribution": {
+            "STOP": 0.6666666666666666,
+            "CROP": 0.3333333333333333,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 2,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.6666666666666666,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.4,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 2,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8909090909090909,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Relation_Interaction_Ego2Pedestrain",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.2,
+          "oracle_cf": 0.2,
+          "oracle_naive_r1": 0.2,
+          "oracle_dummy_cf": 0.2,
+          "fixed_policies": {
+            "HIGHRES#0": 0.2,
+            "OCR#0": 0.2,
+            "STOP#0": 0.2,
+            "CROP#0": 0.2,
+            "CROP#1": 0.2,
+            "CROP#2": 0.2,
+            "CROP#3": 0.2,
+            "CROP#4": 0.2,
+            "CROP#5": 0.2,
+            "CROP#6": 0.2,
+            "CROP#7": 0.2
+          },
+          "best_fixed_cf": 0.2,
+          "best_fixed_choice": "STOP#0:20"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 0,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 0,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.0,
+          "n_families_over_10pct": 0
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4
+        },
+        "reliability": {
+          "per_action_agreement": 1.0,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Relation_Interaction_Ego2TrafficSignal",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.2,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.4,
+          "oracle_dummy_cf": 0.2,
+          "fixed_policies": {
+            "HIGHRES#0": 0.2,
+            "OCR#0": 0.4,
+            "STOP#0": 0.2,
+            "CROP#0": 0.4,
+            "CROP#1": 0.4,
+            "CROP#2": 0.4,
+            "CROP#3": 0.2,
+            "CROP#4": 0.2,
+            "CROP#5": 0.2,
+            "CROP#6": 0.2,
+            "CROP#7": 0.2
+          },
+          "best_fixed_cf": 0.2,
+          "best_fixed_choice": "OCR#0:10,STOP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.2,
+          "P_ci": [
+            0.0,
+            0.6
+          ],
+          "oracle_minus_base": 0.2,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 0.0,
+            "OCR": 1.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 0,
+            "OCR": 1,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3,
+          "CROP+OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9454545454545454,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Relation_Interaction_Ego2Vehicle",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.4,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.4,
+          "oracle_dummy_cf": 0.4,
+          "fixed_policies": {
+            "HIGHRES#0": 0.6,
+            "OCR#0": 0.4,
+            "STOP#0": 0.4,
+            "CROP#0": 0.4,
+            "CROP#1": 0.4,
+            "CROP#2": 0.4,
+            "CROP#3": 0.4,
+            "CROP#4": 0.4,
+            "CROP#5": 0.4,
+            "CROP#6": 0.4,
+            "CROP#7": 0.4
+          },
+          "best_fixed_cf": 0.4,
+          "best_fixed_choice": "STOP#0:10,CROP#0:8,CROP#2:2"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.6,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Relation_Interaction_Other2Other",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.0,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.2,
+          "oracle_naive_r1": 0.2,
+          "oracle_dummy_cf": 0.2,
+          "fixed_policies": {
+            "HIGHRES#0": 0.0,
+            "OCR#0": 0.2,
+            "STOP#0": 0.0,
+            "CROP#0": 0.2,
+            "CROP#1": 0.0,
+            "CROP#2": 0.0,
+            "CROP#3": 0.2,
+            "CROP#4": 0.0,
+            "CROP#5": 0.2,
+            "CROP#6": 0.0,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.0,
+          "best_fixed_choice": "STOP#0:10,CROP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.2,
+          "P_ci": [
+            0.0,
+            0.6
+          ],
+          "oracle_minus_base": 0.2,
+          "luck_floor_gain": 0.2
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9636363636363636,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "Scene Understanding",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 1.0,
+          "coarse_stop_r1": 0.6,
+          "full_image_r2": 0.8,
+          "oracle_cf": 1.0,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8,
+            "OCR#0": 0.8,
+            "STOP#0": 1.0,
+            "CROP#0": 1.0,
+            "CROP#1": 0.8,
+            "CROP#2": 1.0,
+            "CROP#3": 0.8,
+            "CROP#4": 1.0,
+            "CROP#5": 0.6,
+            "CROP#6": 1.0,
+            "CROP#7": 0.8
+          },
+          "best_fixed_cf": 0.8,
+          "best_fixed_choice": "STOP#0:8,HIGHRES#0:6,OCR#0:4"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.2,
+          "P_ci": [
+            0.0,
+            0.44
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 4,
+          "distribution": {
+            "STOP": 0.5,
+            "CROP": 0.0,
+            "OCR": 0.25,
+            "HIGHRES": 0.25
+          },
+          "counts": {
+            "STOP": 2,
+            "CROP": 0,
+            "OCR": 1,
+            "HIGHRES": 1
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.2
+        },
+        "harm": {
+          "dmg_rate": 0.4,
+          "by_family": {
+            "CROP": 0.6666666666666666,
+            "OCR": 0.3333333333333333,
+            "HIGHRES": 0.3333333333333333
+          }
+        },
+        "recovery_overlap": {
+          "HIGHRES": 1,
+          "CROP+HIGHRES+OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.7090909090909091,
+          "top1_family_agreement": 0.5,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "Vehicle/counting",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 1.0,
+          "coarse_stop_r1": 0.8,
+          "full_image_r2": 1.0,
+          "oracle_cf": 1.0,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": 1.0,
+          "fixed_policies": {
+            "HIGHRES#0": 1.0,
+            "OCR#0": 1.0,
+            "STOP#0": 1.0,
+            "CROP#0": 0.8,
+            "CROP#1": 0.8,
+            "CROP#2": 1.0,
+            "CROP#3": 0.8,
+            "CROP#4": 1.0,
+            "CROP#5": 1.0,
+            "CROP#6": 0.8,
+            "CROP#7": 1.0
+          },
+          "best_fixed_cf": 1.0,
+          "best_fixed_choice": "HIGHRES#0:10,STOP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 1.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 0,
+            "OCR": 0,
+            "HIGHRES": 1
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.2
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8909090909090909,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "adver_and_product",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.8,
+          "full_image_r2": 1.0,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8,
+            "OCR#0": 0.8,
+            "STOP#0": 0.4,
+            "CROP#0": 1.0,
+            "CROP#1": 0.2,
+            "CROP#2": 0.4,
+            "CROP#3": 0.4,
+            "CROP#4": 0.6,
+            "CROP#5": 0.6,
+            "CROP#6": 0.6,
+            "CROP#7": 0.2
+          },
+          "best_fixed_cf": 0.64,
+          "best_fixed_choice": "CROP#0:10,STOP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": -0.039999999999999994,
+          "P_ci": [
+            -0.48,
+            0.48
+          ],
+          "oracle_minus_base": 0.19999999999999996,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 4,
+          "distribution": {
+            "STOP": 0.25,
+            "CROP": 0.25,
+            "OCR": 0.5,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 1,
+            "OCR": 2,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.2,
+          "by_family": {
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "CROP+HIGHRES+OCR": 2,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.7272727272727273,
+          "top1_family_agreement": 0.5,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "book_map_poster",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.6,
+          "coarse_stop_r1": 0.6,
+          "full_image_r2": 0.6,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 0.8,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8,
+            "OCR#0": 0.8,
+            "STOP#0": 0.6,
+            "CROP#0": 0.8,
+            "CROP#1": 0.8,
+            "CROP#2": 0.8,
+            "CROP#3": 0.6,
+            "CROP#4": 0.8,
+            "CROP#5": 0.6,
+            "CROP#6": 0.6,
+            "CROP#7": 0.6
+          },
+          "best_fixed_cf": 0.72,
+          "best_fixed_choice": "STOP#0:10,OCR#0:10"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": -0.12,
+          "P_ci": [
+            -0.36,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 0.0,
+            "OCR": 1.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 0,
+            "OCR": 2,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "CROP+HIGHRES+OCR": 2,
+          "none": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8363636363636363,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "calculate",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.2,
+          "oracle_naive_r1": 0.4,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.0,
+            "OCR#0": 0.0,
+            "STOP#0": 0.2,
+            "CROP#0": 0.4,
+            "CROP#1": 0.2,
+            "CROP#2": 0.0,
+            "CROP#3": 0.2,
+            "CROP#4": 0.2,
+            "CROP#5": 0.0,
+            "CROP#6": 0.2,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.12,
+          "best_fixed_choice": "CROP#1:10,OCR#0:8,STOP#0:2"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.08,
+          "P_ci": [
+            0.0,
+            0.24000000000000005
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 0,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 0,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.0,
+          "n_families_over_10pct": 0
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 5
+        },
+        "reliability": {
+          "per_action_agreement": 0.6727272727272727,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "color",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.6,
+          "oracle_cf": 0.8,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.4,
+            "OCR#0": 0.2,
+            "STOP#0": 0.2,
+            "CROP#0": 0.6,
+            "CROP#1": 0.6,
+            "CROP#2": 0.4,
+            "CROP#3": 0.8,
+            "CROP#4": 0.4,
+            "CROP#5": 0.4,
+            "CROP#6": 0.6,
+            "CROP#7": 0.4
+          },
+          "best_fixed_cf": 0.5599999999999999,
+          "best_fixed_choice": "CROP#3:10,CROP#0:6,CROP#4:4"
+        },
+        "headroom": {
+          "H_net": 0.6,
+          "H_ci": [
+            0.2,
+            1.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.24,
+          "P_ci": [
+            0.0,
+            0.64
+          ],
+          "oracle_minus_base": 0.6000000000000001,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 4,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 4,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.4,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "CROP": 2,
+          "CROP+HIGHRES": 2,
+          "none": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8909090909090909,
+          "top1_family_agreement": 0.75,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "count",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.0,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.0,
+          "oracle_naive_r1": 0.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.0,
+            "OCR#0": 0.0,
+            "STOP#0": 0.0,
+            "CROP#0": 0.0,
+            "CROP#1": 0.0,
+            "CROP#2": 0.0,
+            "CROP#3": 0.0,
+            "CROP#4": 0.0,
+            "CROP#5": 0.0,
+            "CROP#6": 0.0,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.0,
+          "best_fixed_choice": "STOP#0:20"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 0,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 0,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.0,
+          "n_families_over_10pct": 0
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 5
+        },
+        "reliability": {
+          "per_action_agreement": 1.0,
+          "top1_family_agreement": 0.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "diagram",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.8333333333333334,
+          "coarse_stop_r1": 0.8333333333333334,
+          "full_image_r2": 0.6666666666666666,
+          "oracle_cf": 1.0,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": 1.0,
+          "fixed_policies": {
+            "HIGHRES#0": 0.6666666666666666,
+            "OCR#0": 0.5,
+            "STOP#0": 0.8333333333333334,
+            "CROP#0": 0.8333333333333334,
+            "CROP#1": 0.6666666666666666,
+            "CROP#2": 0.5,
+            "CROP#3": 0.8333333333333334,
+            "CROP#4": 0.8333333333333334,
+            "CROP#5": 0.8333333333333334,
+            "CROP#6": 1.0,
+            "CROP#7": 0.8333333333333334
+          },
+          "best_fixed_cf": 0.5666666666666665,
+          "best_fixed_choice": "OCR#0:10,STOP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.4333333333333333,
+          "P_ci": [
+            0.16666666666666666,
+            0.7333333333333334
+          ],
+          "oracle_minus_base": 0.16666666666666663,
+          "luck_floor_gain": 0.16666666666666663
+        },
+        "diversity": {
+          "n_decisive": 6,
+          "distribution": {
+            "STOP": 0.8333333333333334,
+            "CROP": 0.0,
+            "OCR": 0.16666666666666666,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 5,
+            "CROP": 0,
+            "OCR": 1,
+            "HIGHRES": 0
+          },
+          "max_share": 0.8333333333333334,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.8333333333333334,
+          "by_family": {
+            "CROP": 0.8,
+            "OCR": 0.6,
+            "HIGHRES": 0.2
+          }
+        },
+        "recovery_overlap": {
+          "CROP+OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8636363636363636,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 210
+        }
+      },
+      {
+        "label": "intention",
+        "n": 4,
+        "accuracy": {
+          "coarse_stop_r2": 0.0,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.5,
+          "oracle_naive_r1": 0.5,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.0,
+            "OCR#0": 0.0,
+            "STOP#0": 0.0,
+            "CROP#0": 0.25,
+            "CROP#1": 0.5,
+            "CROP#2": 0.5,
+            "CROP#3": 0.25,
+            "CROP#4": 0.0,
+            "CROP#5": 0.25,
+            "CROP#6": 0.0,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.125,
+          "best_fixed_choice": "CROP#0:10,STOP#0:5,CROP#1:5"
+        },
+        "headroom": {
+          "H_net": 0.5,
+          "H_ci": [
+            0.0,
+            1.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.375,
+          "P_ci": [
+            0.0,
+            0.75
+          ],
+          "oracle_minus_base": 0.5,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 2,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.5,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 2,
+          "CROP": 2
+        },
+        "reliability": {
+          "per_action_agreement": 0.9318181818181818,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "license",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.6,
+          "coarse_stop_r1": 0.6,
+          "full_image_r2": 1.0,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8,
+            "OCR#0": 0.6,
+            "STOP#0": 0.6,
+            "CROP#0": 0.8,
+            "CROP#1": 0.6,
+            "CROP#2": 0.6,
+            "CROP#3": 0.8,
+            "CROP#4": 0.8,
+            "CROP#5": 0.8,
+            "CROP#6": 0.6,
+            "CROP#7": 0.8
+          },
+          "best_fixed_cf": 0.76,
+          "best_fixed_choice": "CROP#0:10,OCR#0:8,STOP#0:2"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": -0.16,
+          "P_ci": [
+            -0.4800000000000001,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 2,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "CROP": 1,
+          "CROP+HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9636363636363636,
+          "top1_family_agreement": 0.5,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "person/attribute/color",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.0,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.2,
+          "oracle_naive_r1": 0.2,
+          "oracle_dummy_cf": 0.0,
+          "fixed_policies": {
+            "HIGHRES#0": 0.0,
+            "OCR#0": 0.0,
+            "STOP#0": 0.0,
+            "CROP#0": 0.0,
+            "CROP#1": 0.0,
+            "CROP#2": 0.0,
+            "CROP#3": 0.0,
+            "CROP#4": 0.0,
+            "CROP#5": 0.2,
+            "CROP#6": 0.0,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.0,
+          "best_fixed_choice": "STOP#0:10,CROP#5:10"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.2,
+          "P_ci": [
+            0.0,
+            0.6
+          ],
+          "oracle_minus_base": 0.2,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 4,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 1.0,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 230
+        }
+      },
+      {
+        "label": "person/attribute/orientation",
+        "n": 4,
+        "accuracy": {
+          "coarse_stop_r2": 0.0,
+          "coarse_stop_r1": 0.0,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.25,
+          "oracle_naive_r1": 0.25,
+          "oracle_dummy_cf": 0.0,
+          "fixed_policies": {
+            "HIGHRES#0": 0.0,
+            "OCR#0": 0.0,
+            "STOP#0": 0.0,
+            "CROP#0": 0.0,
+            "CROP#1": 0.0,
+            "CROP#2": 0.0,
+            "CROP#3": 0.0,
+            "CROP#4": 0.0,
+            "CROP#5": 0.25,
+            "CROP#6": 0.0,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.0,
+          "best_fixed_choice": "CROP#5:10,STOP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.25,
+          "H_ci": [
+            0.0,
+            0.75
+          ],
+          "H_floor": "base",
+          "P_policy": 0.25,
+          "P_ci": [
+            0.0,
+            0.75
+          ],
+          "oracle_minus_base": 0.25,
+          "luck_floor_gain": 0.0
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.25,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 1.0,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 142
+        }
+      },
+      {
+        "label": "person/counting",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 1.0,
+          "coarse_stop_r1": 0.4,
+          "full_image_r2": 0.8,
+          "oracle_cf": 0.8,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8,
+            "OCR#0": 1.0,
+            "STOP#0": 1.0,
+            "CROP#0": 0.8,
+            "CROP#1": 0.8,
+            "CROP#2": 0.6,
+            "CROP#3": 0.6,
+            "CROP#4": 0.4,
+            "CROP#5": 0.8,
+            "CROP#6": 0.2,
+            "CROP#7": 0.4
+          },
+          "best_fixed_cf": 0.76,
+          "best_fixed_choice": "CROP#2:8,STOP#0:6,CROP#0:4"
+        },
+        "headroom": {
+          "H_net": -0.2,
+          "H_ci": [
+            -0.6,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.039999999999999994,
+          "P_ci": [
+            -0.24000000000000005,
+            0.36
+          ],
+          "oracle_minus_base": -0.19999999999999996,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 4,
+          "distribution": {
+            "STOP": 0.5,
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 2,
+            "CROP": 2,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.4,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.5
+          }
+        },
+        "recovery_overlap": {
+          "CROP": 1,
+          "none": 1,
+          "CROP+HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.6727272727272727,
+          "top1_family_agreement": 0.5,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "phone_and_address",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.4,
+          "full_image_r2": 1.0,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.6,
+            "OCR#0": 0.6,
+            "STOP#0": 0.4,
+            "CROP#0": 0.6,
+            "CROP#1": 0.4,
+            "CROP#2": 0.4,
+            "CROP#3": 0.6,
+            "CROP#4": 0.4,
+            "CROP#5": 0.6,
+            "CROP#6": 0.4,
+            "CROP#7": 0.4
+          },
+          "best_fixed_cf": 0.52,
+          "best_fixed_choice": "CROP#0:7,CROP#3:6,OCR#0:6"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.07999999999999999,
+          "P_ci": [
+            -0.18,
+            0.41999999999999993
+          ],
+          "oracle_minus_base": 0.19999999999999996,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 0.5,
+            "OCR": 0.5,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 1,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 1,
+          "CROP+HIGHRES": 1,
+          "CROP+OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9272727272727272,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "position",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.6,
+          "full_image_r2": 0.4,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.4,
+            "OCR#0": 0.6,
+            "STOP#0": 0.4,
+            "CROP#0": 0.4,
+            "CROP#1": 0.4,
+            "CROP#2": 0.4,
+            "CROP#3": 0.6,
+            "CROP#4": 0.6,
+            "CROP#5": 0.2,
+            "CROP#6": 0.8,
+            "CROP#7": 0.4
+          },
+          "best_fixed_cf": 0.38,
+          "best_fixed_choice": "CROP#4:10,STOP#0:9,CROP#5:1"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.22000000000000003,
+          "P_ci": [
+            0.0,
+            0.62
+          ],
+          "oracle_minus_base": 0.19999999999999996,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 3,
+          "distribution": {
+            "STOP": 0.3333333333333333,
+            "CROP": 0.3333333333333333,
+            "OCR": 0.3333333333333333,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 1,
+            "OCR": 1,
+            "HIGHRES": 0
+          },
+          "max_share": 0.3333333333333333,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.2,
+          "by_family": {
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.5
+          }
+        },
+        "recovery_overlap": {
+          "none": 1,
+          "CROP+HIGHRES": 1,
+          "CROP+OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.8909090909090909,
+          "top1_family_agreement": 0.6666666666666666,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "property",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.2,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.8,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.2,
+            "OCR#0": 0.2,
+            "STOP#0": 0.2,
+            "CROP#0": 0.4,
+            "CROP#1": 0.2,
+            "CROP#2": 0.4,
+            "CROP#3": 0.2,
+            "CROP#4": 0.4,
+            "CROP#5": 0.4,
+            "CROP#6": 0.2,
+            "CROP#7": 0.2
+          },
+          "best_fixed_cf": 0.4,
+          "best_fixed_choice": "CROP#0:10,CROP#5:10"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.2,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 2,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.4,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 2,
+          "CROP": 2
+        },
+        "reliability": {
+          "per_action_agreement": 0.8545454545454545,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "table",
+        "n": 6,
+        "accuracy": {
+          "coarse_stop_r2": 0.3333333333333333,
+          "coarse_stop_r1": 0.5,
+          "full_image_r2": 0.3333333333333333,
+          "oracle_cf": 0.5,
+          "oracle_naive_r1": 0.6666666666666666,
+          "oracle_dummy_cf": 0.5,
+          "fixed_policies": {
+            "HIGHRES#0": 0.8333333333333334,
+            "OCR#0": 0.3333333333333333,
+            "STOP#0": 0.3333333333333333,
+            "CROP#0": 0.16666666666666666,
+            "CROP#1": 0.16666666666666666,
+            "CROP#2": 0.3333333333333333,
+            "CROP#3": 0.16666666666666666,
+            "CROP#4": 0.3333333333333333,
+            "CROP#5": 0.16666666666666666,
+            "CROP#6": 0.3333333333333333,
+            "CROP#7": 0.3333333333333333
+          },
+          "best_fixed_cf": 0.39999999999999997,
+          "best_fixed_choice": "STOP#0:15,HIGHRES#0:5"
+        },
+        "headroom": {
+          "H_net": 0.25,
+          "H_ci": [
+            0.0,
+            0.75
+          ],
+          "H_floor": "dummy",
+          "P_policy": 0.09999999999999999,
+          "P_ci": [
+            -0.15000000000000002,
+            0.492083333333333
+          ],
+          "oracle_minus_base": 0.16666666666666669,
+          "luck_floor_gain": 0.16666666666666669
+        },
+        "diversity": {
+          "n_decisive": 3,
+          "distribution": {
+            "STOP": 0.3333333333333333,
+            "CROP": 0.0,
+            "OCR": 0.3333333333333333,
+            "HIGHRES": 0.3333333333333333
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 0,
+            "OCR": 1,
+            "HIGHRES": 1
+          },
+          "max_share": 0.3333333333333333,
+          "n_families_over_10pct": 3
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.16666666666666666,
+          "HIGHRES": 0.16666666666666666
+        },
+        "harm": {
+          "dmg_rate": 0.16666666666666666,
+          "by_family": {
+            "CROP": 0.5,
+            "OCR": 0.5,
+            "HIGHRES": 0.5
+          }
+        },
+        "recovery_overlap": {
+          "none": 2,
+          "HIGHRES": 1,
+          "OCR": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.803030303030303,
+          "top1_family_agreement": 0.6666666666666666,
+          "parse_failures": 0,
+          "rows": 232
+        }
+      },
+      {
+        "label": "text_recog",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.8,
+          "coarse_stop_r1": 0.8,
+          "full_image_r2": 1.0,
+          "oracle_cf": 1.0,
+          "oracle_naive_r1": 1.0,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 1.0,
+            "OCR#0": 0.8,
+            "STOP#0": 0.8,
+            "CROP#0": 1.0,
+            "CROP#1": 1.0,
+            "CROP#2": 1.0,
+            "CROP#3": 0.8,
+            "CROP#4": 0.8,
+            "CROP#5": 1.0,
+            "CROP#6": 0.8,
+            "CROP#7": 0.8
+          },
+          "best_fixed_cf": 0.8,
+          "best_fixed_choice": "STOP#0:10,CROP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.2,
+          "P_ci": [
+            0.0,
+            0.6
+          ],
+          "oracle_minus_base": 0.19999999999999996,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 1,
+          "distribution": {
+            "STOP": 0.0,
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 0,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.0,
+          "by_family": {
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "CROP+HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 1.0,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "vehicle/attribute/color",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.2,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.4,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.4,
+            "OCR#0": 0.2,
+            "STOP#0": 0.2,
+            "CROP#0": 0.4,
+            "CROP#1": 0.0,
+            "CROP#2": 0.2,
+            "CROP#3": 0.4,
+            "CROP#4": 0.4,
+            "CROP#5": 0.4,
+            "CROP#6": 0.2,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.2,
+          "best_fixed_choice": "CROP#0:10,STOP#0:10"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.2,
+          "P_ci": [
+            0.0,
+            0.6
+          ],
+          "oracle_minus_base": 0.2,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.5,
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.2,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 1.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3,
+          "CROP+HIGHRES": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9272727272727272,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "vehicle/attribute/orientation",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.6,
+          "coarse_stop_r1": 0.4,
+          "full_image_r2": 0.0,
+          "oracle_cf": 0.6,
+          "oracle_naive_r1": 0.6,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.0,
+            "OCR#0": 0.6,
+            "STOP#0": 0.6,
+            "CROP#0": 0.2,
+            "CROP#1": 0.4,
+            "CROP#2": 0.2,
+            "CROP#3": 0.2,
+            "CROP#4": 0.2,
+            "CROP#5": 0.2,
+            "CROP#6": 0.2,
+            "CROP#7": 0.2
+          },
+          "best_fixed_cf": 0.4800000000000001,
+          "best_fixed_choice": "STOP#0:18,HIGHRES#0:2"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.11999999999999997,
+          "P_ci": [
+            0.039999999999999994,
+            0.19999999999999996
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 1.0,
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 2,
+            "CROP": 0,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.4,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 1.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3
+        },
+        "reliability": {
+          "per_action_agreement": 0.9090909090909091,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "vehicle/counting",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.2,
+          "coarse_stop_r1": 0.2,
+          "full_image_r2": 0.2,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.8,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.2,
+            "OCR#0": 0.2,
+            "STOP#0": 0.2,
+            "CROP#0": 0.2,
+            "CROP#1": 0.2,
+            "CROP#2": 0.2,
+            "CROP#3": 0.2,
+            "CROP#4": 0.2,
+            "CROP#5": 0.2,
+            "CROP#6": 0.2,
+            "CROP#7": 0.0
+          },
+          "best_fixed_cf": 0.13999999999999999,
+          "best_fixed_choice": "CROP#1:10,STOP#0:4,CROP#5:3"
+        },
+        "headroom": {
+          "H_net": 0.2,
+          "H_ci": [
+            0.0,
+            0.6
+          ],
+          "H_floor": "base",
+          "P_policy": 0.26,
+          "P_ci": [
+            0.0,
+            0.6599999999999999
+          ],
+          "oracle_minus_base": 0.2,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 0.5,
+            "CROP": 0.5,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 1,
+            "CROP": 1,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 0.5,
+          "n_families_over_10pct": 2
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.2,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.2,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3,
+          "CROP": 1
+        },
+        "reliability": {
+          "per_action_agreement": 0.9090909090909091,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      },
+      {
+        "label": "vehicle/location",
+        "n": 5,
+        "accuracy": {
+          "coarse_stop_r2": 0.4,
+          "coarse_stop_r1": 0.4,
+          "full_image_r2": 0.4,
+          "oracle_cf": 0.4,
+          "oracle_naive_r1": 0.4,
+          "oracle_dummy_cf": null,
+          "fixed_policies": {
+            "HIGHRES#0": 0.4,
+            "OCR#0": 0.4,
+            "STOP#0": 0.4,
+            "CROP#0": 0.2,
+            "CROP#1": 0.0,
+            "CROP#2": 0.2,
+            "CROP#3": 0.2,
+            "CROP#4": 0.2,
+            "CROP#5": 0.2,
+            "CROP#6": 0.2,
+            "CROP#7": 0.2
+          },
+          "best_fixed_cf": 0.4,
+          "best_fixed_choice": "STOP#0:20"
+        },
+        "headroom": {
+          "H_net": 0.0,
+          "H_ci": [
+            0.0,
+            0.0
+          ],
+          "H_floor": "base",
+          "P_policy": 0.0,
+          "P_ci": [
+            0.0,
+            0.0
+          ],
+          "oracle_minus_base": 0.0,
+          "luck_floor_gain": null
+        },
+        "diversity": {
+          "n_decisive": 2,
+          "distribution": {
+            "STOP": 1.0,
+            "CROP": 0.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          },
+          "counts": {
+            "STOP": 2,
+            "CROP": 0,
+            "OCR": 0,
+            "HIGHRES": 0
+          },
+          "max_share": 1.0,
+          "n_families_over_10pct": 1
+        },
+        "exclusive_solve": {
+          "STOP": 0.0,
+          "CROP": 0.0,
+          "OCR": 0.0,
+          "HIGHRES": 0.0
+        },
+        "harm": {
+          "dmg_rate": 0.4,
+          "by_family": {
+            "CROP": 1.0,
+            "OCR": 0.0,
+            "HIGHRES": 0.0
+          }
+        },
+        "recovery_overlap": {
+          "none": 3
+        },
+        "reliability": {
+          "per_action_agreement": 0.9818181818181818,
+          "top1_family_agreement": 1.0,
+          "parse_failures": 0,
+          "rows": 120
+        }
+      }
+    ]
+  }
+}

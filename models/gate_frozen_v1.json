@@ -1,0 +1,42 @@
+{
+  "version": "gate_frozen_v1",
+  "created": "2026-08-18T14:07:39",
+  "features": [
+    "mean_logprob",
+    "min_logprob",
+    "answer_len_tokens",
+    "answer_len_chars",
+    "question_len_chars",
+    "budget_ratio"
+  ],
+  "hyper": {
+    "max_iter": 3000,
+    "class_weight": "balanced",
+    "C": 0.5
+  },
+  "protocol": {
+    "positives": "HELP (replicate-consistent)",
+    "negatives": "NEUTRAL + HARM",
+    "excluded": "AMBIGUOUS",
+    "score": "predict_proba[:,1]; higher = LOOK",
+    "evaluation": "lift at LOOK rate matched to that set's positive prevalence; also 1.5x/2x/3x; PR-AUC/prevalence; ROC",
+    "refit_on_new_data": false
+  },
+  "train": {
+    "n": 407,
+    "positives": 58,
+    "sources": {
+      "textvqa": 230,
+      "vqav2": 177
+    },
+    "ids_sha1": "d58093431cc3438d"
+  },
+  "coefficients": {
+    "mean_logprob": -0.2652,
+    "min_logprob": -0.314,
+    "answer_len_tokens": 0.3546,
+    "answer_len_chars": 0.2541,
+    "question_len_chars": 0.0153,
+    "budget_ratio": -0.0754
+  }
+}

@@ -1,0 +1,325 @@
+{
+ "strict": {
+  "R1->R2": {
+   "accuracy": {
+    "coarse_stop_r2": 0.6,
+    "coarse_stop_r1": 0.6466666666666666,
+    "full_image_r2": 0.755,
+    "oracle_cf": 0.7883333333333334,
+    "oracle_naive_r1": 0.8816666666666666,
+    "oracle_dummy_cf": 0.83,
+    "fixed_policies": {
+     "HIGHRES#0": 0.72,
+     "OCR#0": 0.66,
+     "STOP#0": 0.6,
+     "CROP#0": 0.7083333333333333,
+     "CROP#1": 0.6983333333333333,
+     "CROP#2": 0.7133333333333333,
+     "CROP#3": 0.6766666666666665,
+     "CROP#4": 0.6983333333333333,
+     "CROP#5": 0.7066666666666666,
+     "CROP#6": 0.6633333333333333,
+     "CROP#7": 0.6583333333333333
+    },
+    "best_fixed_cf": 0.6908333333333333,
+    "best_fixed_choice": "CROP#2:11,CROP#4:4,CROP#5:3"
+   },
+   "headroom": {
+    "H_net": -0.02666666666666667,
+    "H_ci": [
+     -0.0934166666666666,
+     0.04000000000000001
+    ],
+    "H_floor": "dummy",
+    "P_policy": 0.0975,
+    "P_ci": [
+     0.04716666666666667,
+     0.14766666666666667
+    ],
+    "oracle_minus_base": 0.18833333333333346,
+    "luck_floor_gain": 0.22999999999999998
+   },
+   "harm": {
+    "dmg_rate": 0.13,
+    "by_family": {
+     "CROP": 0.16101694915254236,
+     "OCR": 0.1016949152542373,
+     "HIGHRES": 0.0423728813559322
+    }
+   },
+   "diversity": {
+    "n_decisive": 81,
+    "distribution": {
+     "STOP": 0.32098765432098764,
+     "CROP": 0.4567901234567901,
+     "OCR": 0.19753086419753085,
+     "HIGHRES": 0.024691358024691357
+    },
+    "counts": {
+     "STOP": 26,
+     "CROP": 37,
+     "OCR": 16,
+     "HIGHRES": 2
+    },
+    "max_share": 0.4567901234567901,
+    "n_families_over_10pct": 3
+   },
+   "exclusive_solve": {
+    "STOP": 0.0,
+    "CROP": 0.115,
+    "OCR": 0.005,
+    "HIGHRES": 0.01
+   },
+   "reliability": {
+    "per_action_agreement": 0.9586363636363636,
+    "top1_family_agreement": 0.7777777777777778,
+    "parse_failures": 0,
+    "rows": 7000
+   }
+  },
+  "R2->R1": {
+   "accuracy": {
+    "coarse_stop_r2": 0.6466666666666666,
+    "coarse_stop_r1": 0.6,
+    "full_image_r2": 0.75,
+    "oracle_cf": 0.8383333333333333,
+    "oracle_naive_r1": 0.875,
+    "oracle_dummy_cf": 0.85,
+    "fixed_policies": {
+     "HIGHRES#0": 0.715,
+     "OCR#0": 0.6416666666666666,
+     "STOP#0": 0.6466666666666666,
+     "CROP#0": 0.71,
+     "CROP#1": 0.715,
+     "CROP#2": 0.74,
+     "CROP#3": 0.6916666666666665,
+     "CROP#4": 0.7083333333333333,
+     "CROP#5": 0.7283333333333333,
+     "CROP#6": 0.6833333333333332,
+     "CROP#7": 0.6816666666666665
+    },
+    "best_fixed_cf": 0.7006666666666667,
+    "best_fixed_choice": "HIGHRES#0:7,CROP#2:6,CROP#0:3"
+   },
+   "headroom": {
+    "H_net": -0.013333333333333334,
+    "H_ci": [
+     -0.06333333333333334,
+     0.03341666666666546
+    ],
+    "H_floor": "dummy",
+    "P_policy": 0.13766666666666666,
+    "P_ci": [
+     0.09733333333333333,
+     0.17983333333333335
+    ],
+    "oracle_minus_base": 0.19166666666666665,
+    "luck_floor_gain": 0.20333333333333337
+   },
+   "harm": {
+    "dmg_rate": 0.13,
+    "by_family": {
+     "CROP": 0.16101694915254236,
+     "OCR": 0.1016949152542373,
+     "HIGHRES": 0.0423728813559322
+    }
+   }
+  },
+  "symmetric": {
+   "P_policy": 0.11758333333333333,
+   "P_ci": [
+    0.07966666666666666,
+    0.15766666666666665
+   ],
+   "n": 200,
+   "oracle_cf": 0.8133333333333334,
+   "best_fixed_cf": 0.69575,
+   "best_fixed_choice": {
+    "R1->R2": "CROP#2:11,CROP#4:4,CROP#5:3",
+    "R2->R1": "HIGHRES#0:7,CROP#2:6,CROP#0:3"
+   }
+  },
+  "verbose_stop_share": 0.375
+ },
+ "lenient": {
+  "R1->R2": {
+   "accuracy": {
+    "coarse_stop_r2": 0.72,
+    "coarse_stop_r1": 0.7316666666666666,
+    "full_image_r2": 0.8633333333333334,
+    "oracle_cf": 0.8883333333333333,
+    "oracle_naive_r1": 0.9316666666666668,
+    "oracle_dummy_cf": 0.8966666666666667,
+    "fixed_policies": {
+     "HIGHRES#0": 0.8133333333333332,
+     "OCR#0": 0.7716666666666666,
+     "STOP#0": 0.72,
+     "CROP#0": 0.7766666666666666,
+     "CROP#1": 0.77,
+     "CROP#2": 0.7733333333333333,
+     "CROP#3": 0.7583333333333333,
+     "CROP#4": 0.78,
+     "CROP#5": 0.775,
+     "CROP#6": 0.73,
+     "CROP#7": 0.7366666666666666
+    },
+    "best_fixed_cf": 0.8006666666666666,
+    "best_fixed_choice": "HIGHRES#0:17,CROP#0:1,CROP#2:1"
+   },
+   "headroom": {
+    "H_net": -0.04,
+    "H_ci": [
+     -0.09333333333333334,
+     0.013333333333333334
+    ],
+    "H_floor": "dummy",
+    "P_policy": 0.08766666666666666,
+    "P_ci": [
+     0.051166666666666666,
+     0.12733333333333333
+    ],
+    "oracle_minus_base": 0.16833333333333333,
+    "luck_floor_gain": 0.17666666666666675
+   },
+   "harm": {
+    "dmg_rate": 0.115,
+    "by_family": {
+     "CROP": 0.12056737588652482,
+     "OCR": 0.06382978723404255,
+     "HIGHRES": 0.03546099290780142
+    }
+   },
+   "diversity": {
+    "n_decisive": 67,
+    "distribution": {
+     "STOP": 0.34328358208955223,
+     "CROP": 0.43283582089552236,
+     "OCR": 0.208955223880597,
+     "HIGHRES": 0.014925373134328358
+    },
+    "counts": {
+     "STOP": 23,
+     "CROP": 29,
+     "OCR": 14,
+     "HIGHRES": 1
+    },
+    "max_share": 0.43283582089552236,
+    "n_families_over_10pct": 3
+   },
+   "exclusive_solve": {
+    "STOP": 0.0,
+    "CROP": 0.075,
+    "OCR": 0.005,
+    "HIGHRES": 0.005
+   },
+   "reliability": {
+    "per_action_agreement": 0.9772727272727273,
+    "top1_family_agreement": 0.8656716417910447,
+    "parse_failures": 0,
+    "rows": 7000
+   }
+  },
+  "R2->R1": {
+   "accuracy": {
+    "coarse_stop_r2": 0.7316666666666666,
+    "coarse_stop_r1": 0.72,
+    "full_image_r2": 0.855,
+    "oracle_cf": 0.8966666666666666,
+    "oracle_naive_r1": 0.9233333333333335,
+    "oracle_dummy_cf": 0.8966666666666666,
+    "fixed_policies": {
+     "HIGHRES#0": 0.8183333333333335,
+     "OCR#0": 0.7483333333333333,
+     "STOP#0": 0.7316666666666666,
+     "CROP#0": 0.7733333333333333,
+     "CROP#1": 0.77,
+     "CROP#2": 0.7816666666666666,
+     "CROP#3": 0.7616666666666666,
+     "CROP#4": 0.77,
+     "CROP#5": 0.7816666666666666,
+     "CROP#6": 0.7433333333333334,
+     "CROP#7": 0.7416666666666666
+    },
+    "best_fixed_cf": 0.7925,
+    "best_fixed_choice": "HIGHRES#0:14,CROP#0:2,CROP#4:2"
+   },
+   "headroom": {
+    "H_net": -0.01,
+    "H_ci": [
+     -0.05333333333333334,
+     0.030000000000000006
+    ],
+    "H_floor": "dummy",
+    "P_policy": 0.10416666666666669,
+    "P_ci": [
+     0.06983333333333333,
+     0.1416666666666667
+    ],
+    "oracle_minus_base": 0.16500000000000004,
+    "luck_floor_gain": 0.16500000000000004
+   },
+   "harm": {
+    "dmg_rate": 0.115,
+    "by_family": {
+     "CROP": 0.12056737588652482,
+     "OCR": 0.06382978723404255,
+     "HIGHRES": 0.03546099290780142
+    }
+   }
+  },
+  "symmetric": {
+   "P_policy": 0.09591666666666665,
+   "P_ci": [
+    0.06491458333333332,
+    0.13041666666666665
+   ],
+   "n": 200,
+   "oracle_cf": 0.8925,
+   "best_fixed_cf": 0.7965833333333333,
+   "best_fixed_choice": {
+    "R1->R2": "HIGHRES#0:17,CROP#0:1,CROP#2:1",
+    "R2->R1": "HIGHRES#0:14,CROP#0:2,CROP#4:2"
+   }
+  },
+  "verbose_stop_share": 0.375
+ },
+ "paraphrase_audit": {
+  "rule_hits": {
+   "^what is (.+)\\?$": 57,
+   "^how (.+)\\?$": 8,
+   "^what (.+)\\?$": 87,
+   "fallback: 'Based on the image: \u2026'": 15,
+   "^when (.+)\\?$": 2,
+   "^which (.+)\\?$": 5,
+   "^who (.+)\\?$": 11,
+   "^what are (.+)\\?$": 3,
+   "^is (.+)\\?$": 6,
+   "^where (.+)\\?$": 3,
+   "^does (.+)\\?$": 3
+  },
+  "examples": [
+   [
+    "what is the brand of this camera?",
+    "Looking at the image, what is the brand of this camera?"
+   ],
+   [
+    "how long has the drink on the right been aged?",
+    "Based on the image, how long has the drink on the right been aged?"
+   ],
+   [
+    "what is one of the brands being advertised?",
+    "Looking at the image, what is one of the brands being advertised?"
+   ],
+   [
+    "what is the company name to the left of the coors logo?",
+    "Looking at the image, what is the company name to the left of the coors logo?"
+   ],
+   [
+    "what playing card is shown?",
+    "Based on the image, what playing card is shown?"
+   ]
+  ],
+  "n_rules": 12,
+  "deterministic": true
+ }
+}

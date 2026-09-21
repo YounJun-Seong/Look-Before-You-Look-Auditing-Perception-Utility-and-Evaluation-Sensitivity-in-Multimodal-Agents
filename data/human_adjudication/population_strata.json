@@ -1,0 +1,17 @@
+{
+ "both_correct": 580,
+ "both_wrong": 670,
+ "disagree": 245,
+ "other": 89,
+ "n_unique_items": 1584,
+ "n_ctrl_per_stratum": 50,
+ "n_dis": 200,
+ "disagree_definition": "strict == 0 and lenient > 0",
+ "disagree_alloc_by_family": {
+  "OCR": 42,
+  "CROP": 88,
+  "STOP": 21,
+  "HIGHRES": 49
+ },
+ "seed": 20260921
+}

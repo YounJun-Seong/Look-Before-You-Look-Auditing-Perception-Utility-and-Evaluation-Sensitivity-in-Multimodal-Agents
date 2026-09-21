@@ -1,0 +1,86 @@
+{
+ "mme": [
+  {
+   "budget_frac": 0.05,
+   "budget_vtok": 49.69540816326531,
+   "lagrangian_acc": 0.4744897959183674,
+   "exact_dp_acc": 0.4897959183673469,
+   "randomized_hull_acc": 0.4758412607621828,
+   "dp_minus_lagrangian": 0.015306122448979553
+  },
+  {
+   "budget_frac": 0.1,
+   "budget_vtok": 99.39081632653063,
+   "lagrangian_acc": 0.47959183673469385,
+   "exact_dp_acc": 0.49489795918367346,
+   "randomized_hull_acc": 0.47959183673469385,
+   "dp_minus_lagrangian": 0.015306122448979609
+  },
+  {
+   "budget_frac": 0.2,
+   "budget_vtok": 198.78163265306125,
+   "lagrangian_acc": 0.47959183673469385,
+   "exact_dp_acc": 0.49489795918367346,
+   "randomized_hull_acc": 0.47959183673469385,
+   "dp_minus_lagrangian": 0.015306122448979609
+  },
+  {
+   "budget_frac": 0.4,
+   "budget_vtok": 397.5632653061225,
+   "lagrangian_acc": 0.47959183673469385,
+   "exact_dp_acc": 0.49489795918367346,
+   "randomized_hull_acc": 0.47959183673469385,
+   "dp_minus_lagrangian": 0.015306122448979609
+  },
+  {
+   "budget_frac": 1.0,
+   "budget_vtok": 993.9081632653061,
+   "lagrangian_acc": 0.47959183673469385,
+   "exact_dp_acc": 0.49489795918367346,
+   "randomized_hull_acc": 0.47959183673469385,
+   "dp_minus_lagrangian": 0.015306122448979609
+  }
+ ],
+ "textvqa": [
+  {
+   "budget_frac": 0.05,
+   "budget_vtok": 15.406500000000001,
+   "lagrangian_acc": 0.735,
+   "exact_dp_acc": 0.7625,
+   "randomized_hull_acc": 0.7608278610137073,
+   "dp_minus_lagrangian": 0.02749999999999997
+  },
+  {
+   "budget_frac": 0.1,
+   "budget_vtok": 30.813000000000002,
+   "lagrangian_acc": 0.8075,
+   "exact_dp_acc": 0.7966666666666667,
+   "randomized_hull_acc": 0.8081946941653446,
+   "dp_minus_lagrangian": -0.01083333333333325
+  },
+  {
+   "budget_frac": 0.2,
+   "budget_vtok": 61.626000000000005,
+   "lagrangian_acc": 0.8133333333333332,
+   "exact_dp_acc": 0.8058333333333333,
+   "randomized_hull_acc": 0.8133333333333332,
+   "dp_minus_lagrangian": -0.007499999999999951
+  },
+  {
+   "budget_frac": 0.4,
+   "budget_vtok": 123.25200000000001,
+   "lagrangian_acc": 0.8133333333333332,
+   "exact_dp_acc": 0.8058333333333333,
+   "randomized_hull_acc": 0.8133333333333332,
+   "dp_minus_lagrangian": -0.007499999999999951
+  },
+  {
+   "budget_frac": 1.0,
+   "budget_vtok": 308.13,
+   "lagrangian_acc": 0.8133333333333332,
+   "exact_dp_acc": 0.8058333333333333,
+   "randomized_hull_acc": 0.8133333333333332,
+   "dp_minus_lagrangian": -0.007499999999999951
+  }
+ ]
+}

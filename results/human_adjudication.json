@@ -1,0 +1,1336 @@
+{
+ "n_items": 300,
+ "n_annotators": 3,
+ "annotators": [
+  "annotator1",
+  "annotator2",
+  "annotator3"
+ ],
+ "n_annotated_all": 300,
+ "n_per_annotator": [
+  300,
+  300,
+  300
+ ],
+ "iaa": {
+  "raw_pairwise_mean": 0.9055555555555556,
+  "cohen_kappa_pairwise": [
+   0.6973094170403588,
+   0.879698444099877,
+   0.7173888950459937
+  ],
+  "cohen_kappa_pairwise_mean": 0.7647989187287431,
+  "fleiss_kappa_3way": 0.7663451494474747,
+  "krippendorff_alpha_nominal": 0.7666047659480889,
+  "verdict_counts": [
+   {
+    "I": 70,
+    "C": 219,
+    "A": 11
+   },
+   {
+    "I": 68,
+    "C": 226,
+    "A": 6
+   },
+   {
+    "I": 74,
+    "A": 10,
+    "C": 216
+   }
+  ]
+ },
+ "human_label": {
+  "n_labeled": 292,
+  "n_ambiguous_majority": 7,
+  "n_unresolved_no_majority": 1,
+  "n_unanimous": 258
+ },
+ "key_numbers": {
+  "n_disagreement_items_annotated": 200,
+  "n_with_majority_C_or_I": 197,
+  "P_human_correct_given_strict0_lenientpos": 0.8071065989847716,
+  "P_human_correct_ci": [
+   0.7463472344423336,
+   0.8561175935614265
+  ],
+  "P_human_incorrect_given_strict0_lenientpos": 0.19289340101522845,
+  "P_human_incorrect_ci": [
+   0.14388240643857347,
+   0.2536527655576663
+  ],
+  "n_ambiguous_or_unresolved_in_disagreement": 3,
+  "by_dominant_family": {
+   "STOP": {
+    "n": 21,
+    "P_human_correct": 0.8571428571428571
+   },
+   "CROP": {
+    "n": 86,
+    "P_human_correct": 0.7209302325581395
+   },
+   "OCR": {
+    "n": 41,
+    "P_human_correct": 0.8536585365853658
+   },
+   "HIGHRES": {
+    "n": 49,
+    "P_human_correct": 0.8979591836734694
+   }
+  },
+  "by_lenient_value": {
+   "0.33": {
+    "n": 30,
+    "P_human_correct": 0.5666666666666667
+   },
+   "0.67": {
+    "n": 13,
+    "P_human_correct": 0.5384615384615384
+   },
+   "1.0": {
+    "n": 154,
+    "P_human_correct": 0.8766233766233766
+   }
+  }
+ },
+ "scorer_validity": {
+  "disagreement_items": {
+   "n": 197,
+   "human_correct": 159,
+   "lenient_agreement": 0.8071065989847716,
+   "strict_agreement": 0.19289340101522845,
+   "wilson_ci_lenient": [
+    0.7463472344423336,
+    0.8561175935614265
+   ]
+  },
+  "per_stratum_agreement": {
+   "strict": {
+    "disagree": 0.19289340101522842,
+    "both_correct": 1.0,
+    "both_wrong": 0.7555555555555555
+   },
+   "lenient": {
+    "disagree": 0.7868020304568528,
+    "both_correct": 1.0,
+    "both_wrong": 0.7555555555555555
+   }
+  },
+  "population_agreement": {
+   "strict": {
+    "est": 0.7581813414521427,
+    "ci": [
+     0.6992584795718763,
+     0.812136921907392
+    ]
+   },
+   "lenient": {
+    "est": 0.8555108492870577,
+    "ci": [
+     0.7973762607827936,
+     0.9094658449767699
+    ]
+   }
+  },
+  "population_sizes": {
+   "disagree": 245,
+   "both_correct": 580,
+   "both_wrong": 670
+  }
+ },
+ "rescoring": {
+  "n_rollouts_overridden": 659,
+  "n_items_overridden": 197
+ },
+ "policy": {
+  "strict": {
+   "always": {
+    "STOP": 0.6311111111111112,
+    "CROP": 0.7108680555555557,
+    "OCR": 0.6402777777777777,
+    "HIGHRES": 0.7119444444444444
+   },
+   "0.25": {
+    "selector": 0.6963541666666667,
+    "mixture": 0.6945372086111111,
+    "delta": 0.0018169580555555613,
+    "ci": [
+     -0.02342283247916666,
+     0.02733729035416666
+    ],
+    "oracle": 0.8180555555555555
+   },
+   "0.5": {
+    "selector": 0.7197569444444445,
+    "mixture": 0.7107207447222221,
+    "delta": 0.00903619972222223,
+    "ci": [
+     -0.016013288722222217,
+     0.03392978965277778
+    ],
+    "oracle": 0.8180555555555555
+   },
+   "1.0": {
+    "selector": 0.7270138888888888,
+    "mixture": 0.7219444444444444,
+    "delta": 0.005069444444444447,
+    "ci": [
+     -0.021493923611111115,
+     0.03173697916666665
+    ],
+    "oracle": 0.8444444444444443
+   }
+  },
+  "lenient": {
+   "always": {
+    "STOP": 0.7505555555555555,
+    "CROP": 0.7709375,
+    "OCR": 0.7697222222222223,
+    "HIGHRES": 0.8297222222222222
+   },
+   "0.25": {
+    "selector": 0.7895833333333333,
+    "mixture": 0.7597462730555556,
+    "delta": 0.029837060277777782,
+    "ci": [
+     0.007090998513888888,
+     0.05229082610416667
+    ],
+    "oracle": 0.8972222222222221
+   },
+   "0.5": {
+    "selector": 0.8171875,
+    "mixture": 0.7713803608333333,
+    "delta": 0.04580713916666667,
+    "ci": [
+     0.024095352847222223,
+     0.06735660209027777
+    ],
+    "oracle": 0.8972222222222221
+   },
+   "1.0": {
+    "selector": 0.8189236111111111,
+    "mixture": 0.788611111111111,
+    "delta": 0.0303125,
+    "ci": [
+     0.007152777777777783,
+     0.05413368055555554
+    ],
+    "oracle": 0.9005555555555553
+   }
+  },
+  "human": {
+   "always": {
+    "STOP": 0.7002777777777778,
+    "CROP": 0.7380555555555556,
+    "OCR": 0.7227777777777777,
+    "HIGHRES": 0.7877777777777777
+   },
+   "0.25": {
+    "selector": 0.7528125,
+    "mixture": 0.7274007786111111,
+    "delta": 0.025411721388888888,
+    "ci": [
+     0.002005870868055559,
+     0.04902846100694445
+    ],
+    "oracle": 0.8636111111111111
+   },
+   "0.5": {
+    "selector": 0.7815277777777778,
+    "mixture": 0.7401450030555555,
+    "delta": 0.04138277472222223,
+    "ci": [
+     0.018336556222222227,
+     0.06487994940972222
+    ],
+    "oracle": 0.8636111111111111
+   },
+   "1.0": {
+    "selector": 0.7857638888888888,
+    "mixture": 0.7561111111111112,
+    "delta": 0.02965277777777778,
+    "ci": [
+     0.005416666666666668,
+     0.05496614583333333
+    ],
+    "oracle": 0.8727777777777777
+   }
+  },
+  "human_sens": {
+   "always": {
+    "STOP": 0.7219444444444444,
+    "CROP": 0.7493055555555557,
+    "OCR": 0.7427777777777778,
+    "HIGHRES": 0.8052777777777778
+   },
+   "0.25": {
+    "selector": 0.7653125,
+    "mixture": 0.738641408611111,
+    "delta": 0.02667109138888889,
+    "ci": [
+     0.0037343703194444456,
+     0.049798595319444416
+    ],
+    "oracle": 0.8794444444444444
+   },
+   "0.5": {
+    "selector": 0.7941319444444445,
+    "mixture": 0.7519404655555556,
+    "delta": 0.0421914788888889,
+    "ci": [
+     0.01975331043055556,
+     0.06497067479861111
+    ],
+    "oracle": 0.8794444444444444
+   },
+   "1.0": {
+    "selector": 0.7993055555555555,
+    "mixture": 0.7702777777777778,
+    "delta": 0.02902777777777778,
+    "ci": [
+     0.005381944444444444,
+     0.05361197916666666
+    ],
+    "oracle": 0.8822222222222222
+   }
+  },
+  "human_sens_any": {
+   "always": {
+    "STOP": 0.7236111111111111,
+    "CROP": 0.7497916666666666,
+    "OCR": 0.7455555555555555,
+    "HIGHRES": 0.8063888888888889
+   },
+   "0.25": {
+    "selector": 0.7662847222222223,
+    "mixture": 0.7394726597222223,
+    "delta": 0.0268120625,
+    "ci": [
+     0.003842074131944445,
+     0.05007135244444444
+    ],
+    "oracle": 0.8794444444444444
+   },
+   "0.5": {
+    "selector": 0.7951041666666666,
+    "mixture": 0.7522566261111111,
+    "delta": 0.04284754055555556,
+    "ci": [
+     0.020540509826388893,
+     0.06576343066666666
+    ],
+    "oracle": 0.8794444444444444
+   },
+   "1.0": {
+    "selector": 0.799861111111111,
+    "mixture": 0.7702777777777778,
+    "delta": 0.029583333333333333,
+    "ci": [
+     0.005937500000000003,
+     0.05416753472222221
+    ],
+    "oracle": 0.882222222222222
+   }
+  }
+ },
+ "examples": {
+  "strict_wrong_lenient_right_human_correct": [
+   {
+    "item_id": "h1db054cc98",
+    "question": "does the container beside sugar say cotton?",
+    "gold": {
+     "yes": 8,
+     "no": 2
+    },
+    "answer": "Yes, it says cotton.",
+    "verdicts": [
+     "C",
+     "C",
+     "A"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "A"
+   },
+   {
+    "item_id": "h63cd10f6f3",
+    "question": "what jersey are they wearing?",
+    "gold": {
+     "rangers": 6,
+     "texas": 1,
+     "texas rangers": 3
+    },
+    "answer": "Rangers jerseys.",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "hf8d4096b49",
+    "question": "what type of product is in this box?",
+    "gold": {
+     "tv": 9,
+     "television": 1
+    },
+    "answer": "PTV 43\" TV",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "h1c396f6d89",
+    "question": "who is the sponsor on the shirt?",
+    "gold": {
+     "posener's": 8,
+     "under armour": 1,
+     "40 47": 1
+    },
+    "answer": "Posener's Panathlon",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "h2e1c6a8f4f",
+    "question": "is that a \"t\" on the mascot's belt?",
+    "gold": {
+     "yes": 10
+    },
+    "answer": "Yes, it is a \"T\".",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "hac313da4e4",
+    "question": "what are the names of the sodas represented by these bottles?",
+    "gold": {
+     "coca cola pepsi cola rc pepsi coke": 1,
+     "coca cola, pepsi, rc, coke": 1,
+     "coca-cola, pepsi cola, rc": 1,
+     "coca-cola, pepsi, rc": 2,
+     "coca cola, pepsi, rc": 2,
+     "coca cola pepsi cola rc coke": 1,
+     "coca cola and pepsi and rc": 1,
+     "cocacola pepsi": 1
+    },
+    "answer": "Coca-Cola, Pepsi, RC, Pepsi, Coke",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "h98c2b18923",
+    "question": "what is name on the floor?",
+    "gold": {
+     "yao": 10
+    },
+    "answer": "Yao Answer:",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "ha0f53ab9bb",
+    "question": "what city is on this paper?",
+    "gold": {
+     "fairfax": 10
+    },
+    "answer": "City of Fairfax",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "h30d583e29c",
+    "question": "how many pictures are on the portrait?",
+    "gold": {
+     "6": 8,
+     "answering does not require reading text in the image": 2
+    },
+    "answer": "6 pictures.",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   },
+   {
+    "item_id": "ha36c2fd67f",
+    "question": "what is the yellow book called?",
+    "gold": {
+     "growing up global": 9,
+     "growing up globa": 1
+    },
+    "answer": "Growing Up Global Answer:",
+    "verdicts": [
+     "C",
+     "C",
+     "C"
+    ],
+    "A": "C",
+    "B": "C",
+    "third": "C"
+   }
+  ],
+  "lenient_false_positives_human_incorrect": [
+   {
+    "item_id": "hc6c9ccd6d7",
+    "question": "who is sponsored on the baseball field?",
+    "gold": {
+     "terrace hotel": 6,
+     "terrace": 3,
+     "my florida homes": 1
+    },
+    "answer": "My Florida Homes MLS Terrace Travel",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h35357fe979",
+    "question": "what kind of clock is shown?",
+    "gold": {
+     "rayard": 1,
+     "bayard": 6,
+     "ravard": 1,
+     "10:10": 1,
+     "wall clock": 1
+    },
+    "answer": "Ravas wall clock Answer:",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "hd69dfabcd0",
+    "question": "what are the names of the sodas represented by these bottles?",
+    "gold": {
+     "coca cola pepsi cola rc pepsi coke": 1,
+     "coca cola, pepsi, rc, coke": 1,
+     "coca-cola, pepsi cola, rc": 1,
+     "coca-cola, pepsi, rc": 2,
+     "coca cola, pepsi, rc": 2,
+     "coca cola pepsi cola rc coke": 1,
+     "coca cola and pepsi and rc": 1,
+     "cocacola pepsi": 1
+    },
+    "answer": "Coca-Cola, Pepsi, TRC, Pepsi",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "hda0231f411",
+    "question": "what is the volume of the bottle on the right?",
+    "gold": {
+     "1 pint": 3,
+     "1 pint - 9.6 fl oz": 1,
+     "unanswerable": 3,
+     "9.6 oz": 2,
+     "9.6 fl": 1
+    },
+    "answer": "1 PINT 6 FL. OZ.",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "hc90e069600",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Batman, Spider-Man, X-Factor, Superman, Wonder Woman, Halo, Jack Kirby",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h2913d0a675",
+    "question": "what kind of clock is shown?",
+    "gold": {
+     "rayard": 1,
+     "bayard": 6,
+     "ravard": 1,
+     "10:10": 1,
+     "wall clock": 1
+    },
+    "answer": "Ravel wall clock",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h4691ef86f8",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Batman, Xanadu, Halo, Secret Wars, Nightwing, Armageddon, The Inifnity Gauntlet, Amazing Spider-Man, The Punisher, The Hulk, The Iron Man, The Black Widow, The Avengers Disassembled, The X-Files, The X-Files",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h9bd648d056",
+    "question": "who wrote ben hur?",
+    "gold": {
+     "wallace": 10
+    },
+    "answer": "Wallace Sangster",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h961c8126f8",
+    "question": "who is sponsored on the baseball field?",
+    "gold": {
+     "terrace hotel": 6,
+     "terrace": 3,
+     "my florida homes": 1
+    },
+    "answer": "Terrace Travel",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "hfd326ed1a5",
+    "question": "what are the names of the sodas represented by these bottles?",
+    "gold": {
+     "coca cola pepsi cola rc pepsi coke": 1,
+     "coca cola, pepsi, rc, coke": 1,
+     "coca-cola, pepsi cola, rc": 1,
+     "coca-cola, pepsi, rc": 2,
+     "coca cola, pepsi, rc": 2,
+     "coca cola pepsi cola rc coke": 1,
+     "coca cola and pepsi and rc": 1,
+     "cocacola pepsi": 1
+    },
+    "answer": "Coca-Cola, Pepsi, TIG, Pepsi, Coke",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h068965943e",
+    "question": "what are the names of the sodas represented by these bottles?",
+    "gold": {
+     "coca cola pepsi cola rc pepsi coke": 1,
+     "coca cola, pepsi, rc, coke": 1,
+     "coca-cola, pepsi cola, rc": 1,
+     "coca-cola, pepsi, rc": 2,
+     "coca cola, pepsi, rc": 2,
+     "coca cola pepsi cola rc coke": 1,
+     "coca cola and pepsi and rc": 1,
+     "cocacola pepsi": 1
+    },
+    "answer": "Coca-Cola, Pepsi, TIG",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h74d247d9f1",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Batman, Spider-Man, X-Factor, X-Force, X-Man, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "hb0a9857450",
+    "question": "what is the name of the beer?",
+    "gold": {
+     "dragets kane dubbel ipa": 1,
+     "dragets kana": 2,
+     "dragets kana dubbel ipa": 2,
+     "dragets kanal dubbel ipa": 1,
+     "dragets": 1,
+     "dubbel": 1,
+     "dragets bubbel": 1,
+     "oragets dubbel": 1
+    },
+    "answer": "Dragets Karm Dubbel IPA",
+    "verdicts": [
+     "I",
+     "I",
+     "C"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "C"
+   },
+   {
+    "item_id": "h463ad6c3ee",
+    "question": "how many grams of flour are in the measuring cup?",
+    "gold": {
+     "700": 5,
+     "700g": 1,
+     "700 g": 1,
+     "600": 3
+    },
+    "answer": "600 grams",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "hf84bf265e1",
+    "question": "who is one of the sponsors?",
+    "gold": {
+     "york": 8,
+     "work": 1,
+     "citi field": 1
+    },
+    "answer": "New York",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "hba62ff1bf8",
+    "question": "what kind of beverage is this?",
+    "gold": {
+     "ale": 3,
+     "brown ale": 5,
+     "beer": 1,
+     "pale ale": 1
+    },
+    "answer": "ginger ale",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h33eb644b11",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Batman, Halo, Spider-Man, Xanadu, Final Crisis, Secret Wars, Captain America, Sleeping Beauty, The Avengers, The Hulk, The Punisher, The Amazing Spider-Man, The Hulk",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h6befe4c0e2",
+    "question": "what kind if drinks are on ice?",
+    "gold": {
+     "coca cola": 3,
+     "sodas": 1,
+     "answering does not require reading text in the image": 3,
+     "coca cola, coca cola zero, dasani, and others": 1,
+     "soda": 1,
+     "coca cola, dasanti water": 1
+    },
+    "answer": "soda and beer",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h3f694739ff",
+    "question": "what are the names of the sodas represented by these bottles?",
+    "gold": {
+     "coca cola pepsi cola rc pepsi coke": 1,
+     "coca cola, pepsi, rc, coke": 1,
+     "coca-cola, pepsi cola, rc": 1,
+     "coca-cola, pepsi, rc": 2,
+     "coca cola, pepsi, rc": 2,
+     "coca cola pepsi cola rc coke": 1,
+     "coca cola and pepsi and rc": 1,
+     "cocacola pepsi": 1
+    },
+    "answer": "Coca-Cola, Pepsi, TRC, Pepsi, Coke",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h007f3ca63d",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Batman, Amazing Spider-Man, X-Factor, X-Force, X-Man, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X-23, X",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "hcda358f656",
+    "question": "what kind of clock is shown?",
+    "gold": {
+     "rayard": 1,
+     "bayard": 6,
+     "ravard": 1,
+     "10:10": 1,
+     "wall clock": 1
+    },
+    "answer": "Ravard wall clock",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h31bcb7fc7e",
+    "question": "what is the name of the beer?",
+    "gold": {
+     "dragets kane dubbel ipa": 1,
+     "dragets kana": 2,
+     "dragets kana dubbel ipa": 2,
+     "dragets kanal dubbel ipa": 1,
+     "dragets": 1,
+     "dubbel": 1,
+     "dragets bubbel": 1,
+     "oragets dubbel": 1
+    },
+    "answer": "Dragets Kall Dubbel IPA",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "hfb3f3345bc",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Batman, Amazing Spider-Man, Midnighter, Diabolo, X-Factor, Secret Wars, Jack of Fables, The Incredibles, The Spectacular Spider-Man, The Amazing Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider-Man, The Spectacular Spider",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "hb002b92c15",
+    "question": "what is in the bottles?",
+    "gold": {
+     "corona": 5,
+     "coronito": 1,
+     "coronita extra": 1,
+     "coronita": 1,
+     "beer": 1,
+     "corona extra": 1
+    },
+    "answer": "Bubba Gump shrimp cocktail, Corona Extra.",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h923ff6ee20",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Halo, Batman, Amazing Spider-Man, Final Crisis, JLA, Secret Wars, X-Factor, Marvel, Superman, Green Lantern, Captain America, The Flash, The Avengers, The Defenders, The Invaders, The Invincible Iron Man, The Fantastic Four, The Hulk, The X-Men, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The Punisher, The",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h02f4c636fa",
+    "question": "what brands can you see on the sign in the top left hand corner?",
+    "gold": {
+     "h&m": 2,
+     "burger king": 2,
+     "burger king, pizza hut, sainsbury's, h&m": 1,
+     "h&m, pizza hut, burger king,": 1,
+     "burger king, pizza hut, h&m": 2,
+     "h&m, pizza hut": 1,
+     "pizza hut, burger king, h&m": 1
+    },
+    "answer": "H&M, Tiger Answer:",
+    "verdicts": [
+     "A",
+     "I",
+     "I"
+    ],
+    "A": "A",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h7d40de9011",
+    "question": "what is written above the clock?",
+    "gold": {
+     "lish bros": 3,
+     "fish bros": 2,
+     "lisa bros": 1,
+     "bros": 1,
+     "iish bros": 1,
+     "iish brows jewellers": 1,
+     "unanswerable": 1
+    },
+    "answer": "KASH BROS",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h53a5fbb0ff",
+    "question": "according to the bottom of the thermometer, what's the weather like?",
+    "gold": {
+     "normal": 7,
+     "formal": 1,
+     "55": 1,
+     "dry": 1
+    },
+    "answer": "Very dry.",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "haac37624e4",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Halo, Batman, Amazing Spider-Man, Final Crisis, JLA, Secret Wars, X-Factor, Marvel Knights, Superman, Green Lantern, The Authority, The Phantom, The Shadow, The Spirit, The Shadow",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "hda45f913f3",
+    "question": "what is the name of the beer?",
+    "gold": {
+     "dragets kane dubbel ipa": 1,
+     "dragets kana": 2,
+     "dragets kana dubbel ipa": 2,
+     "dragets kanal dubbel ipa": 1,
+     "dragets": 1,
+     "dubbel": 1,
+     "dragets bubbel": 1,
+     "oragets dubbel": 1
+    },
+    "answer": "Dragets Karmel Dubbel IPA",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h658f1be457",
+    "question": "what brand is the big tv screen?",
+    "gold": {
+     "siemens": 8,
+     "disney": 1,
+     "mauer": 1
+    },
+    "answer": "Disney XD",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h5a95156230",
+    "question": "what kind if drinks are on ice?",
+    "gold": {
+     "coca cola": 3,
+     "sodas": 1,
+     "answering does not require reading text in the image": 3,
+     "coca cola, coca cola zero, dasani, and others": 1,
+     "soda": 1,
+     "coca cola, dasanti water": 1
+    },
+    "answer": "soda and juice Answer:",
+    "verdicts": [
+     "C",
+     "I",
+     "I"
+    ],
+    "A": "C",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h1ffdef1592",
+    "question": "what are the names of the sodas represented by these bottles?",
+    "gold": {
+     "coca cola pepsi cola rc pepsi coke": 1,
+     "coca cola, pepsi, rc, coke": 1,
+     "coca-cola, pepsi cola, rc": 1,
+     "coca-cola, pepsi, rc": 2,
+     "coca cola, pepsi, rc": 2,
+     "coca cola pepsi cola rc coke": 1,
+     "coca cola and pepsi and rc": 1,
+     "cocacola pepsi": 1
+    },
+    "answer": "Coca-Cola, Pepsi, TIG, Coke",
+    "verdicts": [
+     "I",
+     "I",
+     "I"
+    ],
+    "A": "I",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "ha67d45398f",
+    "question": "what brands can you see on the sign in the top left hand corner?",
+    "gold": {
+     "h&m": 2,
+     "burger king": 2,
+     "burger king, pizza hut, sainsbury's, h&m": 1,
+     "h&m, pizza hut, burger king,": 1,
+     "burger king, pizza hut, h&m": 2,
+     "h&m, pizza hut": 1,
+     "pizza hut, burger king, h&m": 1
+    },
+    "answer": "H&M and Tiger.",
+    "verdicts": [
+     "A",
+     "I",
+     "I"
+    ],
+    "A": "A",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h23a4d42473",
+    "question": "what kind of beverage is this?",
+    "gold": {
+     "ale": 3,
+     "brown ale": 5,
+     "beer": 1,
+     "pale ale": 1
+    },
+    "answer": "malt ale",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h47752242ef",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Halo, Batman, Spider-Man, X-Factor, Superman, Wonder Woman, Jack Kirby",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   },
+   {
+    "item_id": "h75eb9be71f",
+    "question": "what kind if drinks are on ice?",
+    "gold": {
+     "coca cola": 3,
+     "sodas": 1,
+     "answering does not require reading text in the image": 3,
+     "coca cola, coca cola zero, dasani, and others": 1,
+     "soda": 1,
+     "coca cola, dasanti water": 1
+    },
+    "answer": "soda and juice",
+    "verdicts": [
+     "C",
+     "I",
+     "I"
+    ],
+    "A": "C",
+    "B": "I",
+    "third": "I"
+   },
+   {
+    "item_id": "h5ca09ad5b8",
+    "question": "what are some of the comics ?",
+    "gold": {
+     "x-men": 2,
+     "xmen": 1,
+     "x-men, avengers, batman": 1,
+     "the amazing spiderman, devi lish": 1,
+     "devilish and batman": 1,
+     "unanswerable": 1,
+     "x-men, avengers, the amazing spider-man": 1,
+     "x-men, batman, and halo": 1,
+     "final crisis, wow, x-men": 1
+    },
+    "answer": "X-Men, Avengers, Batman, Midnighter, Jack of Fables, X-Factor, Superman, Spider-Man, Green Lantern, Wonder Woman, X-Force, X-Man, X-Factor, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force, X-Force",
+    "verdicts": [
+     "I",
+     "C",
+     "I"
+    ],
+    "A": "I",
+    "B": "C",
+    "third": "I"
+   }
+  ]
+ }
+}

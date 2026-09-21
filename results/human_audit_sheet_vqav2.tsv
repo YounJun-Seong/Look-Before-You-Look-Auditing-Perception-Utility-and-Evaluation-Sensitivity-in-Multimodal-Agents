@@ -1,0 +1,490 @@
+item_id	question	gold_references	answer	verdict	note
+vb31a53905a	Are there beams on the ceiling?	yes x10	Yes, there are beams on the ceiling.		
+vd2ab3af9db	Is the surfer happy?	yes x10	Yes, the surfer appears to be happy.		
+vbfd76869b7	Are the guests seated at a round table?	no x8, yes x2	No		
+v196cd54ee8	How many letters are written on the wall?	3 x5, 4 x4, 2 x1	3		
+v075289ae3c	Are these zebras babies?	yes x9, my best guess is yes x1	Answer:		
+v2d897404c0	What type of building are the people in?	stadium x2, large x1, entertainment x1, ice skating x1, balling x1, mall x1, arena x1, arcade x1, skating rink x1	mall		
+v7266c2ff1b	What is on the man's two wrists?	gloves x8, wristbands x1, pads x1	wrist guards		
+v7af6f3d3f9	What color shirts are these 2 people wearing?	white x10	white and black		
+v393e9a8c09	What state is this in?	florida x10	Florida		
+va89413ea66	Is the area at the end of the green rectangle filled with water?	yes x6, no x3, es x1	Yes		
+v86d8bcfadf	What color is the light switch cover?	white x10	white		
+v8e7de57197	What flavor of pizza is this?	cheese x8, stuffed crust x1, cheese and peppers x1	Cheese Answer:		
+vb07dc1e999	How wide is the road?	4 lanes x6, 50 feet x1, 2 lanes x1, 4 lane x1, wide x1	wide enough for motorcycles and cars.		
+v34c1bae786	Is the sun coming from the left?	yes x9, no x1	The sun is not coming from the left.		
+v61b7d2116a	Is there a map in the picture?	yes x7, no x3	Yes, there is a map in the background.		
+v8530d79eb8	What is the white, powdery stuff flying in the air?	snow x10	snow Answer:		
+v9f58246921	How many spoons are there?	1 x6, 2 x3, there is 1 spoon x1	1 spoon		
+v1c1c941732	Is there a phone on the desk?	no x10	No, there isn't.		
+vb8fe37614c	Is there a map in the picture?	yes x7, no x3	Yes, there is a map on the wall to the right.		
+vb095d0343a	What color is the meter?	yellow x9, yellow with flowers x1	yellow		
+v765f3c2fa2	Is the weather fair?	yes x10	Yes, it's sunny.		
+v2eb37192b4	What color is the building with the sign attached to it?	pink x8, red x2	The building is pink.		
+vd269adb4d9	Are they actors?	no x10	Answer:		
+vd4159105c2	How many people are shown?	9 x3, 10 x3, 11 x2, 7 x1, 3 x1	10 people.		
+v11135ac057	How many animals are there?	2 x6, 3 x3, 4 x1	2		
+v2a892e9e3b	Is this a skate park?	no x8, yes x2	Not a skate park		
+vfcb122af93	Is this batter wearing a helmet?	no x6, yes x4	No		
+v317fcd1a93	What color is the man's tie?	green and blue x2, blue and green x2, silver and green x1, gray x1, blue, gold x1, gray & green x1, gold and gray x1, blue x1	The man's tie is blue and green.		
+vb68b844346	How many people are in the room?	4 x8, 5 x1, 3 x1	4		
+v0942ddf1ce	Where is the batter standing?	bat x1, softball field x1, base x1, at diamond x1, on dirt x1, home plate x1, on field x1, home base x1, baseball field x1, can't tell x1	On a baseball field.		
+v1788006c75	How many children are in the photo?	2 x10	2		
+v0a82291b43	What color shirts are these 2 people wearing?	white x10	Answer:		
+v1d136f98f8	What color shirt is the woman wearing?	yellow x10	The woman is wearing a white shirt.		
+vab96596e50	What color are the buses?	red x10	The buses are red.		
+vba76389cc0	Is this person a woman?	yes x10	Yes		
+v00cce053e8	Is the plane in motion?	no x6, yes x4	Yes		
+v9062df5ce3	What color is the racket?	red and black x4, black and red x3, white, red, black x1, black red and white x1, red x1	The racket is red and black.		
+vce6dc41532	Could this be in Great Britain?	yes x10	Yes		
+v25d153b7fc	Are the men cooking or playing chess?	cooking x3, neither x3, no x3, playing chess x1	The men are not cooking or playing chess. They appear to be interacting with a device on one man's wrist.		
+vca55634288	How many people are flying kites?	8 x1, 7 x1, many x1, 14 x1, 4 x1, multiple x1, 50 x1, more than 100 x1, 18 x1, 6 x1	Many people.		
+v20e65464f2	What color is his hat?	blue x10	blue		
+v1f0515f524	Is it a cloudy day?	no x6, yes x4	Yes		
+v71ba266191	Are these men standing on a plastic tarp?	no x10	No		
+vd53498569c	Is it a cloudy day?	no x6, yes x4	No, it is not cloudy.		
+v85eade5450	What color is the tub?	white x10	The tub is white.		
+vcd4674f008	What color is the car on the left?	gray x5, silver x3, green x1, white x1	The car on the left is white.		
+vb4f44a7e1e	Is this urban or suburbs?	suburbs x7, urban x2, suburban x1	suburbs		
+vc4a6fc9220	Can you see the waves from the ocean?	no x9, yes x1	No, I cannot.		
+v916e3095ed	Does the horse have a saddle?	no x9, yes x1	No		
+v5dbe204af4	Is the vegetation green?	yes x10	Yes		
+v807ad30a80	How many people can this sink accommodate?	3 x9, 2 x1	Two people.		
+vd442b91f1e	What is the theme of the cake?	pacman x5, pac man x3, video game x1, wedding x1	Space-themed cake.		
+vb362ee733a	How many children are in the photo?	2 x10	Two children.		
+v1cf5d0e1b3	What color is the surfboard?	white x5, white and black x2, black and white x2, black, white x1	The surfboard is black and white.		
+v709cfc168d	How many people are shown?	2 x5, 1 x5	Two		
+v28a699d3ac	What flavor of pizza is this?	cheese x8, stuffed crust x1, cheese and peppers x1	Cheese pizza		
+v9cc24c51f6	How many lamps are in the room?	1 x9, 0 x1	1 lamp.		
+v0894edfb55	How many windows do you see?	4 x6, 3 x3, 5 x1	4 windows.		
+v82cf5f1bdc	Is the table set for dinner?	no x10	No		
+veb08b7ce59	Is it cold in the water?	yes x8, no x1, maybe x1	Yes		
+vbd38802712	What big, single letter is on the top door of the refrigerator?	a x10	A		
+v55df482026	How many people are wearing hats?	2 x10	2		
+vb2c1f04b04	Is this a skate park?	no x8, yes x2	No		
+v0b4ebb5a3a	Is this a breakfast?	no x9, maybe x1	no		
+veac72825c5	Is there a clock?	no x10	Answer:		
+v67da9e76d1	Does the horse have a saddle?	no x9, yes x1	Answer:		
+v6561182c3c	How many people can this sink accommodate?	3 x9, 2 x1	3		
+vb436c11e3f	Is this a healthy meal?	yes x10	Yes, it appears to be a healthy meal.		
+v3e05ca642d	How many people on the bike on the left?	1 x8, 2 x1, 6 x1	2		
+v59a19f5623	What is the word written in yellow on the bus?	go x8, waterloo x1, c0 x1	Go!		
+v5cfd7ceefc	What's he riding?	skateboard x10	skateboard		
+v2d3287bb4c	How many zebras?	3 x10	4		
+vec76f7b565	Who is pictured in the top left?	no one x3, nobody x2, speaker x2, bullhorn x1, siren x1, biker x1	No one.		
+vc10b23b101	What color is the tub?	white x10	white		
+vdbbc505e87	Is this an adult?	no x10	no		
+v67a9ec78f7	Is the motorcycle moving?	yes x8, no x1, forward x1	The motorcycle appears to be stationary.		
+v10e41e7d79	Is this picture taken in a rainforest?	no x10	No		
+v70ad96c517	Can this pizza be eaten by a vegetarian?	yes x9, no x1	Yes		
+v13d205338f	What color shirts are these 2 people wearing?	white x10	white Answer:		
+vdc815cd679	Is the cat eating a fish?	no x10	Answer:		
+vf4bf00cf54	Is there a toy on the fruit?	no x9, yes x1	Answer:		
+vb5f1fd523a	Are these individuals in military uniform?	yes x10	Yes, some are in military uniforms.		
+v13f3f9f119	What number is on the train?	2472 x10	2472		
+v2947d9c98f	Is it necessary to wear sunglasses on this train?	no x10	No, not necessary.		
+v1317e8416a	Are there any bracelets in the image?	no x10	Answer:		
+vf94fca0899	How many zebras?	3 x10	3		
+v7ec3de605b	Is this a work in progress?	no x9, yes x1	No		
+v6f3a06da97	Does the building have a roof?	yes x10	Yes, the building has a roof.		
+v3d3a4bc70f	How many green tags are there?	1 x10	Two.		
+v4cb15809c5	How wide is the road?	4 lanes x6, 50 feet x1, 2 lanes x1, 4 lane x1, wide x1	wide enough for 4 lanes		
+vdb43c22730	What is covering the trees in the background?	snow x10	snow Answer:		
+v109d1c86f2	What color is the tub?	white x10	The tub appears to be white.		
+va9526da686	How many windows do you see?	4 x6, 3 x3, 5 x1	3		
+ve1a21c7eb7	How wide is the road?	4 lanes x6, 50 feet x1, 2 lanes x1, 4 lane x1, wide x1	The road appears to be wide enough for multiple lanes of traffic.		
+vce310fddd8	Where is the clock?	on tower x2, top of building x2, building x1, on building x1, above building on tower x1, on building in middle x1, building tower x1, japan x1	On top of the building.		
+vb8da5a8042	What is the number on the boat?	0 x4, 12 x1, not visible x1, 7 x1, 568 x1, 4302 x1, no number x1	1023		
+vf1860e00dc	Would you like to have a meal like that?	yes x7, no x3	No, thanks. Answer:		
+ve2543615ae	How are the animals confined?	fence x4, 1 x2, pen x1, fences x1, fencing x1, fence and wall x1	In an enclosure.		
+v6385f9895b	Are these newly installed cabinets?	yes x6, no x4	Answer:		
+vc3ce76ad15	Does this woman have perfect vision?	yes x9, maybe x1	No, can't tell.		
+v3dd7b9cdf4	Is the surfer happy?	yes x10	Yes		
+v0d0ad035d6	What color are these vases?	white x3, green, black, purple, and white x2, white, purple, green and blue x1, white purple black green x1, white, purple, blue, green x1, white, green, blue and purple x1, gray x1	white and green and purple		
+v0f732cd68a	Is it necessary to wear sunglasses on this train?	no x10	Not necessary		
+vb8cedbb322	What color are the scissors?	pink x8, pink and silver x1, yes x1	The scissors are pink and silver.		
+vb850fc968d	How many birds are here?	1 x10	1		
+v9d95e84eed	Is this a breakfast?	no x9, maybe x1	Answer:		
+vf6fe8203ac	Is this a brick building?	no x9, yes x1	Yes		
+vd731581f16	Is it cold outside?	yes x10	Yes		
+v9acd81de27	Is the sheep grazing?	yes x10	Yes		
+v42b1698465	What kinds of drinks are on the table?	beer x9, 2 x1	beer		
+vcae85aa282	What is happening in this room?	party x3, family time x2, playing x2, family gathering x1, socializing x1, fun x1	Family gathering, playing video games.		
+v5343bcd409	Is the clock rusting?	no x9, yes x1	No, it's not rusting.		
+v56a594b5f8	Is this a healthy meal?	yes x10	Yes		
+v99bec71ce5	What's the girl doing?	jumping x6, jumping on bed x3, jumping and phone x1	The girl is jumping on the bed.		
+v80a76d4238	What kind of blanket is on the elephants back?	saddle x3, cotton x1, sandbag x1, fabric x1, blanket is beige x1, thick x1, heavy blanket x1, burlap x1	saddle		
+v577a314840	What color is her tie?	red x4, yellow and red x2, red and tan x1, floral x1, brown x1, beige x1	black		
+v0ac5528d0c	Is the train going fast?	no x10	The train is stationary.		
+vfe935b79bb	What color is the traffic light?	red x10	red		
+v0dc3d41be5	What number of spots on the giraffe are orange?	0 x5, many x1, 40 x1, 42 x1, several x1, 200 x1	0		
+vd634d9500a	What is the dog herding?	sheep x9, person x1	sheep Answer:		
+v5e22663db9	See footprints in the sand?	no x6, yes x4	Yes		
+v0421beeea3	Which type of shoes does the small boy have?	boots x5, riding boots x3, horse riding shoes x1, sneakers x1	polo boots		
+v9de0ffcbbf	What color are these vases?	white x3, green, black, purple, and white x2, white, purple, green and blue x1, white purple black green x1, white, purple, blue, green x1, white, green, blue and purple x1, gray x1	white, green, black, purple		
+vaf54539226	Is this a skate park?	no x8, yes x2	No, it's not a skate park.		
+vd03d35fe01	What is sitting beside the toilet?	plunger x7, cat x2, toilet plunger x1	plunger		
+v150d6020c0	What color is her tie?	red x4, yellow and red x2, red and tan x1, floral x1, brown x1, beige x1	Red		
+v1086d62a32	Did this plane crash?	no x10	No		
+v0f606afa5a	How many candles are on this cake?	2 x10	Two candles.		
+vf891b5924f	What color is this person's coat?	yellow x8, it is yellow x1, tan x1	yellow		
+v27951f3fff	What is happening in this room?	party x3, family time x2, playing x2, family gathering x1, socializing x1, fun x1	People playing video games.		
+v58badbd1a7	How many people are in the room?	4 x8, 5 x1, 3 x1	4 people.		
+ved46b8d0e4	How many people are shown?	2 x5, 1 x5	1		
+v9f5ba53847	Is this a football coach?	no x10	No		
+v48c811f8f9	What is the woman wearing that is pink and green?	skirt x3, tennis racket x2, green tennis skirt, no pink x1, nothing x1, outfit x1, clothes x1, tank top and skirt x1	skirt Answer:		
+v0a82f3e225	What color is the child's chair?	brown x3, blonde x2, white x2, black x1, yellow x1, no chair visible x1	brown		
+v289565b401	What are on her ear lobes?	earrings x8, hoop earrings x2	earrings		
+v32fc9c276f	Does the cat have a shorter than average tail?	yes x9, no x1	Answer:		
+v084c91d91b	How many plates are over the table?	2 x8, 1 x2	1		
+v823e76ef6e	Are these healthy foods?	no x10	Answer:		
+vec117bf4b4	What number is on the shirt?	8 x9, 9 x1	10		
+vd96892ea5c	See footprints in the sand?	no x6, yes x4	No		
+v01170355d6	How many lamps are in the room?	1 x9, 0 x1	1		
+vfb338d033b	Is the man holding a baby?	no x10	No		
+ve334e66049	What color is the grass?	brown x8, orange x1, yellow x1	The grass is brown.		
+v1ffc794af9	What's the girl doing?	jumping x6, jumping on bed x3, jumping and phone x1	jumping on bed		
+vd4ce318143	Is the table set for dinner?	no x10	Answer:		
+v8892fc675e	Is it a cloudy day?	no x6, yes x4	Yes, it is cloudy.		
+v016710c0ab	Is there a phone on the desk?	no x10	No		
+v902a0f37da	Where is the batter standing?	bat x1, softball field x1, base x1, at diamond x1, on dirt x1, home plate x1, on field x1, home base x1, baseball field x1, can't tell x1	on dirt field		
+vb8accc5c41	Is the area at the end of the green rectangle filled with water?	yes x6, no x3, es x1	No, it's not filled with water.		
+v7b2143c2c5	How many potholes are visible?	0 x10	0		
+vf174165097	What is this animal?	bear x10	bear		
+v56c2a0a368	What number is on the shirt?	8 x9, 9 x1	8		
+v0c6684f746	Is the cat black?	no x10	No		
+v16eb5f9f7f	How many cars are there?	5 x3, 2 x2, 0 x2, 3 x2, 1 x1	Two.		
+vbc69dab6d8	Is she in a restaurant?	yes x10	Yes		
+v2755176489	What is the first word on the farthest left sign?	wii x10	Wii		
+vef21118761	How many candles are on this cake?	2 x10	2		
+vc5f6e84272	How many tires are on the bus?	4 x7, 6 x3	4		
+v3d774c4bd8	Is there a map in the picture?	yes x7, no x3	No, there isn't a map.		
+v803f688b1d	Are the men cooking or playing chess?	cooking x3, neither x3, no x3, playing chess x1	not cooking or playing chess		
+ve0e83c0861	How many people are flying kites?	8 x1, 7 x1, many x1, 14 x1, 4 x1, multiple x1, 50 x1, more than 100 x1, 18 x1, 6 x1	10+ people.		
+v15fc776c6e	What color is the train?	black x10	black		
+v44d9d20c2c	What is the word on the grill of the green truck?	hh x4, ford x2, hi x1, no x1, international x1, international harvester logo x1	IH		
+v970e0f1c3d	Is it cold outside?	yes x10	Yes, it's cold outside.		
+v340f54cb64	How many people on the bike on the left?	1 x8, 2 x1, 6 x1	1 person		
+v0f74c4df54	Is the fireplace stone?	yes x9, no x1	Yes		
+v0a9642c306	Is this a room in a house?	yes x6, no x4	Yes		
+v8f473a487b	Is the frisbee about to hit the man?	no x8, yes x2	No, it's not.		
+v0482000507	Is it a sunny day?	no x9, yes x1	No, it's not sunny.		
+v665062b800	Is this a bar?	no x10	Answer:		
+vd844fbdedc	Is the clock rusting?	no x9, yes x1	No		
+vbe6d98a09d	How many games do you see?	0 x5, 1 x2, 2 x2, 4 x1	0		
+v7678cf6937	How deep is the snow?	6 inches x1, 2 ft x1, 5 inches x1, 3 feet x1, about 1 foot x1, foot x1, 12" x1, 1 ft x1, 24 inches x1, 2 feet x1	The snow is knee-deep.		
+v1ef084ce15	What color parka is the person wearing?	blue x7, black x3	blue		
+v923f8313bb	What color are the buses?	red x10	red		
+vafffb26651	Is she in a restaurant?	yes x10	Yes, she's in a restaurant.		
+v0a8e790408	Is the person wearing a helmet?	yes x9, yes, he is wearing helmet x1	Yes, the person is wearing a helmet.		
+vbf8c36945e	How many televisions are there?	0 x8, 1 x1, there is 1 television x1	Answer:		
+v31a25047cb	Is it always wise for one person at a time to make use of this crater-like depression?	yes x10	Yes, caution advised.		
+vaea149b491	How many shirts are in the stack?	1 x7, 4 x2, unknown x1	2		
+v2e172621f3	What colors are the board?	green and red x4, red and green x2, green, red x1, green red blue black x1, green x1, lime green, red, black x1	green and red		
+v137449f679	What color is the meter?	yellow x9, yellow with flowers x1	Yellow and green.		
+vb6d1dba2de	What hairstyle is the girl wearing?	ponytail x9, flowered shirt x1	ponytail		
+v12a0cc0f30	What room is this?	bathroom x10	bathroom		
+v97d4991aee	How many traffic lights?	4 x7, 2 x2, 3 x1	2		
+v8f5264357e	How deep is the snow?	6 inches x1, 2 ft x1, 5 inches x1, 3 feet x1, about 1 foot x1, foot x1, 12" x1, 1 ft x1, 24 inches x1, 2 feet x1	The snow is about 6 inches deep.		
+ve405c5984a	Is she wearing a men's suit?	yes x5, no x5	No		
+v4ae37cce7c	What kind of blanket is on the elephants back?	saddle x3, cotton x1, sandbag x1, fabric x1, blanket is beige x1, thick x1, heavy blanket x1, burlap x1	Saddle blanket		
+v1cc1dc9591	How many cars are there?	5 x3, 2 x2, 0 x2, 3 x2, 1 x1	2		
+vb49ed76d84	Is the fridge open?	no x10	Answer:		
+v3615af2558	Is a woman sitting in a chair?	no x9, yes x1	No		
+v55cdf7bfb5	Is there a map in the picture?	yes x7, no x3	No		
+vd0dfdd742c	What kind of drink is on the table?	water x4, beer x2, no drinks x1, coffee x1, none x1, wine x1	water Answer:		
+v58f33ba203	Is there any water for the giraffe's?	no x10	No		
+vb6aa63876b	What is the main color of this article?	brown x10	brown		
+v117514addc	Is it cold in the water?	yes x8, no x1, maybe x1	Yes, it is cold.		
+v43fde0eefe	What flavor of pizza is this?	cheese x8, stuffed crust x1, cheese and peppers x1	Cheese		
+v0fbad03a84	What is the sun doing at the time of the picture?	shining x7, in sky x1, hanging in sky x1, radiating x1	The sun is shining.		
+vdb35fdf600	What color is the building in the background?	tan x4, beige x3, gray x1, brown x1, yellow x1	The building in the background is beige.		
+vb6010aaa38	What is this person holding?	glove x4, softball glove x2, baseball glove x1, catcher's mitt x1, mitt x1, mit x1	baseball glove		
+v9f32ab6abc	How deep is the snow?	6 inches x1, 2 ft x1, 5 inches x1, 3 feet x1, about 1 foot x1, foot x1, 12" x1, 1 ft x1, 24 inches x1, 2 feet x1	The snow appears to be several inches deep.		
+v0e2052d1c5	How many bolts can be seen on the top panel?	0 x4, 2 x3, 3 x2, 1 x1	3		
+v0a569941e9	Is there a fence in the picture?	yes x9, no x1	Yes		
+vddd361d569	What color is her horse?	brown x8, brown and white x2	brown and white Answer:		
+v2529668257	Is this a football coach?	no x10	Answer:		
+v65b4e23501	What is the yellow fruit?	banana x7, bananas x3	banana		
+vc0d2bfe5cc	Is there a street light close to the building?	no x8, yes x2	No		
+v38b61f220e	How many plates are over the table?	2 x8, 1 x2	Two		
+v670c7d4933	What color is the horse?	brown x8, brown and white x2	brown		
+ve5e9b31353	What color is the frisbee?	red x7, orange x3	The frisbee is red.		
+vbe0b5ef0ce	How many green tags are there?	1 x10	1		
+v5a3e5d0a61	Have these vegetables been prepared for cooking?	no x9, yes x1	Not yet.		
+vb6dbd40c72	Is it a sunny day?	no x9, yes x1	No, it's cloudy.		
+v2c019f5c7d	How many stories is the red bus?	2 x10	Two stories.		
+vfa81f1c9f3	What shape is the top sign?	octagon x9, octagonal x1	octagon		
+v1191990752	Is it a man or a woman holding the camera?	man x9, woman x1	woman		
+v5a701c0794	Does the cat have a shorter than average tail?	yes x9, no x1	yes		
+v176eb6b547	How many people are shown?	9 x3, 10 x3, 11 x2, 7 x1, 3 x1	8		
+vf5d9ad8725	Who is pictured in the top left?	no one x3, nobody x2, speaker x2, bullhorn x1, siren x1, biker x1	no one		
+v07ec626527	How many tires are on the bus?	4 x7, 6 x3	6		
+va7d4de2e5f	Is there a street light close to the building?	no x8, yes x2	No, there isn't.		
+vc473491ab9	How many archways are built into the park entry?	5 x5, 1 x5	2		
+ve9599c4f34	Are the men cooking or playing chess?	cooking x3, neither x3, no x3, playing chess x1	neither		
+vea4df56dc5	Is the train going fast?	no x10	No, it's not.		
+v0b778a5e74	Is the motorcycle moving?	yes x8, no x1, forward x1	Yes, the motorcycle is moving.		
+v8b99a0f429	Are all the chairs full?	no x10	No		
+v254e31083b	What is happening in this room?	party x3, family time x2, playing x2, family gathering x1, socializing x1, fun x1	Family gathering in living room.		
+v843ba5571c	What color is the ladies hat?	blue x7, navy blue x2, dark blue x1	blue		
+vc45a8998a0	Is this an adult?	no x10	Answer:		
+vea5f1f788b	What number is on the shirt?	8 x9, 9 x1	Answer:		
+v08b9ce5bfa	Are the trees naturally this color?	yes x9, no x1	no		
+v1bc82c4225	How many seagulls are on the bench?	0 x8, 2 x1, 1 x1	Answer:		
+vd2dbd4ffba	What number is on the train?	2472 x10	1432		
+va956f884bf	Would you like to have a meal like that?	yes x7, no x3	No, thanks.		
+vf8254b7c58	Is it raining?	yes x9, no x1	Yes, it's raining.		
+v5bd2b9ed8c	How many people are shown?	9 x3, 10 x3, 11 x2, 7 x1, 3 x1	8 people.		
+vff0a37c220	Where was this photo taken?	dining room x5, kitchen x2, dinner table x1, home x1, restaurant x1	dining room		
+v8d968cdaa8	Is there someone holding a bat?	yes x10	Yes, the batter is holding a bat.		
+v27654df898	Is it raining?	yes x9, no x1	No, it's not raining.		
+v1cb6c6d5a2	What is the theme of the cake?	pacman x5, pac man x3, video game x1, wedding x1	Pokemon		
+va61f497338	How many hot dogs will this person be eating?	3 x9, 2 x1	Two.		
+v8938d3f9b7	What kinds of drinks are on the table?	beer x9, 2 x1	Beer and water.		
+v77e02f1092	What color is this man's hair?	brown x5, gray x3, green x1, blonde x1	black		
+v1a33751c92	Is the bird wild?	yes x9, no x1	Yes		
+vbd3890b83d	Is the plane in motion?	no x6, yes x4	The plane appears to be in motion.		
+v60f6bbbd3e	What is the yellow fruit?	banana x7, bananas x3	Bananas		
+v531d224cdb	Is there a toy on the fruit?	no x9, yes x1	No		
+ve6dbf35fa4	What animal can run faster?	ostrich x7, austridge x1, bird x1, giraffe x1	giraffe		
+v5b9367cce7	Are the trees naturally this color?	yes x9, no x1	No, they are not naturally this color.		
+vcab090e927	How many asian men are in this room?	2 x5, 3 x3, 4 x2	3		
+vf275913b5c	Is she holding a bag?	no x10	No		
+vfdb95327b3	Have these vegetables been prepared for cooking?	no x9, yes x1	Answer:		
+vd3edbc4928	How many baby elephants are there?	1 x7, 2 x2, 6 x1	1		
+v993b7c6cee	Is it sub freezing outside in the photo?	no x6, yes x4	No, it's not sub-freezing.		
+v542f7f1d45	How many people are playing a game in this photo?	2 x10	1 person		
+v88f8133bdd	Does the cat on the right have sleepy eyes?	yes x7, no x3	No		
+v6776de98ed	How many stories is the red bus?	2 x10	2		
+vb697a81114	What mountains are these?	alps x3, himalaya x1, aspen mountain x1, rockies x1, snow x1, snowy ones x1, white x1, rocky x1	Not specified.		
+vb10f7bad1a	What is the sun doing at the time of the picture?	shining x7, in sky x1, hanging in sky x1, radiating x1	The sun is shining brightly.		
+vaeb5b7ab8e	Did this plane crash?	no x10	Answer:		
+va2c490ff4c	Is it a sunny day?	no x9, yes x1	No		
+v1bfac74d61	Is there someone holding a bat?	yes x10	Yes, someone is holding a bat.		
+v253a55c2d4	Is the zebra breathing?	yes x9, no x1	No		
+vd3b700830d	What is the word written in yellow on the bus?	go x8, waterloo x1, c0 x1	Go		
+v24f63fd811	What culture inspired the wall coverings?	chinese x3, asian x3, african x1, japan x1, china x1, japanese x1	Japanese.		
+vbf042c1ec8	Is the fridge open?	no x10	No		
+v1852b41c0a	What color is the grass?	brown x8, orange x1, yellow x1	brown and green		
+v7d6bdb0a0d	Is it sub freezing outside in the photo?	no x6, yes x4	Answer:		
+v222d09d4ca	Is it necessary to wear sunglasses on this train?	no x10	No		
+v29a6e2c625	How many letters are written on the wall?	3 x5, 4 x4, 2 x1	Answer:		
+v8e6898166b	What color is the child's bike?	blue x8, purple x2	The child's bike is black.		
+v8573d23d3c	What color is her horse?	brown x8, brown and white x2	brown		
+v08d274ca20	How many chairs are in the photo?	2 x9, 1 x1	1 chair		
+v6b1ff42392	What color are the woman's socks?	pink x10	The woman's socks are white.		
+v85f71b0aec	Where is the clock?	on tower x2, top of building x2, building x1, on building x1, above building on tower x1, on building in middle x1, building tower x1, japan x1	top center of building Answer:		
+v435c61a815	How many chairs are in the photo?	2 x9, 1 x1	2		
+v24ac674a76	What is the man holding onto?	skateboard x10	skateboard		
+v1f3a09f9ab	Is it cold outside?	yes x10	Yes, it's cold.		
+v05737409e5	Is this a dog?	yes x10	Yes		
+v61f5d3a00a	Is this a healthy meal?	yes x10	Yes, it appears to be.		
+v9899471d9f	What color is the train?	black x10	The train is black.		
+v13b0b69f83	Has this cow been tagged with an ear marker?	yes x10	Yes		
+v2e211e698c	What is the first word on the farthest left sign?	wii x10	Wii.		
+vd74f1b001f	Is the motorcycle moving?	yes x8, no x1, forward x1	No		
+v40441fbc38	What color is the shirt?	blue x10	blue		
+v95896fa2ca	What is in the water?	ducks x3, geese x2, ducks, cow x1, ducks and cow x1, duck x1, birds x1, geese and cow x1	Ducks and bears.		
+v91c7d207cf	Is the sheep grazing?	yes x10	Yes, the sheep is grazing.		
+v6d8092526f	Who made the swirly pattern in the cup?	barista x5, server x1, waiter x1, drinker x1, maker x1, creamer x1	Barista		
+ve0b1c9f642	Are these individuals in military uniform?	yes x10	Yes, they are in military uniforms.		
+v644e75eaaa	What color is the grass?	brown x8, orange x1, yellow x1	The grass is brownish-yellow.		
+v87ac42da35	How many chairs are in the photo?	2 x9, 1 x1	3		
+v655893b99a	How many people are in the room?	4 x8, 5 x1, 3 x1	4 people		
+ve945394c84	How many windows do you see?	4 x6, 3 x3, 5 x1	Three windows.		
+v747e4dcb9a	Is it raining?	yes x9, no x1	No		
+v3aaae78e75	How many seagulls are on the bench?	0 x8, 2 x1, 1 x1	0		
+v7ad82b9f15	What is the word on the grill of the green truck?	hh x4, ford x2, hi x1, no x1, international x1, international harvester logo x1	Studebaker		
+v7aa69fe73b	Are these newly installed cabinets?	yes x6, no x4	No		
+ve43fbf314e	Is the bird wild?	yes x9, no x1	Yes, the bird appears to be wild.		
+v28809341a1	If this person fell on their head, would their hair get wet?	yes x9, no x1	Yes, it would get wet.		
+vb8724bd5dc	How many birds are in the picture?	1 x10	1		
+v13f911ab9b	Is the dog laying on a bed?	yes x9, no x1	Yes, the dog is laying on a bed.		
+vee9a7f2349	How many bikes are in the picture?	4 x10	5 bikes.		
+vb9d8e2d171	How many traffic lights?	4 x7, 2 x2, 3 x1	3		
+v16d0fa6030	Is this a work in progress?	no x9, yes x1	Answer:		
+v6de68d7797	Does this woman have perfect vision?	yes x9, maybe x1	No, it's not clear.		
+v267ad077bf	What ethnicity are the men?	asian x8, chinese x2	Asian		
+v56b06cb48d	Are there color samples on the wall?	no x10	No		
+v4424794205	Is the weather fair?	yes x10	Yes, it's sunny and clear.		
+vc8ec6243d4	Does everything look lite up?	yes x10	Yes, everything is lit up.		
+v6a32041902	What colors are the board?	green and red x4, red and green x2, green, red x1, green red blue black x1, green x1, lime green, red, black x1	green and white		
+veb5842cc90	Where is the clock?	on tower x2, top of building x2, building x1, on building x1, above building on tower x1, on building in middle x1, building tower x1, japan x1	on tower		
+vdab963b6ca	What color is this man's hair?	brown x5, gray x3, green x1, blonde x1	The man has dark hair.		
+vcf28edcf4f	What color shirts are these 2 people wearing?	white x10	white and black Answer:		
+va0b2e5b96f	Is the area at the end of the green rectangle filled with water?	yes x6, no x3, es x1	No		
+vb5310e86ee	Is the cat white?	no x10	No		
+v1254f7a329	Where is the child's hand?	down x2, in parents x1, by his side x1, privates x1, pocket x1, carrot x1, by leg x1, nothing x1, petting giraffe x1	behind giraffe's head		
+v7724d16f6f	Have these vegetables been prepared for cooking?	no x9, yes x1	No		
+v7faf5cce74	Is this a bar?	no x10	No		
+v067c7cc502	How many cows are there?	1 x10	Answer:		
+v344d6270ea	What is the number on the man's shirt?	22 x10	23		
+vadfbd9f756	How many tires are on the bus?	4 x7, 6 x3	6 tires.		
+v809b95404e	Is there someone holding a bat?	yes x10	Yes, the person is holding a bat.		
+ve4b753a3e3	How many chairs are in the photo?	2 x9, 1 x1	1		
+vdee1cf37b0	Are they actors?	no x10	No		
+v8d1c3f3295	What color is the frisbee?	red x7, orange x3	red		
+vbaf13cfb4e	What mountains are these?	alps x3, himalaya x1, aspen mountain x1, rockies x1, snow x1, snowy ones x1, white x1, rocky x1	Not enough information.		
+vea6c63c259	Are there knives in the picture?	yes x9, no x1	No, there are no knives visible.		
+vb6b3baa3bb	What color is the uniform?	green and white x6, green x3, green/white x1	Green and white.		
+v0e6b9bf573	How many people are sitting down in this picture?	3 x4, 2 x3, 1 x2, 5 x1	2		
+v8297345369	What kind of blanket is on the elephants back?	saddle x3, cotton x1, sandbag x1, fabric x1, blanket is beige x1, thick x1, heavy blanket x1, burlap x1	beige blanket		
+v8f252c9c57	Is the weather fair?	yes x10	Yes, it is sunny.		
+va8736f9e44	What is covering the trees in the background?	snow x10	snow		
+v6001e4752c	Is it always wise for one person at a time to make use of this crater-like depression?	yes x10	Yes		
+v412f18205e	How many knives are on the cutting board?	2 x9, 1 x1	1 knife.		
+v4ca9026485	What color are the curtains?	black x10	Black		
+vc0f7269efb	Is it fall in the image?	yes x8, no x2	Answer:		
+vead7d999b4	What is under the food?	plate x9, napkin x1	plate		
+v3363952813	How many games do you see?	0 x5, 1 x2, 2 x2, 4 x1	Answer:		
+v788c830d29	How are the animals confined?	fence x4, 1 x2, pen x1, fences x1, fencing x1, fence and wall x1	fence and building		
+vf42ef07450	What color are these vases?	white x3, green, black, purple, and white x2, white, purple, green and blue x1, white purple black green x1, white, purple, blue, green x1, white, green, blue and purple x1, gray x1	White and colorful.		
+va83221db86	Is the sky blue?	no x9, yes x1	The image is black and white.		
+va5934ec744	Does this woman have perfect vision?	yes x9, maybe x1	Answer:		
+ve04377cd78	Is this near the water?	yes x10	Yes		
+vef787e4b1d	Is the cat eating a fish?	no x10	No		
+vf7828cae3b	Are there knives in the picture?	yes x9, no x1	Yes, there are knives in the picture.		
+v56902b1513	Does the cat on the right have sleepy eyes?	yes x7, no x3	No, the cat's eyes are open.		
+v88350bbdbd	What is the main color of this article?	brown x10	The main color of this article is brown.		
+v433c4d95db	Does this food have cheese on it?	no x10	No		
+v903e243c67	Where is the clock?	on tower x2, top of building x2, building x1, on building x1, above building on tower x1, on building in middle x1, building tower x1, japan x1	on tower Answer:		
+vb3d15fd0b3	Is there a clock?	no x10	No		
+vabf3768b29	What is the giraffe grazing on?	leaves x7, tree x2, trees x1	leaves		
+v23587f2967	How many birds on the wire?	5 x9, 4 x1	5		
+v73c56ebb66	If this person fell on their head, would their hair get wet?	yes x9, no x1	Yes, it would.		
+vb9458e8d5f	What is the white, powdery stuff flying in the air?	snow x10	snow		
+vc21f7e791f	What color is the man's tie?	green and blue x2, blue and green x2, silver and green x1, gray x1, blue, gold x1, gray & green x1, gold and gray x1, blue x1	The man's tie is yellow and blue.		
+vab19301fdf	Where was this photo taken?	dining room x5, kitchen x2, dinner table x1, home x1, restaurant x1	in a dining room		
+v49812ad5ea	What color is the uniform?	green and white x6, green x3, green/white x1	green and white		
+vb07473081b	What is the case made of?	wood x10	wood		
+vdc0806c4a8	What color is the car on the left?	gray x5, silver x3, green x1, white x1	silver		
+v27566e7fad	Are the blinds up?	yes x9, no x1	No		
+v5d0a88065a	Does the cat have a shorter than average tail?	yes x9, no x1	no		
+v356394066b	Is there any water for the giraffe's?	no x10	No, no water visible.		
+v8eb4d55193	What color is the racket?	red and black x4, black and red x3, white, red, black x1, black red and white x1, red x1	The racket is red and white.		
+va930ef9fbb	What time does the clock say?	12:55 x4, 1:55 x2, 11:00 x1, 11 x1, 1:45 x1, 11:05 x1	10:25		
+v11477583bb	Is the person wearing a helmet?	yes x9, yes, he is wearing helmet x1	Yes		
+v06edf5a1c0	Is the land dry?	yes x10	Yes, the land appears dry.		
+v897632f0c5	What color are the scissors?	pink x8, pink and silver x1, yes x1	pink		
+va7d64868f6	Is it always wise for one person at a time to make use of this crater-like depression?	yes x10	No, it's not always wise.		
+vc1714c51b9	What color is the building in the background?	tan x4, beige x3, gray x1, brown x1, yellow x1	The building in the background appears to be beige or light brown.		
+vb5975397e6	Is this man trying to look extra cool by putting his foot on a fire hydrant?	yes x6, no x2, no/child x1, don't know x1	No, he's just sitting.		
+v6b8c2b2dde	Can you see the waves from the ocean?	no x9, yes x1	No		
+v3919ce465f	Is this a skate park?	no x8, yes x2	This is not a skate park.		
+vdb373932cf	What are the men standing on?	surfboards x8, surfboard x2	surfboards		
+v17f2061a9c	Is the surfer in a wetsuit?	yes x8, no x2	Yes		
+vabf5156e3a	Where was this taken?	beach x9, at beach x1	beach near ocean Answer:		
+v19807017f3	Is the dog laying on a bed?	yes x9, no x1	Yes		
+v8c6ab636f4	Is this man trying to look extra cool by putting his foot on a fire hydrant?	yes x6, no x2, no/child x1, don't know x1	No.		
+vba4dc1cc6c	Is this a sunny day?	yes x10	Yes		
+v9c7d2d509d	Can this pizza be eaten by a vegetarian?	yes x9, no x1	Answer:		
+vf394d6677e	Where is the child's hand?	down x2, in parents x1, by his side x1, privates x1, pocket x1, carrot x1, by leg x1, nothing x1, petting giraffe x1	behind giraffe Answer:		
+v92245332dd	Is the sheep grazing?	yes x10	Yes, the sheep are grazing.		
+v04c6f762f4	Are there knives in the picture?	yes x9, no x1	Yes		
+va502083d3d	What color is the child's chair?	brown x3, blonde x2, white x2, black x1, yellow x1, no chair visible x1	The child's chair is not visible in the image.		
+vd6c844ecc9	What color is the child's bike?	blue x8, purple x2	blue		
+v0bdc5b395b	Is the child's hair in the picture straight or curly?	curly x10	The child's hair is curly.		
+v830f402db2	How many animals are there?	2 x6, 3 x3, 4 x1	3		
+vdd64dd268d	Is there any water for the giraffe's?	no x10	No, not visible.		
+v031caba94a	What is the number displayed in the motorcycle?	23 x10	23		
+v0159c73bc8	What is the number on the boat?	0 x4, 12 x1, not visible x1, 7 x1, 568 x1, 4302 x1, no number x1	1234567890		
+vc155f60181	How many plates are over the table?	2 x8, 1 x2	Two plates.		
+v1f695aee63	Is that a cheese stuffed crust?	no x5, yes x4, maybe x1	No		
+v424c6b42d9	Could this be in Great Britain?	yes x10	Yes, it could be.		
+v7bf1d4c581	How many people are sitting down in this picture?	3 x4, 2 x3, 1 x2, 5 x1	10 people sitting down.		
+v81ac4f0528	How many archways are built into the park entry?	5 x5, 1 x5	Two archways.		
+v7278f6a5a2	How many spoons are there?	1 x6, 2 x3, there is 1 spoon x1	1		
+v87b9381c58	What time does the clock have?	11:15 x6, 3 o' clock x1, 11:18 x1, 2:55 x1, 11:17 x1	10:25 AM		
+v7955fd0f95	Is the bird wild?	yes x9, no x1	wild		
+v19de3a983a	Where was this taken?	beach x9, at beach x1	beach		
+vb3d0c714df	What color are the woman's socks?	pink x10	pink		
+v7850e778e3	What color are the boy's pants?	brown x6, beige x2, gray x1, khaki x1	The boy's pants are brown.		
+v5c63e9c6e6	Is there a fan in the room?	yes x10	Yes		
+va858c622b8	Is it a sunny day?	yes x10	Yes, it's sunny.		
+v420e790ba5	Is it always wise for one person at a time to make use of this crater-like depression?	yes x10	No, safety precautions should be taken.		
+v66b021dee6	Is the sun coming from the left?	yes x9, no x1	No		
+v1c29d0b96e	Is it cold outside?	yes x10	Yes, it is cold.		
+v06c731d8f2	What is the number on the boat?	0 x4, 12 x1, not visible x1, 7 x1, 568 x1, 4302 x1, no number x1	No number visible.		
+ved5f22dea2	What is the dog herding?	sheep x9, person x1	sheep		
+v289f539631	Has this cow been tagged with an ear marker?	yes x10	Yes, it has.		
+v9852e9532b	Is the child's hair in the picture straight or curly?	curly x10	curly		
+vabf7296cd7	Is it a man or a woman holding the camera?	man x9, woman x1	man		
+v6aec0317fc	What color is the building in the background?	tan x4, beige x3, gray x1, brown x1, yellow x1	tan		
+v14ba440c69	Is the giraffe within a fenced area?	yes x10	Yes		
+v76dd6673e2	What is the theme of the cake?	pacman x5, pac man x3, video game x1, wedding x1	Star Wars		
+vdce04acc99	What color is her horse?	brown x8, brown and white x2	The horse is brown and white.		
+ve0972d34af	Is it fall in the image?	yes x8, no x2	Yes		
+vd21ea8ebe8	What is the bus number?	405c x7, 405 x3	405C		
+v36cc383d3b	Is the zebra breathing?	yes x9, no x1	Answer:		
+vf24718a47c	What color is the surfboard?	white x5, white and black x2, black and white x2, black, white x1	The surfboard is white.		
+vd8e738aa76	What is in the water?	ducks x3, geese x2, ducks, cow x1, ducks and cow x1, duck x1, birds x1, geese and cow x1	geese and ducks		
+v01b0eee918	Is it raining?	yes x9, no x1	Yes, it is raining.		
+v346ea1317e	Is it a sunny day?	yes x10	Yes, it is sunny.		
+v67d4faaa8e	How many people are wearing the same color clothing?	2 x10	Two.		
+v82b342c297	What is the woman wearing that is pink and green?	skirt x3, tennis racket x2, green tennis skirt, no pink x1, nothing x1, outfit x1, clothes x1, tank top and skirt x1	tank top and skirt Answer:		
+vd26f1fa0f4	Is this man wearing a uniform?	no x10	No		
+vb01f898b90	How many people are wearing the same color clothing?	2 x10	2		
+vafa194ee06	How many potholes are visible?	0 x10	Answer:		
+v78e0d5c6aa	Is there a fan in the room?	yes x10	Yes, there is a fan in the room.		
+v2ceb68de52	What culture inspired the wall coverings?	chinese x3, asian x3, african x1, japan x1, china x1, japanese x1	Japanese Answer:		
+v449de0e1ae	Are these individuals in military uniform?	yes x10	Yes		
+v6ad71e21ee	Can you see the waves from the ocean?	no x9, yes x1	No, I cannot see the waves from the ocean.		
+v85c1423e4f	Are these healthy foods?	no x10	no		
+v217c65bcc3	What is the number on the man's shirt?	22 x10	32		
+v5e30edf159	What color is the building with the sign attached to it?	pink x8, red x2	pink		
+vcca7c18261	How many cups can you see?	1 x5, 2 x2, 3 x2, 0 x1	2		
+v2b6f8d622b	How many people are playing a game in this photo?	2 x10	1 person is playing a game.		
+va869cb7430	Is the giraffe within a fenced area?	yes x10	Yes, the giraffe is within a fenced area.		
+ve6c4d27b13	How many people can sit on that sofa?	3 x7, 5 x1, 0 x1, 4 x1	3 people		
+vf85e33ebee	Is the plane in motion?	no x6, yes x4	no		
+v9631224bfd	Is the weather fair?	yes x10	Yes		
+vf96b803885	What type of building are the people in?	stadium x2, large x1, entertainment x1, ice skating x1, balling x1, mall x1, arena x1, arcade x1, skating rink x1	arena		
+v939f652817	What kind of place are they skating in?	skate park x3, park x2, skatepark x1, street x1, roof x1, neighborhood x1, dark room x1	skate park		
+vd4dbc544a5	What color is the umbrella?	black x10	The umbrella is black.		
+v4468661f94	Is this a real bear?	no x10	Answer:		
+vae03eefe59	What hairstyle is the girl wearing?	ponytail x9, flowered shirt x1	ponytail Answer:		
+vb31e053be0	What is on the man's two wrists?	gloves x8, wristbands x1, pads x1	gloves		
+v037f8bf7cc	What is the bus number?	405c x7, 405 x3	125		
+vcdafbf73bf	How many houses are there?	1 x9, 2 x1	1		
+vee0f9452ff	Does everything look lite up?	yes x10	Yes.		
+v55a4f0d459	Is the frisbee about to hit the man?	no x8, yes x2	No		
+vec61c64440	What type of food does the restaurant serve?	italian x6, burgers x2, mexican x1, basic x1	Italian		
+v9754aa1912	How many cows are there?	1 x10	1		
+v48de4813de	What color are the boy's shorts?	gray x6, tan x1, blue x1, brown x1, khaki x1	The boy's shorts are gray.		
+vb33409e1b7	Is the sky blue?	no x9, yes x1	No		
+v7d1d637aad	Has this sheep been dyed a particular color?	no x9, no sheep x1	No, it's not dyed.		
+v9f0e215232	Where is the child's hand?	down x2, in parents x1, by his side x1, privates x1, pocket x1, carrot x1, by leg x1, nothing x1, petting giraffe x1	Answer:		
+v3f7243f15d	What kind of drink is on the table?	water x4, beer x2, no drinks x1, coffee x1, none x1, wine x1	No drink visible.		
+vc9b2fadf10	How many windows do you see?	4 x6, 3 x3, 5 x1	4		
+v39706698e7	What is the person in pink doing?	taking picture x7, taking pic x1, taking photograph x1, photographing x1	taking photo of woman Answer:		
+v5c061cef19	Is it a cloudy day?	no x6, yes x4	Yes, it's cloudy.		
+v570672da1b	How many boards are on the fence?	50 x2, 0 x2, many x2, 44 x1, lots x1, 2 x1, 6 x1	10		
+v1aea6146d6	How many birds on the wire?	5 x9, 4 x1	5 birds.		
+v3cc3a6f8aa	Where is the child's hand?	down x2, in parents x1, by his side x1, privates x1, pocket x1, carrot x1, by leg x1, nothing x1, petting giraffe x1	on fence		
+vbfc5b42d95	How many bolts can be seen on the top panel?	0 x4, 2 x3, 3 x2, 1 x1	0		
+v3cd66a252f	Where is the batter standing?	bat x1, softball field x1, base x1, at diamond x1, on dirt x1, home plate x1, on field x1, home base x1, baseball field x1, can't tell x1	home plate		
+vc1aa250652	Are there any bracelets in the image?	no x10	No		
+v714b41429c	What is the main color of this article?	brown x10	Brown and gold.		
+v7b44574aed	How many people can this sink accommodate?	3 x9, 2 x1	3 people		
+v03c07ef7f5	How many people are wearing the same color clothing?	2 x10	Two people are wearing the same color clothing.		
+ve2ab90a5c4	What time does the clock say?	12:55 x4, 1:55 x2, 11:00 x1, 11 x1, 1:45 x1, 11:05 x1	10:10		
+vc3479e0ccc	What color is the ladies hat?	blue x7, navy blue x2, dark blue x1	The lady's hat is blue.		
+v05b977ac58	How many knives are on the cutting board?	2 x9, 1 x1	2		
+v083fe38434	Is this a sunny day?	yes x10	Yes, it's sunny.		
+vb86d146e4a	Is the cat guarding the purse?	no x5, yes x5	Yes		
+v04785d2974	How many people can sit on that sofa?	3 x7, 5 x1, 0 x1, 4 x1	4 people		
+vda94563743	How many vehicles are visible?	1 x9, bus x1	1		
+v29d03b0e90	How many asian men are in this room?	2 x5, 3 x3, 4 x2	2		
+v7d9f54a543	What color is the car on the left?	gray x5, silver x3, green x1, white x1	The car on the left is silver.		
+v4966b405ef	Is the train going fast?	no x10	No, it's not fast.		
+va9150c2dae	Is the land dry?	yes x10	Yes		
+v30e32b6fcf	Has this sheep been dyed a particular color?	no x9, no sheep x1	Answer:		
+vbd84831cef	How many people are shown?	2 x5, 1 x5	2		
+vdf1ab3b5ea	Are these newly installed cabinets?	yes x6, no x4	No, they appear old.		
+vc9d641dd88	What time does the clock have?	11:15 x6, 3 o' clock x1, 11:18 x1, 2:55 x1, 11:17 x1	10:25		
+v57655330a1	Is this a short bus?	no x9, yes x1	No		
+v211225c7d7	Is it a sunny day?	yes x10	Yes		
+va6f8c37461	What color are the boy's shorts?	gray x6, tan x1, blue x1, brown x1, khaki x1	gray		
+vb0350fb262	Is the surfer happy?	yes x10	Yes, the surfer appears happy.		
+v5657fb42c1	What color are these vases?	white x3, green, black, purple, and white x2, white, purple, green and blue x1, white purple black green x1, white, purple, blue, green x1, white, green, blue and purple x1, gray x1	white and colorful		

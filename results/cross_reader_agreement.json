@@ -1,0 +1,42 @@
+{
+ "mme": {
+  "n": 196,
+  "both": 35,
+  "qwen_only": 36,
+  "phi4_only": 34,
+  "neither": 91,
+  "p_help_qwen": 0.3622448979591837,
+  "p_help_phi4": 0.3520408163265306,
+  "p_phi_given_qwen": 0.49295774647887325,
+  "p_qwen_given_phi": 0.5072463768115942,
+  "jaccard": 0.3333333333333333,
+  "cohens_kappa": 0.2223103956467521,
+  "best_family_agreement_given_both": 0.7714285714285715,
+  "family_confusion": {
+   "CROP->CROP": 26,
+   "CROP->HIGHRES": 3,
+   "CROP->OCR": 3,
+   "HIGHRES->CROP": 2,
+   "OCR->OCR": 1
+  }
+ },
+ "textvqa": {
+  "n": 200,
+  "both": 22,
+  "qwen_only": 44,
+  "phi4_only": 51,
+  "neither": 83,
+  "p_help_qwen": 0.33,
+  "p_help_phi4": 0.365,
+  "p_phi_given_qwen": 0.3333333333333333,
+  "p_qwen_given_phi": 0.3013698630136986,
+  "jaccard": 0.18803418803418803,
+  "cohens_kappa": -0.046025104602510275,
+  "best_family_agreement_given_both": 0.7272727272727273,
+  "family_confusion": {
+   "CROP->CROP": 16,
+   "CROP->HIGHRES": 2,
+   "CROP->OCR": 4
+  }
+ }
+}

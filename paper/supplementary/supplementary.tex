@@ -1,0 +1,1255 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,
+  framerule=0.2pt,columns=fullflexible,keepspaces=true}
+\setlist{itemsep=1pt,topsep=3pt}
+\emergencystretch=2.5em
+\hbadness=10000
+
+\title{Supplementary Material for\\
+\emph{Look Before You Look: Auditing Perception Utility and Evaluation
+Sensitivity in Multimodal Agents}}
+\author{Anonymous Author(s)\\AAMAS 2027 Submission}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{Overview}
+
+This document provides implementation details deferred from the main paper
+(exact crop coordinates, prompts, filtering rules, fallbacks, OCR, and scoring
+details; Sections~\ref{sec:budget}--\ref{sec:features}), frozen policy and
+controller specifications (Section~\ref{sec:policies}), the preregistration
+index and deviations log (Section~\ref{sec:prereg}), and additional analyses
+supporting the paper's three-level distinction among unrestricted structural
+opportunity, action-matched counterfactual opportunity, and frozen prospective
+policy performance (Section~\ref{sec:results}). Section~\ref{sec:results}
+also reports the blinded human-adjudication analysis and the nonlinear and
+representation--head prospective follow-ups. Sections~\ref{sec:infra}--\ref{sec:zip}
+document infrastructure, data separation, and the accompanying
+reproducibility artifacts.
+
+All automatically scored quantities are recomputable offline from the
+released result files because raw generations are preserved for every
+rollout. Human adjudication is provided separately through the frozen
+annotation sample, blinded labels, and adjudication summaries.
+
+% ======================================================================
+\section{Visual-Token Budget Accounting}
+\label{sec:budget}
+
+Visual cost is measured in Qwen2.5-VL visual tokens, where one token covers
+a $28\times28$ pixel block after smart resizing (14-pixel patches with
+$2\times2$ merging):
+\[
+\text{tokens}(h,w) = \left\lfloor \bar h/28 \right\rfloor \cdot
+\left\lfloor \bar w/28 \right\rfloor,
+\qquad (\bar h,\bar w) = \mathrm{smart\_resize}(h,w),
+\]
+where $\mathrm{smart\_resize}$ mirrors the official
+\texttt{qwen\_vl\_utils.smart\_resize}: aspect ratio is preserved, both
+sides are snapped to multiples of 28, and the total area is clamped to
+$[\text{min\_pixels},\,\text{max\_pixels}]$ with
+$\text{max\_pixels} = B \cdot 28^2$ for a budget of $B$ tokens
+(code: \texttt{ppu/imaging.py}).
+
+We resize images ourselves and transmit the resized bytes (JPEG, quality
+92, no chroma subsampling) rather than passing server-side pixel limits, so
+the realized budget is identical across backends and replays and is
+auditable from the logs. Every rendered view is logged together with its
+realized token count and a SHA-1 hash of its pixels, which lets the audit
+verify that distinct crop candidates are distinct observations.
+
+\paragraph{Per-dataset budgets.}
+Coarse / \textsc{HighRes} visual-token targets are 256/1{,}280 for
+MME-RealWorld-Lite, 192/512 for TextVQA, and 64/192 for VQAv2. Crop views
+are re-encoded at 256 tokens on all datasets. The full-information
+reference view (used only for diagnostics, never as a policy action) is
+capped at 2{,}560 tokens. A sample enters the audit only if its native view
+costs at least $4\times$ the coarse budget; otherwise \textsc{Crop} and
+\textsc{HighRes} cannot add information (inclusion rule).
+
+Views below $4$ tokens are rejected as unreadable
+($\text{min\_pixels}=4\cdot28^2$), and crop boxes that map to fewer than
+8 pixels on a side raise an error rather than silently degrading.
+
+% ======================================================================
+\section{Perception Actions: Exact Specifications}
+\label{sec:actions}
+
+\subsection{Crop candidate construction ($K=8$, constant cardinality)}
+
+Every evaluated state has exactly eight crop candidates, but the
+construction depends on the experimental phase. Constant cardinality is
+important because the unrestricted oracle maximizes over crop candidates;
+varying the number of candidates would change the amount of
+selection-on-noise opportunity.
+
+\paragraph{Initial structural audit.}
+The initial structural audit (Gate-0, both readers) uses five deterministic
+multiscale grid boxes together with up to three frozen question-conditioned
+proposals. Proposal generation, parsing, filtering, and deterministic
+padding follow the procedure described below.
+
+\paragraph{Held-out and prospective collections.}
+All held-out and prospective collections remove VLM-generated proposals and
+use the same eight fixed boxes for every image: the five grid boxes below
+plus three smaller deterministic fallback boxes. Thus the deployed selectors,
+the state-independent mixtures, and the action-matched oracle operate over
+an identical fixed crop family.
+
+\paragraph{Deterministic multiscale grid (5 boxes).}
+Normalized $(x_0, y_0, x_1, y_1)$ coordinates:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Region & Box \\
+\midrule
+Center       & $(0.25,\,0.25,\,0.75,\,0.75)$ \\
+Top-left     & $(0.00,\,0.00,\,0.55,\,0.55)$ \\
+Top-right    & $(0.45,\,0.00,\,1.00,\,0.55)$ \\
+Bottom-left  & $(0.00,\,0.45,\,0.55,\,1.00)$ \\
+Bottom-right & $(0.45,\,0.45,\,1.00,\,1.00)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The sequential experiment's frozen $\mathrm{CROP}_{\mathrm{TR}}$ action is
+the top-right grid box above; its first-step center crop is the center grid
+box.
+
+\paragraph{Fixed fallback boxes for held-out and prospective collections.}
+The three additional fixed boxes are
+\[
+(0.35,\,0.35,\,0.65,\,0.65),\quad
+(0.05,\,0.05,\,0.35,\,0.35),\quad
+(0.65,\,0.65,\,0.95,\,0.95),
+\]
+deliberately smaller than the grid so that they probe a different scale.
+Together with the five grid boxes, these define the fixed eight-crop family
+used in all held-out and prospective one-step evaluations (crop budget 256
+tokens each, coarse overview retained).
+
+\paragraph{Question-conditioned proposals in the initial structural audit only.}
+A single proposal generation is requested from the frozen reader with the
+prompt in Section~\ref{sec:prompts:proposal}. Its cost is charged to every
+arm that considers \textsc{Crop} at all, including random and oracle arms.
+Parsing is tolerant but never creative:
+\begin{itemize}
+\item Each output line must contain at least four numbers; lines that do
+  not are dropped, not repaired.
+\item Qwen2.5-VL is grounded in absolute pixels and frequently mixes pixel
+  and fractional coordinates in one line. Each coordinate is therefore
+  interpreted independently: a value with $|v|\le 1$ is read as a fraction,
+  otherwise it is divided by the width or height of the view the model
+  actually saw. Every parsed box logs its raw values, per-coordinate
+  interpretation mode, and the reason for any rejection, so the decision is
+  auditable per line. (An earlier all-fractional parser silently dropped
+  $\sim$70\% of proposal calls; the mixed parser and this failure are
+  disclosed in the code comments.)
+\item Filters, applied in order: out-of-range after interpretation
+  (tolerance $\pm 0.01$); degenerate or below 1\% of image area; area
+  above $0.95$ (near-duplicate of the full view); IoU $> 0.9$ with an
+  already accepted box. At most 3 proposals are kept.
+\end{itemize}
+
+\paragraph{Padding to $K=8$ in the initial structural audit.}
+Grid and proposal boxes are merged (IoU $>0.9$ deduplication, grid first).
+If fewer than 8 remain, deterministic fallback boxes are appended:
+$(0.35,0.35,0.65,0.65)$, $(0.05,0.05,0.35,0.35)$,
+$(0.65,0.65,0.95,0.95)$ --- deliberately smaller boxes so a fallback probes
+a different scale rather than duplicating the grid. If still short (heavy
+overlap), centered square boxes of side $0.45, 0.40, 0.35, \ldots$
+(step $0.05$, floor $0.12$) are added. The candidate set is thus a
+deterministic function of the sample and the single proposal generation.
+
+\paragraph{Crop semantics.}
+Crops are taken from the \emph{original} native-resolution image, then
+re-encoded at the crop budget; cropping the coarse view would make
+\textsc{Crop} an upsampling artifact rather than an information-acquiring
+action. A crop view is \emph{added} to the coarse overview (global context
+is retained), with a view label naming its normalized coordinates.
+
+\paragraph{Deployable \textsc{Crop}-family semantics.}
+For the deployed one-step selectors, \textsc{Crop-family} does not denote
+outcome-dependent selection of the best crop. Its utility and cost are the
+uniform expectation over the fixed eight-crop family. Operationally,
+selecting \textsc{Crop-family} corresponds to sampling one of the eight
+fixed crops uniformly at deployment. Because all eight crop outcomes are
+executed in the offline audit, the reported family-level outcome and
+visual-token cost are the exact expectation of this realizable randomized
+policy. The unrestricted structural oracle may instead select among
+individual crop outcomes and is therefore a distinct counterfactual
+benchmark (Section~\ref{sec:results:deporacle}).
+
+\subsection{Control (dummy) actions and the luck floor}
+
+To price in ``the reader was simply asked again,'' the audit includes a
+dummy arm of \emph{matched cardinality} (11 actions, same as the real
+action set):
+\begin{itemize}
+\item \textbf{Size-matched random crops}: same count and same
+  width/height distribution as the real candidates, position drawn
+  uniformly from a seed derived deterministically from the sample id
+  (\texttt{ppu-dummy::\{sample\_id\}}). Because area and aspect ratio are
+  matched, ``question-conditioned beats random'' cannot be a crop-size
+  effect in disguise.
+\item \textbf{Re-encode dummies}: the coarse view re-rendered at the same
+  budget with a different resampling filter (Lanczos, or bilinear plus a
+  JPEG-90 round trip), i.e.\ cosmetically different pixels with no new
+  information. Two distinct variants exist so the dummy pool holds 11
+  \emph{distinct} draws.
+\end{itemize}
+The dummy oracle serves as a diagnostic control for selection-on-noise
+(the ``luck floor'' of the structural audit) rather than as the comparator
+defining the reported cross-replay headroom $H_{\mathrm{XR}}$, which is the
+cross-replay oracle minus the cross-fitted state-independent best fixed
+arm.
+For question-conditioned localization specifically, size-matched random
+boxes with identical area and aspect ratio (position-only randomization)
+are the comparison class.
+
+\subsection{OCR as an external tool}
+
+\begin{itemize}
+\item Engine: RapidOCR (ONNX runtime, CPU). The OCR engine is deliberately
+  \emph{not} the VLM: if the reader transcribed the image itself, OCR and
+  \textsc{HighRes} would be the same action and action-diversity results
+  would be a prompt-wording artifact.
+\item OCR reads the \emph{original} native-resolution image, not the coarse
+  view --- extracting text the reader cannot resolve is the point of the
+  tool.
+\item Serialization: detected lines are sorted into reading order (by
+  rounded $y_0$, then $x_0$), truncated to 30 lines, and rendered one line
+  per row as \verb|[x0,y0,x1,y1] text| with normalized coordinates at two
+  decimals. An empty result is rendered as \verb|(no text detected)|.
+\item Cost accounting: engine latency and the tool call are recorded as
+  cost. Campaigns use a pre-pass cache (each image OCRed once across CPU
+  workers), but the \emph{recorded} latency is the engine's real cost, not
+  the cache lookup's, so the cost column reports what a deployed agent
+  would pay. OCR output is an observation, produced only after the action
+  is chosen; nothing upstream of the action choice may read it.
+\end{itemize}
+
+\subsection{\textsc{HighRes} and \textsc{Stop}}
+
+\textsc{HighRes} replaces the coarse overview with a higher-resolution full
+view at the dataset's \textsc{HighRes} budget. \textsc{Stop} answers from
+the coarse view alone. In the sequential experiment, \textsc{HighRes} as a
+second step replaces the coarse overview while \emph{retaining} evidence
+already acquired by the first action.
+
+% ======================================================================
+\section{Prompts (Verbatim)}
+\label{sec:prompts}
+
+One template serves every arm; the only thing that varies across actions is
+the observation block. If actions had their own instructions, action
+comparisons would partly measure prompt engineering. The prompt version is
+logged with every rollout and is part of the generation-cache key.
+
+\paragraph{System prompt.}
+\begin{lstlisting}
+You are answering questions about images. You may be shown a low-resolution overview, additional zoomed-in views, or text extracted from the image. Use only what you are shown. Answer as briefly as possible.
+\end{lstlisting}
+
+\paragraph{Open-ended instruction, original (\texttt{p0.1}).}
+\begin{lstlisting}
+Answer the question with a short phrase (a few words at most). End your reply with a line of the form:
+Answer: <your answer>
+\end{lstlisting}
+
+\paragraph{Open-ended instruction, one-word control (\texttt{p0.2-oneword}).}
+Used only in the answer-format intervention arms:
+\begin{lstlisting}
+Answer with a single word or number. For yes/no questions answer exactly 'yes' or 'no'. Do not write a sentence. End your reply with a line of the form:
+Answer: <your answer>
+\end{lstlisting}
+
+\paragraph{Multiple-choice instruction.}
+\begin{lstlisting}
+Answer with the letter of the correct option. End your reply with a line of the form:
+Answer: <letter>
+\end{lstlisting}
+
+\paragraph{User-turn assembly.}
+The user turn concatenates, in order and separated by blank lines: (i) a
+view inventory, e.g.\ ``\texttt{Views provided, in order: coarse@192;
+zoomed view of region 0.45,0.00,1.00,0.55.}''; (ii) if OCR was invoked,
+``\texttt{Text extracted from the image by an OCR tool:}'' followed by the
+serialized block of Section~2.3; (iii) the question as served under the
+current replay (options inlined as \texttt{A.}--\texttt{E.} lines for
+multiple choice); (iv) the applicable instruction above. View labels
+describe what an observation \emph{is} (coordinates are part of the action
+specification), never the content of an observation the agent has not paid
+for.
+
+\paragraph{Crop-proposal prompt.}
+\label{sec:prompts:proposal}
+\begin{lstlisting}
+Question: {question}
+
+Look at the image and the question. Name up to 3 regions you would need to inspect at higher resolution to answer it. Reply with one region per line, each as four numbers between 0 and 1: x0,y0,x1,y1 (left, top, right, bottom as fractions of the image). No other text.
+\end{lstlisting}
+
+% ======================================================================
+\section{Replay Construction}
+\label{sec:replays}
+
+Decoding is greedy, so re-running a request returns the same string; a
+replay therefore cannot and does not measure decoding noise. What threatens
+the audit is \emph{luck} --- an action that happens to push a 5-way multiple
+choice onto the right letter, or a phrasing the reader latches onto. R2
+changes what is asked, never how it is sampled. Both replays are
+deterministic functions of the sample id and are reproducible from the
+manifest alone.
+
+\paragraph{Multiple choice (MME-RealWorld).}
+R2 permutes the answer options with a seeded RNG
+(\texttt{ppu-r2::\{sample\_id\}::7}) and follows the gold answer to its new
+letter. If the drawn permutation is the identity, the order is reversed
+instead --- a permutation that changes nothing is not a control. Scoring
+under R2 uses the moved gold letter.
+
+\paragraph{Open-ended (TextVQA, VQAv2).}
+R2 applies a fixed, meaning-preserving, syntax-level rewrite --- no LLM
+sampling. Rules are applied in order, first match wins
+(case-insensitive, anchored at both ends):
+
+\begin{center}
+\small
+\begin{tabular}{ll}
+\toprule
+Pattern & Rewrite \\
+\midrule
+\texttt{what is \ldots?} & \texttt{Looking at the image, what is \ldots?} \\
+\texttt{what are \ldots?} & \texttt{Looking at the image, what are \ldots?} \\
+\texttt{what \ldots?} & \texttt{Based on the image, what \ldots?} \\
+\texttt{who/where/when/which/how \ldots?} & \texttt{Based on the image, \emph{wh-word} \ldots?} \\
+\texttt{is/are/does/do \ldots?} & \texttt{Based on the image, is/are/does/do \ldots?} \\
+(no match) & \texttt{Based on the image: \ldots} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The rewrite set is deliberately small and mechanical: a paraphrase that
+changed difficulty would surface as fake instability in the label-reliability
+numbers. Multi-replay robustness checks (replays 3--5, prefix variants) are
+summarized in Section~\ref{sec:results:multireplay}.
+
+% ======================================================================
+\section{Scoring Rules}
+\label{sec:scoring}
+
+\paragraph{Answer extraction.}
+The answer span is pulled from the raw generation in a fixed, deliberately
+forgiving order: (1) an \verb|<answer>...</answer>| tag; (2) a line
+matching \verb|(final )?answer[:-]|; (3) the last non-empty line. A parser
+that silently preferred one surface form would bias whichever action makes
+the model chatty. For multiple choice, the first standalone letter A--E in
+the extracted span (falling back to the full text) is used.
+\texttt{parse\_ok=False} (no answer found) scores 0 but is tracked
+separately: a rising parse-failure rate indicates a pipeline bug, not a
+model result.
+
+\paragraph{Strict scorers (primary).}
+No LLM judge anywhere; every metric is deterministic and recomputable
+offline from the stored generations.
+\begin{itemize}
+\item \texttt{vqa\_acc} (TextVQA, VQAv2): official VQA accuracy.
+  Normalization follows the official evaluator (lowercasing, punctuation
+  stripping with number-comma and decimal-period handling, contraction
+  restoration, word-to-digit mapping for zero--ten, article removal); the
+  score is $\min(m/3,\,1)$, where $m$ is the number of exact matches among
+  the 10 references.
+\item \texttt{mcq} (MME-RealWorld): extracted letter vs.\ gold letter under
+  the current replay's option order (first character, case-insensitive).
+  Because scoring is letter-level, lenient and strict scoring coincide on
+  MME by construction.
+\item Binary quantities (\textsc{Help}/\textsc{Harm}/DMG, strict labels)
+  threshold soft scores at $0.5$.
+\end{itemize}
+
+\paragraph{Format-tolerant (lenient) rescoring (secondary).}
+As defined in the main paper: for normalized prediction $p$ and reference
+$g_j$, a reference counts as matched if $g_j = p$, or $g_j$ equals the
+first word of $p$, or $g_j$ occurs in $p$ as a whitespace-bounded
+substring; the score is $\min(\sum_j h(g_j,p)/3,\,1)$. Lenient evaluation
+changes only the mapping from an existing generation to its score ---
+generations, observations, and replays are identical bytes.
+
+\paragraph{Confidence.}
+Primary confidence is the mean selected-token log-probability over the
+complete \textsc{Stop} reply, averaged across the two \textsc{Stop}
+replays. Answer-span mean, span-minimum, and first-token variants are
+computed from the already-logged per-token probabilities
+(Section~\ref{sec:results:spanconf}).
+
+% ======================================================================
+\section{Diagnostic and Selector Features}
+\label{sec:features}
+
+The frozen v2.2 feature set (also ``F0'' in the selector experiments)
+contains 16 inexpensive pre-action features
+(\texttt{ppu/gate\_features.py}). By design it contains \emph{no}
+standalone confidence term: an earlier version learned a single global
+direction (``confident, therefore look'') that fit VQAv2 --- where
+confidence is inverted under the original prompt --- and destroyed TextVQA.
+Confidence therefore enters only through interactions, so the model can
+decide per answer form whether the uncertainty is worth believing.
+Deliberately absent: dataset id, image resolution, native token count ---
+features that name the domain rather than the state.
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Group & Feature & Definition \\
+\midrule
+Answer surface & \texttt{ans\_chars} & characters in the provisional \textsc{Stop} answer \\
+& \texttt{ans\_tokens} & generated tokens in the answer \\
+& \texttt{ans\_words} & whitespace words in the answer \\
+& \texttt{is\_numeric} & answer is a bare number \\
+& \texttt{is\_yesno} & answer starts with yes/no \\
+& \texttt{has\_hedge} & hedge regex\footnotemark\ fires on the answer \\
+\midrule
+Question surface & \texttt{q\_chars}, \texttt{q\_words} & question length \\
+& \texttt{q\_is\_howmany} & contains ``how many'' \\
+& \texttt{q\_is\_what} & starts with ``what'' \\
+& \texttt{q\_is\_isare} & starts with is/are/does/do/was/were \\
+\midrule
+Confidence & \texttt{conf\_x\_yesno} & $\mathrm{conf\_rank}\times\texttt{is\_yesno}$ \\
+(interaction only) & \texttt{conf\_x\_numeric} & $\mathrm{conf\_rank}\times\texttt{is\_numeric}$ \\
+& \texttt{conf\_x\_other} & $\mathrm{conf\_rank}\times\texttt{is\_other}$ \\
+& \texttt{conf\_x\_len} & $\mathrm{conf\_rank}\times\min(\texttt{ans\_chars}/20,2)$ \\
+& \texttt{conf\_x\_hedge} & $\mathrm{conf\_rank}\times\texttt{has\_hedge}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\footnotetext{\texttt{maybe|possibly|probably|appears|seems|likely|unclear|
+cannot|can't|unable|not sure|hard to|difficult|blurry|unknown|unreadable|
+too small} (word-bounded, case-insensitive).}
+
+$\mathrm{conf\_rank}\in[0,1]$ is the empirical CDF of the \textsc{Stop}
+mean-token log-probability, fitted on training states only (0 = most
+confident). Features are standardized with training-set statistics.
+The binary v2.2 diagnostic uses class-balanced logistic regression on these
+features; the multi-action selector uses per-family ridge value heads on
+the same features (Section~\ref{sec:policies}).
+
+% ======================================================================
+\section{Frozen Policies, Baselines, and Artifacts}
+\label{sec:policies}
+
+Each learned component is trained only on its designated training pool and
+frozen before outcomes from its own prospective evaluation set are observed.
+Freeze artifacts are stored (pickled) with JSON manifests recording the
+relevant weights, scaler statistics, confidence ECDF, feature list, and
+seed. Freeze artifacts and their SHA-256 prefixes are included in the
+ZIP (\texttt{models/}).
+
+\paragraph{One-step selector v2 (primary prospective test).}
+Chosen by five-fold development cross-validation from a pre-specified
+10-candidate grid (2 feature sets $\times$ 5 head classes), selection
+criterion TextVQA policy value at $1/2\times$ budget, tie-break
+$1/4\times$. Winner: F0 features + ridge regression ($\alpha=0.3$). Three
+heads predict the replay-averaged score increment of each family
+(\textsc{Crop}, \textsc{OCR}, \textsc{HighRes}) relative to \textsc{Stop};
+the \textsc{Crop} target and cost use the deployable uniform-grid family
+expectation (no outcome-dependent region selection). Decision rule:
+$\arg\max_f [\widehat\Delta_i(f) - \lambda_B c_i(f)]$ with zero predicted
+gain and cost for \textsc{Stop}; $\lambda_B$ selected on development data
+inside the frozen artifact's $\lambda$ grid, per budget. Artifact:
+\texttt{selector\_frozen\_v2} (sha256[:16] \texttt{d4e495063ac56b59}).
+
+\paragraph{State-independent randomized mixtures.}
+For each budget, an LP over the fixed arms \{\textsc{Stop}, each
+grid/fallback crop box, uniform \textsc{Crop}, \textsc{OCR},
+\textsc{HighRes}\} maximizes the mean fixed-arm outcome subject to one
+expected-token constraint and a simplex constraint; with one linear
+constraint the optimum mixes at most two arms (concave envelope). Three
+comparator strengths are reported: in-sample (weights fitted on the
+evaluation sample --- a baseline-favoring upper bound), cross-fitted
+(2-fold), and deployable (fitted on development data, applied unchanged).
+The frozen deployable TextVQA mixture is:
+$1/4\times$: $0.876\cdot\text{CROP-center} + 0.124\cdot\text{OCR}$;
+$1/2\times$: $0.569\cdot\text{CROP-center} + 0.431\cdot\text{CROP-top-right}$;
+$1\times$: $1.0\cdot\text{CROP-top-right}$.
+
+\paragraph{Hidden-state selector v3.}
+Six candidate configurations compared on development data before any fresh
+outcome was observed; frozen winner: the reader's \textsc{Stop}-time hidden
+representation with ridge value heads ($\alpha=30$), same
+value-minus-cost decision rule. Artifact: \texttt{selector\_frozen\_v3}
+(sha256[:16] \texttt{4fd1fa4f}). Development diagnostics recorded before
+prospective collection flagged both weaker development performance than F0
+and weak $\lambda$-budget controllability; both materialized prospectively
+(Section~\ref{sec:results:v3}).
+
+\paragraph{F0 nonlinear-head prospective follow-up.}
+A separately preregistered follow-up (\texttt{PREREG\_STRONG\_\allowbreak{}CONTROLLER},
+09-20) tests whether the prospective gap is specific to the ridge value
+head. Ridge, XGBoost, and MLP heads use the same F0 decision-time
+representation, utility targets, costs, and value-minus-cost decision rule.
+Training uses a frozen 1,350-state pool assembled from previously analyzed
+development and evaluation states (Gate-0 200, held-out 250, prospective
+600, v3 300); no state from the new 400-state evaluation set is included.
+Per head class one configuration is chosen from a disclosed grid by nested
+five-fold cross-validated policy value at $1/2\times$; $\lambda_B$ per
+class is chosen on pooled out-of-fold predictions. The preregistered primary
+comparison is F0/XGBoost minus the frozen state-independent mixture at the
+strict $1/2\times$ operating point; other heads, budgets, and
+format-tolerant analyses are secondary. Artifact:
+\texttt{strong\_controllers\_frozen} (sha256[:16] \texttt{5c60ccab3f7d08b8}).
+
+\paragraph{Representation--head $3\times3$ prospective test.}
+The final prospective controller test (\texttt{PREREG\_HIDDEN\_\allowbreak{}CONTROLLER},
+09-20) crosses three decision-time representations---F0, the
+3,584-dimensional \textsc{Stop}-time hidden representation H, and
+H+F0---with ridge, XGBoost, and MLP value heads. All nine configurations use
+the same 1,750-state training pool (the 1,350 states above plus the
+400-state nonlinear-head evaluation set) and the same family-level
+value-minus-cost decision rule; parameters and per-budget $\lambda_B$ are
+frozen before evaluation on a new 400-state TextVQA set, and the primary
+nonlinear cell (H/MLP, by the same cross-validation rule) is recorded in the
+frozen manifest before collection. The strict $1/2\times$ H/MLP-minus-mixture
+comparison is preregistered as primary; other representation--head cells,
+budgets, and format-tolerant analyses are secondary. Artifact:
+\texttt{hidden\_controllers\_frozen} (sha256[:16] \texttt{ed93f19437264e56}).
+
+\paragraph{Sequential controller v1 (original, preregistered test).}
+Two post-first-observation features: whether the normalized first-step
+answer differs from the original \textsc{Stop} answer, and first-step
+answer length. Two ridge heads ($\alpha=1.0$) predict the incremental
+value of $\mathrm{CROP}_{\mathrm{TR}}$ and \textsc{HighRes} over stopping;
+decision $\arg\max(0, \widehat\Delta_{\mathrm{TR}},
+\widehat\Delta_{\mathrm{HI}})$; no cost term. Strict-trained and
+lenient-trained variants both frozen
+(\texttt{seq\_controller\_frozen}, sha256[:16] \texttt{cffa1043f455f7d1}).
+The frozen state-independent continuation mixture, fitted on the 100-state
+development audit, places all mass on $\mathrm{CROP}_{\mathrm{TR}}$
+(i.e., always-$\mathrm{CROP}_{\mathrm{TR}}$).
+
+\paragraph{Sequential controller v2 (disclosed cost-aware follow-up).}
+Seven history features (including confidence before/after the first
+observation and their change), ridge continuation-value heads, and explicit
+cost: $\arg\max_a [\widehat\Delta(a\mid h_1) - \lambda_B c(a)]$. Trained
+and frozen on the same 100 development states
+(\texttt{seq\_controller\_v2\_frozen}, sha256[:16]
+\texttt{b74b8b6e70332a52}); evaluated on the already-separated 300-state
+set as a disclosed secondary analysis.
+
+\paragraph{Budget-constrained oracles.}
+The Lagrangian sweep uses
+$a_i(\lambda) = \arg\max_a [y_i^{(\mathrm{sel})}(a) - \lambda c_i(a)]$
+over a finite $\lambda$ grid ($\lambda_{\text{tok}} \in \{0\} \cup
+\mathrm{logspace}(-6,-2,33)$; $\lambda_{\text{lat}} \in \{0\} \cup
+\mathrm{logspace}(-5,-0.5,33)$), selected on one replay and scored on the
+other. The exact multiple-choice-knapsack DP closes the relaxation
+loophole (Section~\ref{sec:results:exact}). Both are counterfactual and
+non-deployable by construction.
+
+% ======================================================================
+\section{Preregistration Index and Deviations Log}
+\label{sec:prereg}
+
+All preregistration documents are included verbatim in
+\texttt{preregistrations/}. Each was written and frozen before the
+corresponding outcomes existed; ``post-hoc relative to the paper, but
+preregistered relative to its own data'' is stated explicitly where it
+applies.
+
+\paragraph{Preregistration chronology.}
+Every row lists the date the document was frozen, the SHA-256 prefix of the
+frozen artifact(s) and evaluation manifest recorded \emph{in} the document,
+the collection window from the run metadata of the log, the single
+preregistered primary endpoint, and the outcome as reported. ``Pool'' rows
+train on sets that had already been analyzed (disclosed in the document);
+evaluation sets are never reused.
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.25cm}>{\raggedright\arraybackslash}p{0.85cm}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{2.15cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.2cm}@{}}
+\toprule
+Document & Frozen & Frozen artifact (sha256[:16]) & Evaluation set ($n$; sha) & Collected & Primary endpoint & Outcome \\
+\midrule
+\texttt{FRESH\_LOCKBOX} & 08-23 & frozen confidence + v2.2 gate (unchanged) & VQAv2 250 + TextVQA 250 fresh train states & 08-23 & Format-confound replication on fresh states & Replicated (Sec.~\ref{sec:results}) \\
+\texttt{MULTIACTION\_ HELDOUT} & 08-28 & multi-action policy v1 (dev-fitted) & TextVQA 250 + VQAv2 250 held-out & 08-28--30 & Multi-action $-$ best fixed at $1/4\times$, $1/2\times$ (TextVQA, strict) & PASS: $+7.0\ [+2.7,+11.4]$ / $+9.9\ [+5.5,+14.4]$ \\
+\texttt{SECOND\_READER} & 08-30 & protocol only (Phi-4 reader) & Gate-0 states, 196 MME + 200 TextVQA & 08-30 & Pooled symmetric headroom $>0$ (H1) & PASS: pooled $+6.4$; TextVQA $+10.0\ [+6.0,+14.0]$ \\
+\texttt{MULTI\_REPLAY} & 08-30 & protocol only (replays 3--5) & 100-state subsets, both datasets & 08-30 & Protocol validation, no threshold & $K$=2 sufficient; $K$=2 estimate conservative \\
+\texttt{HUMAN\_AUDIT} & 08-28 & blinded sheets (never opened) & 381 + 489 items & --- & Strict vs.\ human label transition & \textbf{Withdrawn 08-30; declined again 09-01 and 09-20} \\
+\texttt{HUMAN\_ ADJUDICATION} & 09-21 & blinded 300-item package \texttt{1384f99672bc8d65} & prospective-600 generations: 200 scorer disagreements + 100 controls & 09-21 (3 annotators) & $P(\text{human correct}\mid \text{strict}=0,\ \text{tolerant}>0)$ & Executed; protocol frozen before labels: \textbf{.807 [.746, .856]}; Fleiss' $\kappa$ .766 \\
+\texttt{PROSPECTIVE\_ SELECTOR} & 08-31 & selector v2 \texttt{d4e495063ac56b59}; mixture (dev-fitted) & TextVQA 600; \texttt{a535d8edce3aa822} & 08-31 & v2 $-$ mixture, $1/2\times$ strict & \textbf{primary non-confirmatory}: $+0.9\ [-1.6,+3.4]$; lenient $+4.6\ [+2.4,+6.8]$ \\
+\texttt{SEQUENTIAL} & 08-31 & protocol only (two-step audit) & TextVQA 100 & 08-31 & Sequential oracle $-$ stop-after-$a_1$ & $+9.3\ [+4.7,+14.5]$ (center) \\
+\texttt{SEQ\_PROSPECTIVE} & 08-31 & seq.\ controller v1 \texttt{cffa1043f455f7d1} & TextVQA 300; \texttt{4196e1abbead1506} & 08-31 & Controller $-$ always-$\mathrm{CROP}_{\mathrm{TR}}$, center, strict & \textbf{primary non-confirmatory}: $-1.7\ [-3.6,+0.2]$ \\
+\texttt{SELECTOR\_V3} & 09-01 & selector v3 (H + ridge) \texttt{4fd1fa4fc1793b7a} & TextVQA 300; \texttt{7bc5ec8a8eb9a61f} & 09-01 & v3 $-$ mixture, $1/2\times$ strict & \textbf{primary non-confirmatory}: $+1.7\ [-1.9,+5.1]$; $\lambda$-budget uncontrollable \\
+\texttt{STRONG\_ CONTROLLER} & 09-20 & F0 $\times$ \{ridge, xgb, mlp\} \texttt{5c60ccab3f7d08b8} (pool 1,350) & TextVQA 400; \texttt{7312457434be55f3} & 09-20 & xgb $-$ mixture, $1/2\times$ strict & \textbf{primary non-confirmatory}: $+1.3\ [-1.4,+4.1]$; xgb $-$ ridge $-0.3\ [-2.0,+1.6]$ \\
+\texttt{HIDDEN\_ CONTROLLER} & 09-20 & \{F0, H, H+F0\} $\times$ \{ridge, xgb, mlp\} \texttt{ed93f19437264e56} (pool 1,750; primary cell H/mlp) & TextVQA 400; \texttt{af41a4ac740a9ecb} & 09-21 & H/mlp $-$ mixture, $1/2\times$ strict & \textbf{primary non-confirmatory}: $+0.8\ [-2.1,+3.8]$; H/xgb $-$ F0/xgb $-3.1\ [-5.8,-0.6]$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Zero-inference analyses added in the 09-20/21 round (no preregistration
+needed; existing logs only): cross-reader agreement conditional on
+baseline capability, replay-pairwise robustness (all ordered replay pairs,
+and the R1/R2/R3 triangle at $n$=400), and the action-matched restricted
+oracle (Section~\ref{sec:results:deporacle}).
+
+\paragraph{Original human audit withdrawal and later adjudication.}
+The original blinded semantic-utility audit preregistered on 08-28 was
+withdrawn on 08-30 before any human verdict was entered; its sheets remained
+empty and no result from that protocol exists.
+
+A distinct human-adjudication study was later motivated post hoc, after the
+automatic scorer-sensitivity results were observed; its sampling and
+annotation protocol (\texttt{PREREG\_HUMAN\_ADJUDICATION}, 09-21) were
+preregistered before any human label was collected. This later study
+sampled 300 unique (state, normalized answer) pairs from the 600-state
+prospective TextVQA pool: 200 benchmark-negative, format-tolerant-positive
+disagreement pairs and 100 agreement controls. Annotators were blinded to
+scorer outputs, action arm, replay, and policy identity. This later
+adjudication is treated throughout the paper as retrospective validation
+rather than preregistered primary evidence.
+
+\paragraph{Deviations and incidents (complete log).}
+\begin{enumerate}
+\item \textbf{Engine death during held-out collection (08-28).} A vLLM
+  engine crash poisoned 183 VQAv2 held-out states with transport-error
+  rollouts (the collector logged errors instead of aborting). The affected
+  rollouts were stripped (backups retained) and re-collected \emph{before}
+  any evaluation was run. All subsequent drivers carry a
+  zero-transport-error integrity gate; every reported collection passed it.
+\item \textbf{scikit-learn version shim.} Frozen sklearn-1.9.0 pickles were
+  evaluated under 1.7.2 via a \texttt{predict\_proba} attribute shim,
+  asserted equal to the sigmoid of the frozen coefficients to $10^{-16}$.
+\item \textbf{Human audit withdrawn without execution.} The blinded human
+  semantic-utility audit (preregistered 08-28) was withdrawn on 08-30
+  before any verdict was entered; the blinded sheets remain empty and the
+  private mapping unopened. No result exists to report or suppress. The
+  paper's ``measurement sensitivity'' framing (rather than a claim about
+  which scorer is semantically correct) reflects this: a separately
+  proposed adjudication protocol was declined twice (09-01, 09-20) and then executed on 09-21 under a third, narrower preregistration (\texttt{HUMAN\_ADJUDICATION}; Section~\ref{sec:results:adjudication}).
+\item \textbf{Manifest regeneration incident (09-01).}
+  \texttt{textvqa\_prospective.jsonl} was accidentally regenerated with a
+  changed exclusion pool by an old builder script; it was restored
+  immediately by reconstructing the original 950-id exclusion set. The
+  restored file matches the preregistered SHA-256 prefix
+  \texttt{a535d8edce3aa822} exactly and its ids match the collected log
+  600/600. No analysis touched the corrupted file.
+\item \textbf{Phi-4 weights re-download.} The HuggingFace cache had been
+  purged between sessions; weights were re-downloaded and the serving
+  configuration reproduced from the original serving log.
+\item \textbf{Hidden-controller pipeline relaunches (09-20/21).} The
+  \texttt{HIDDEN\_CONTROLLER} pipeline was launched three times: the first
+  attempt failed before any inference because the held-out set is a
+  train-split draw and the extraction script was pointed at the val
+  manifest (fixed); the second and third attempts lost the shared GPU to
+  other users' jobs during the 1.5-hour training step and at server
+  start. The frozen artifact (\texttt{ed93f19437264e56}, 09-20 15:59) was
+  never retrained, no evaluation state was collected before the final
+  launch (09-21 09:56), and the fresh-set hidden states were extracted
+  after collection from STOP-time inputs only. The training pool
+  intentionally includes every previously analyzed TextVQA set (1,750
+  states); the evaluation set is disjoint from all of them.
+\item \textbf{Adjudication file drop (09-21).} The first set of verdict files
+  contained a duplicated file (annotator 1 and annotator 3 byte-identical).
+  The preregistered single-pass analysis was not run on it; the correct
+  third file was supplied and the analysis ran once on three distinct files
+  (MD5 prefixes \texttt{d1ced72c}, \texttt{24f29c79}, \texttt{82d06afc}).
+\item \textbf{Strong-controller collection (09-20).} Single launch; 400/400
+  states, 13,200 rollouts, zero transport errors; the same log carries
+  replay 3 for the replay-robustness extension.
+\item \textbf{Sequential controller v2 confidence regeneration.}
+  Development first-step confidence required regeneration; byte-match was
+  379/400 against the original generations (disclosed in the result file).
+\item \textbf{Comparator strengthening (disclosed post-hoc).} The original
+  structural comparator was the best deterministic fixed arm; randomized
+  state-independent mixtures were added as a disclosed post-hoc
+  strengthening, and all mixture-based conclusions are labeled accordingly.
+\end{enumerate}
+
+% ======================================================================
+\section{Additional Results}
+\label{sec:results}
+
+All confidence intervals resample independent perceptual states
+(10{,}000 bootstrap draws); policy differences use state-paired resampling.
+``pp'' denotes percentage points. Unless noted, scoring is strict.
+
+\subsection{Budget-constrained oracle frontier (Gate-0 logs, Qwen)}
+
+Cross-replay symmetrized, deterministic arms; budget expressed as a
+fraction of the always-\textsc{HighRes} additional-token cost.
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Budget & MME $\Delta$ vs.\ \textsc{Stop} (recovery) & TextVQA $\Delta$ (recovery) \\
+\midrule
+5\% & $+.122$ (96\%) & $+.112$ (59\%) \\
+10\% & $+.128$ (100\%) & $+.184$ (97\%) \\
+20\% & $+.128$ (100\%) & $+.190$ (100\%) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Exact constrained oracle vs.\ Lagrangian relaxation}
+\label{sec:results:exact}
+
+At $\ge$10\% budget the Lagrangian read-off matches the randomized hull to
+$\le$1pp. At the 5\% budget the exact multiple-choice-knapsack DP is
+\emph{higher} by $+1.5$pp (MME) and $+2.8$pp (TextVQA): closing the
+relaxation loophole strengthens the front-loading conclusion. The DP's
+cross-replay evaluated value can sit $\sim$1pp below the hull at loose
+budgets because exact optimization of the selection replay slightly
+overfits selection noise --- itself a small illustration of selection
+inflation.
+
+\subsection{Per-action damage decomposition}
+
+$P(\text{harm} \mid \text{\textsc{Stop} correct})$, existential over the
+family (``any'') vs.\ single actions, Qwen:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Family & MME any / single & TextVQA any / single \\
+\midrule
+\textsc{Crop} (grid) & .449 / .169 & .154 / .049 \\
+\textsc{OCR} & .080 / .080 & .085 / .085 \\
+\textsc{HighRes} & .145 / .145 & .043 / .043 \\
+Any action (DMG) & .464 / .157 & .222 / .051 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Aggregate DMG (13.8/13.0\%) is dominated by the grid-crop existential;
+single-action harm is 4--17\%. On TextVQA,
+$P(\text{help}\mid\text{\textsc{Stop} wrong}) = .782 \gg
+P(\text{harm}\mid\text{\textsc{Stop} correct}) = .222$.
+Phi-4 shows the same structure with lower DMG (7.7/7.0\%) but higher
+\textsc{OCR} harm on MME (40\% vs.\ Qwen's 10.7\%).
+
+\subsection{Answer-span confidence variants}
+\label{sec:results:spanconf}
+
+Regeneration byte-match 100\%. TextVQA ROC--AUC is stable at 0.74--0.80
+under all span variants. VQAv2 under the original prompt: reply-mean
+0.42--0.43 (below chance), recovering only to 0.58--0.62 at span-minimum;
+under the one-word prompt 0.72--0.90. The confidence pathology is a
+generation-format phenomenon, not a token-aggregation artifact.
+
+\subsection{Second reader (Phi-4): lenient rescoring and realizable signal}
+
+TextVQA lenient rescoring of the same Phi-4 generations: \textsc{Stop}
+.258 $\to$ .505 (format artifact confirmed); cross-fitted best fixed .624;
+cross-replay oracle .743; headroom $+11.9$pp $[+7.1, +16.7]$;
+\textsc{Stop}-optimal 36.9\%; frontier recovery 61\% at 5\% budget, 90\% at
+10\%. MME is multiple-choice, so lenient $=$ strict by construction.
+Phi-4's \textsc{Stop} verbosity under this protocol (4.0 words mean, 32\%
+$>$3 words, vs.\ 1.5 / 5\% in its own native-format runs) explains its low
+absolute strict accuracy; structural quantities, not absolute levels, are
+the comparanda.
+
+Phi-4's own \textsc{Stop}-confidence selector is indistinguishable from
+random allocation at every matched budget (confidence $-$ random point
+estimates $-0.003$ to $+0.013$, all CIs crossing 0), while the constrained
+oracle stands far above both (TextVQA 10\% budget: random .251, confidence
+.254, oracle .396). Headroom replicates across readers; the zero-training
+realizable signal does not.
+
+\subsection{Multi-replay robustness (replays 3--5)}
+\label{sec:results:multireplay}
+
+On 100-state outcome-blind subsets: the naive same-replay oracle stays
+inflated at every $K$ (MME .65--.66 vs.\ cross-replay .50--.53; TextVQA
+.885--.888 vs.\ .773). $K$=4--5 estimates stay inside the $K$=2 bootstrap
+CI on both datasets (pre-declared sufficiency criterion). TextVQA held-out
+mean and symmetric estimates \emph{rise} with $K$ (.773 $\to$ .830/.836):
+more evaluation replays denoise the outcome, so the published $K$=2
+headroom is conservative. Headroom is positive at every $K$.
+
+\paragraph{All ordered replay pairs, and a three-replay follow-up on 400 states.}
+On the same 100-state subsets every ordered replay pair $(r \to s)$ gives a
+positive cross-replay headroom (TextVQA 20/20 pairs, mean $+.110$, sd
+$.035$, 16 of 20 CIs excluding zero; MME 20/20, mean $+.070$), and the
+published R1$\to$R2 cell is the smallest of the 20 on the TextVQA subset. On
+the later 400-state nonlinear-head follow-up, an independently constructed
+third replay (``In the image shown: \ldots'') permits all six ordered
+directions among replays 1--3: headroom R1$\to$R2 $+.095$ $[+.055, +.135]$,
+R1$\to$R3 $+.103$ $[+.068, +.138]$, R2$\to$R3 $+.113$ $[+.082, +.147]$
+(reverse directions $+.095$ / $+.102$ / $+.102$); \textsc{Stop} agreement
+ranges from .945 to .980, per-arm action-score correlation from .897 to
+.933, and sign agreement of the per-action utility among both-nonzero pairs
+from .97 to 1.00. Files: \texttt{replay\_pairwise\_robustness},
+\texttt{replay\_pairwise\_strong}.
+
+\subsection{Randomized-mixture baselines on the held-out sets}
+
+TextVQA strict, selector $-$ mixture (paired bootstrap):
+
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+Budget & vs.\ in-sample & vs.\ cross-fitted & vs.\ deployable \\
+\midrule
+$1/4\times$ & $+.009\ [-.027,+.045]$ & $+.020\ [-.017,+.056]$ & $+.010\ [-.025,+.046]$ \\
+$1/2\times$ & $+.012\ [-.022,+.046]$ & $+.018\ [-.012,+.049]$ & $+.030\ [-.003,+.063]$ \\
+$1\times$   & $-.011\ [-.045,+.024]$ & $-.011\ [-.045,+.024]$ & $+.028\ [-.009,+.065]$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+VQAv2 strict vs.\ cross-fitted: $-.153\ [-.204,-.102]$ at $1/4\times$ and
+$-.072\ [-.117,-.027]$ at $1/2\times$ (a fixed grid crop significantly
+beats the selector); under lenient rescoring the reversal vanishes
+($+.010\ [-.017,+.038]$, $+.014\ [-.017,+.045]$). The deployable mixture
+transferred from development to held-out with no loss (.717 development fit
+$\to$ .744 held-out at $1/2\times$), so a transfer-loss explanation is not
+available.
+
+\subsection{Prospective one-step evaluation: realized-cost matching}
+
+Re-solving the development mixture at the selector's \emph{realized} token
+cost (53/129/212) on the 600 prospective states: strict
+$+1.9\ [-0.1,+4.0]$ / $+1.2\ [-1.4,+3.8]$ / $+0.9\ [-1.7,+3.4]$ (all
+non-confirmatory); lenient $+2.7\ [+0.9,+4.5]$ / $+5.1\ [+2.8,+7.4]$ /
+$+3.6\ [+1.4,+5.9]$ (all excluding zero). Cost-matching therefore
+strengthens, not weakens, the scorer-dependence finding.
+
+\subsection{Sequential experiments: full cell table}
+
+Development audit ($n$=100): cross-replay oracle over
+\{stay, $\to\mathrm{CROP}_{\mathrm{TR}}$, $\to$\textsc{HighRes}\} beats
+stopping after the first action by $+9.3$pp $[+4.7,+14.5]$ (center-crop
+branch) and $+9.2$pp $[+4.2,+14.5]$ (OCR branch). Continuation gain
+concentrates on first-step failures ($+22$ to $+27$pp) and is $\approx$0
+on successes. ``First-step answer changed'' predicts residual utility with
+AUC .70/.74 (base rate of ``second look helps'' $\approx$ 10--15\%);
+answer length alone $\approx$ .55. At matched tokens the best one-step arm
+(CROP-TR, .767 at 243 tokens) matches or beats every fixed two-step chain:
+the sequential value is adaptive, not a fixed pipeline.
+
+Prospective test ($n$=300), controller $-$ frozen continuation
+(always-$\mathrm{CROP}_{\mathrm{TR}}$):
+
+\begin{center}
+\small
+\begin{tabular}{llcc}
+\toprule
+Branch & Scorer & v1 (original) & v2 (cost-aware, disclosed) \\
+\midrule
+Center & strict & $\mathbf{-1.7\ [-3.6,+0.2]}$ (primary) & $-0.6\ [-1.8,+0.6]$ \\
+Center & lenient & $-1.2\ [-2.9,+0.4]$ & --- \\
+OCR & strict & $-0.3$ (ns) & $+0.4$ (ns) \\
+OCR & lenient & $+2.7\ [+0.4,+5.1]$ & $+2.7\ [+0.5,+4.8]$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Both v1 variants collapse to look-rate 1.00 on fresh states; v2 restores
+stopping (look-rate 0.83--0.85, or 0.30 under the conservative
+$\lambda_B$, which matches always-$\mathrm{CROP}_{\mathrm{TR}}$ within
+$-1.6$pp ns at 80 vs.\ 241 tokens --- one third the cost). Sequential
+oracle headroom on the same 300 states (all eight CIs exclude zero):
+oracle $-$ continuation $= +2.8\ [+1.1,+4.8]$ (center strict),
+$+5.8\ [+3.4,+8.4]$ (OCR strict), $+2.7\ [+1.0,+4.7]$ /
+$+6.2\ [+3.8,+8.8]$ lenient; oracle $-$ stop-after-first
+$= +4.4\ [+1.9,+6.9]$ / $+14.0\ [+10.3,+17.8]$. Only one of eight
+secondary controller cells is positive with a CI excluding zero
+(multiplicity caveat in the main paper).
+
+\subsection{Hidden-state selector v3: budget-control failure}
+\label{sec:results:v3}
+
+Primary ($1/2\times$ strict, v3 $-$ mixture): $+1.7$pp $[-1.9,+5.1]$;
+$1/4\times$: $+2.9\ [-0.7,+6.3]$; $1\times$: $+1.7\ [-2.0,+5.6]$. The
+pre-flagged instability materialized exactly: realized cost is
+$\approx$174--179 tokens at \emph{every} nominal budget --- $\lambda(B)$
+does not bind with hidden-state value heads. The $1/4\times$ and
+$1/2\times$ point estimates are therefore cost-confounded (2.3$\times$ /
+1.1$\times$ the mixture's tokens) and are not claimed. The only cost-fair
+cell is $1\times$, where v3 is cheaper than the mixture (179 vs.\ 241
+tokens) at $+1.7$pp ns strict / $+3.5\ [-0.0,+7.2]$ borderline lenient,
+and v3 $\approx$ v2 ($+0.2$pp ns). Secondary v3 $-$ v2 at $1/4\times$
+($+4.5\ [+1.0,+8.1]$) is likewise cost-confounded (174 vs.\ 53 tokens) and
+not claimed as a win. Beyond the non-confirmatory primary, this surfaces a
+deployability failure mode --- loss of $\lambda$-budget controllability ---
+that the handcrafted selector does not have.
+
+\subsection{F0 nonlinear-head prospective follow-up}
+\label{sec:results:strong}
+
+On 400 fresh TextVQA states (manifest sha256[:16] \texttt{7312457434be55f3};
+13,200 rollouts including a third replay, zero transport errors) at the
+strict $1/2\times$ operating point, F0/XGBoost reaches .726 at 148 visual
+tokens, F0/ridge .728 at 141, and F0/MLP .716 at 160, compared with .713 for
+the frozen state-independent mixture, .777 for the action-matched oracle,
+and .812 for the unrestricted oracle. The preregistered XGBoost-minus-mixture
+primary comparison is $+1.3$ points (95\% CI $[-1.4, +4.1]$) and therefore
+non-confirmatory. Capacity contrasts are null at every budget (XGBoost
+$-$ ridge $-0.3$ $[-2.0, +1.6]$, MLP $-$ ridge $-1.3$ $[-3.2, +0.6]$ at
+$1/2\times$); the pool-trained ridge exceeds the published dev-only v2 by
+about 3 points (.728 vs.\ .699). Realized costs track the nominal budgets for
+all three heads (54--78 / 141--160 / 210--225 tokens). Secondary
+format-tolerant XGBoost-minus-mixture differences are positive at
+$1/2\times$ ($+3.3$ $[+0.7, +6.1]$) and $1\times$ ($+4.4$ $[+1.4, +7.5]$),
+with XGBoost $-$ ridge still null. These results reduce the concern that
+the original prospective result is specific to a linear ridge head, but
+they do not bound richer controller classes. File:
+\texttt{strong\_controller\_eval}.
+
+\subsection{Representation--head $3\times3$ prospective test}
+\label{sec:results:hidden}
+
+On a further 400 fresh TextVQA states (manifest sha256[:16]
+\texttt{af41a4ac740a9ecb}; 8,800 rollouts, zero transport errors; hidden
+states extracted after collection from \textsc{Stop}-time inputs only), at
+the strict $1/2\times$ operating point, accuracies (realized visual-token
+cost) are:
+
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+& F0 & H & H+F0 \\
+\midrule
+Ridge   & .749 (146) & .729 (163) & .732 (161) \\
+XGBoost & .737 (141) & .705 (151) & .724 (131) \\
+MLP     & .744 (122) & .722 (171) & .707 (142) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The mixture reaches .714, the action-matched oracle .777, and the
+unrestricted oracle .808. The preregistered H/MLP-minus-mixture primary
+comparison is $+0.8$ points (95\% CI $[-2.1, +3.8]$) and non-confirmatory;
+H/XGBoost $-$ mixture is $-0.8$ $[-3.6, +2.0]$. H/XGBoost underperforms
+F0/XGBoost by $-3.1$ points ($[-5.8, -0.6]$; $-5.9$ at $1/4\times$, $-2.5$
+at $1\times$) and H/ridge by $-2.4$ ($[-4.8, -0.1]$); H/ridge $-$ F0/ridge
+is $-1.9$ $[-4.2, +0.4]$ and H+F0/XGBoost $-$ F0/XGBoost $-1.3$
+$[-3.3, +0.7]$. Realized costs track the nominal budgets for all nine
+cells (41--73 / 122--171 / 162--237 tokens), so the v3 budget-control
+failure does not recur with pooled out-of-fold $\lambda$. A secondary,
+unadjusted F0/ridge comparison is $+3.5$ points ($[+0.8, +6.4]$) versus
+the mixture and is treated as hypothesis-generating (the same contrast was
+$+1.6$ $[-1.2, +4.4]$ on the nonlinear-head set). Under format-tolerant
+rescoring, all nine configurations exceed the mixture at $1/2\times$ by
+$+2.8$ to $+5.2$ points with unadjusted confidence intervals excluding
+zero, and the H $-$ F0 contrasts are null; these secondary analyses are not
+part of the preregistered strict primary test. Pre-collection nested
+cross-validation on the training pool had already ranked every H-based
+cell below F0 (recorded in the frozen manifest). File:
+\texttt{hidden\_controller\_eval}.
+
+\subsection{Action-matched counterfactual oracle}
+\label{sec:results:deporacle}
+
+The unrestricted structural oracle may choose among individual crop slots
+\{\textsc{Stop}, \textsc{Crop}$_{1..8}$, \textsc{OCR}, \textsc{HighRes}\},
+whereas the deployed selectors choose only among
+$\{\textsc{Stop},\textsc{Crop-family},\textsc{OCR},\textsc{HighRes}\}$. To
+isolate the contribution of this action-space mismatch, we recompute the
+cross-replay oracle over the deployed family-level action space, using the
+uniform eight-crop expectation for \textsc{Crop-family} (outcome and cost
+exactly as the selectors use them), under the audit protocol (select on
+replay 1, ties to the cheaper family, score on replay 2) and against the
+\emph{same} cross-fitted best fixed arm, so that $H^{\mathrm{full}} -
+H^{\mathrm{dep}}$ isolates the action space. Both oracles remain
+counterfactual because their action choice uses replay outcomes. This
+analysis is post hoc (zero inference on the existing logs) and is not a
+preregistered primary endpoint. Strict:
+
+\begin{center}
+\small
+\begin{tabular}{lrccc}
+\toprule
+Set & $n$ & $H^{\mathrm{full}}$ [CI] & $H^{\mathrm{dep}}$ [CI] & matched/unrestricted \\
+\midrule
+TextVQA Gate-0 & 200 & $+8.9\ [+4.0,+13.9]$ & $+4.6\ [-0.1,+9.3]$ & .51 \\
+MME Gate-0 & 196 & $+8.2\ [+3.3,+13.2]$ & $+3.0\ [-1.1,+7.2]$ & .37 \\
+TextVQA held-out & 250 & $+7.9\ [+4.2,+11.6]$ & $+4.4\ [+1.1,+7.6]$ & .56 \\
+TextVQA prospective & 600 & $+9.8\ [+7.1,+12.6]$ & $+5.6\ [+3.1,+8.2]$ & .57 \\
+TextVQA v3 & 300 & $+11.4\ [+8.0,+15.1]$ & $+6.7\ [+4.0,+9.4]$ & .59 \\
+TextVQA strong & 400 & $+9.4\ [+6.3,+12.5]$ & $+6.3\ [+3.6,+9.0]$ & .67 \\
+TextVQA hidden & 400 & $+7.8\ [+4.7,+10.9]$ & $+4.1\ [+1.5,+6.8]$ & .53 \\
+TextVQA Gate-0, Phi-4 & 200 & $+9.9\ [+5.7,+13.9]$ & $+7.5\ [+4.1,+10.8]$ & .76 \\
+MME Gate-0, Phi-4 & 196 & $+2.3\ [-2.9,+7.6]$ & $+1.5\ [-3.0,+6.1]$ & .66 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Restricting the oracle to the deployed family-level action space removes
+roughly 40--50\% of the headroom on TextVQA (35--65\% on MME); a family-level
+headroom of $+4$ to $+7$pp remains, with CIs excluding 0 on every fresh
+TextVQA set ($n \ge 250$). Budget-constrained (Lagrangian) values at
+$1/2\times$ are .777--.781 (action-matched) versus .809--.819
+(unrestricted) on the fresh sets. At the original 600-state $1/2\times$ operating point, the
+unrestricted oracle reaches .818, the action-matched oracle .777, and the
+frozen selector .720: 4.1 points of the unrestricted 9.8-point
+oracle--selector gap are attributable to finer crop granularity, while 5.7
+points remain between the action-matched counterfactual oracle and the
+realized selector. The opportunity therefore has two layers: roughly half
+is crop granularity (which box), which the selectivity audit shows is not
+question-predictable; the other half is family choice, which is inside the
+selectors' action space and remains largely unrealized (best deployable
+cell .749 vs.\ action-matched oracle .777 at $1/2\times$ on the
+representation--head set). File: \texttt{deployable\_oracle}.
+
+\subsection{Blinded human adjudication of scorer disagreement}
+\label{sec:results:adjudication}
+
+\paragraph{Sampling.}
+The adjudication universe consists of the 1,584 unique (state, normalized
+answer) pairs produced by the 13,200 generations of the 600-state
+prospective TextVQA evaluation. We sample 200 pairs for which the benchmark
+(strict) score is zero but the format-tolerant score is positive (245 such
+pairs exist), with allocation proportional to the dominant action family
+among the rollouts producing each pair (\textsc{Crop} 88, \textsc{HighRes}
+49, \textsc{OCR} 42, \textsc{Stop} 21). We additionally sample 100 agreement
+controls: 50 pairs scored correct by both automatic scorers and 50 scored
+incorrect by both. Sampling is fixed by preregistration (seed 20260921)
+before any human label exists; the 300 pairs cover 1,527 rollouts, the 200
+disagreement pairs 675.
+
+\paragraph{Blinding and adjudication.}
+Three independent annotators judge semantic correctness (correct /
+incorrect / ambiguous) from the image, the question, the reference answers
+with vote counts, and the model prediction only, without access to
+automatic scorer outputs, action arm, replay identity, or policy identity,
+under the instruction that containing the reference token is not sufficient
+for correctness. Majority vote defines the adjudicated label; a majority of
+``ambiguous'' and pairs without a majority are retained separately.
+
+\paragraph{Agreement and semantic error.}
+Across the 300 sampled pairs, raw pairwise agreement is .906 (mean; Cohen's
+$\kappa$ .70 / .88 / .72), Fleiss' $\kappa=.766$, and Krippendorff's
+$\alpha=.767$; 292 pairs receive a majority label (258 unanimous), 7 are
+ambiguous by majority, 1 has no majority. Among the 197 resolved
+benchmark-negative, format-tolerant-positive pairs, 80.7\% (Wilson 95\% CI
+$[74.6, 85.6]$) are human-correct and 19.3\% ($[14.4, 25.4]$) are
+human-incorrect. The human-incorrect share concentrates in partial-credit
+matches: 12.3\% of pairs with format-tolerant score 1 ($n$=154) versus
+43--46\% at scores $1/3$ and $2/3$ ($n$=43). All 50 agreement-control pairs
+scored correct by both automatic scorers are human-correct; among the 45
+resolved pairs scored incorrect by both, 11 are judged human-correct
+(paraphrases neither scorer accepts). Weighting the three strata by their
+population sizes (245 / 580 / 670), agreement with the human label is
+.758 $[.699, .812]$ for the benchmark scorer and .856 $[.797, .909]$ for the
+format-tolerant rule.
+
+\paragraph{Policy-level sensitivity analysis.}
+For every rollout whose (state, answer) pair was adjudicated with a
+majority label, the human label replaces the automatic score without
+reweighting (659 rollouts); all other rollouts retain their automatic
+scores. For unresolved or unsampled scorer-disagreement pairs, the
+pessimistic assumption retains the benchmark score of zero, whereas the
+optimistic assumption treats only format-tolerant full-credit matches as
+correct. All partial-credit matches, including scores of $1/3$ and $2/3$,
+remain incorrect under both assumptions. These are sensitivity bounds over unresolved
+scorer-disagreement cases, not formal bounds on semantic accuracy, because
+unadjudicated agreement cases remain automatically scored.
+
+At the primary $1/2\times$ operating point, frozen selector minus frozen
+mixture changes from $+0.9$ points ($[-1.6, +3.4]$) under benchmark scoring
+to $+4.1$ ($[+1.8, +6.5]$) and $+4.2$ ($[+2.0, +6.5]$) points under the
+pessimistic and optimistic assumptions; the format-tolerant estimate is
+$+4.6$ ($[+2.4, +6.8]$). At $1/4\times$ / $1\times$ the pessimistic values
+are $+2.5$ $[+0.2, +4.9]$ / $+3.0$ $[+0.5, +5.5]$ and the optimistic values
+$+2.7$ $[+0.4, +5.0]$ / $+2.9$ $[+0.5, +5.4]$. Only policies frozen
+before the 600-state set was collected are evaluated here. File:
+\texttt{human\_adjudication}.
+
+\subsection{Cross-dataset and cross-reader transfer details}
+
+\paragraph{Cross-dataset (TextVQA selector $\to$ VQAv2, zero adaptation).}
+Strict: parity with the cross-fitted mixture ($-0.9$/$-2.7$/$-1.9$pp, CIs
+include 0); the selector loses to the in-sample mixture at
+$1/2\times$/$1\times$ (that bound is baseline-favoring by construction).
+Lenient: directionally positive at every budget ($+2.8$/$+2.0$/$+1.5$pp,
+CIs include 0). The selector's action mix shifts sensibly (OCR-heavy on
+TextVQA $\to$ \textsc{Crop}/\textsc{HighRes}-heavy on VQAv2). Note: the
+oracle column in this analysis is the family-level allocation ceiling
+(4 arms, crop = uniform expectation) while mixtures draw on per-slot arms.
+
+\paragraph{Cross-reader (Qwen selector $\to$ Phi-4 states).}
+MME: the transferred selector nearly always stops (realized cost
+$\le$73 tokens) and loses to the target-reader cross-fitted mixture by
+$-8.0$ to $-10.4$pp (CIs exclude 0), leaving Phi-4's headroom unrealized.
+TextVQA: the transferred selector beats always-\textsc{Stop} by $+7.9$ to
+$+10.4$pp (all CIs exclude 0) and is directionally ahead of the
+cross-fitted mixture ($+1.3$ to $+2.7$pp, CIs marginal). A
+confidence-recalibrated variant barely differs: the issue is the signal,
+not its calibration. Combined with the instance-level agreement analysis
+(help-set overlap $\approx$ chance on TextVQA; best-family agreement among
+both-help states 73--77\%), what transfers is a coarse task-level signal of
+which action class helps, not instance-level perception need.
+
+\paragraph{Agreement conditional on baseline capability.}
+Because the readers' \textsc{Stop} accuracies differ widely, the pooled
+help-set overlap partly reflects capability rather than perception need.
+Stratifying the Gate-0 TextVQA states by whether each reader's \textsc{Stop}
+is correct: among both-\textsc{Stop}-wrong states ($n$=70 strict / 51
+lenient) the Qwen--Phi-4 help Jaccard rises from the pooled .19 to .35
+$[.23, .47]$ (lenient .64 $[.50, .77]$) and the correlation of per-state
+best-arm utility to .31 $[.14, .47]$ (lenient .48 $[.25, .69]$), while
+chance-corrected $\kappa$ stays $\approx .1$ because both readers have high
+help rates there; the mixed stratum is anti-correlated ($-.29$
+$[-.40, -.17]$). MME both-wrong: Jaccard .40, $\kappa$ .36 $[.17, .54]$.
+The instance-level claim is therefore ``moderate overlap, weak
+beyond-base-rate agreement'', not independence. File:
+\texttt{cross\_reader\_conditional}.
+
+\subsection{Latency at the token-matched operating points}
+
+Already-logged latencies of the same frozen operating points (never
+recomputed, never summed with tokens): the multi-action policy's low-token
+operating points substitute OCR and carry its tool time --- TextVQA
+$1/4\times$: 29.0\,s/state vs.\ 0.15\,s for the confidence binary at the
+same token cost; VQAv2 $1/4\times$: 11.1\,s vs.\ 0.14\,s; always-\textsc{HighRes}
+0.67\,s. On the latency axis the $\lambda_{\text{lat}}$ sweep avoids OCR
+and the binaries reach always-\textsc{HighRes} cheaply; OCR-heavy points
+sit 1--2 orders of magnitude to the right. Any efficiency claim must name
+its axis.
+
+% ======================================================================
+\section{Infrastructure and Reproducibility Details}
+\label{sec:infra}
+
+\paragraph{Models and serving.}
+Qwen2.5-VL-7B-Instruct and Phi-4-multimodal-instruct, served with vLLM
+0.11.0 (torch 2.8.0, CUDA 12.8), greedy decoding, fixed seed, logprobs
+enabled for \textsc{Stop} rollouts. Prefix caching is disabled ---
+mandatory, because the protocol issues many near-identical requests per
+image and cached prefixes would couple arms that must be independent.
+Model weights are frozen throughout; no fine-tuning anywhere.
+
+\paragraph{Determinism and caching.}
+All generations are cached in SQLite keyed by model, prompt version,
+decoding parameters, and view bytes; changing any of these invalidates the
+cache rather than silently mixing configurations. \textsc{Stop}
+re-generation byte-match checks are asserted at collection time (0
+mismatches on all reported collections; one disclosed exception: the
+sequential-v2 development confidence regeneration at 379/400).
+
+\paragraph{Scale.}
+In addition to the structural audits (7,000 rollouts per reader and
+dataset) and the held-out, lockbox, and answer-format collections, the
+prospective program includes the 600-state one-step selector evaluation
+(13,200 rollouts), the 300-state sequential evaluation (5,400), the
+300-state hidden-state evaluation (6,600), the 400-state nonlinear-head
+evaluation (13,200, including a third replay), and the 400-state
+representation--head evaluation (8,800), plus 1,650 hidden-state
+extractions. In total the released logs hold about 117,000 model rollouts
+(excluding offline rescoring files and smoke runs). The human adjudication
+covers 300 unique state--answer pairs sampled from the 600-state prospective
+TextVQA collection. Every model-based evaluation collection passed the
+zero-transport-error integrity gate.
+
+\paragraph{Sampling and leakage control.}
+Every evaluation set is drawn with a fixed seed from a pool that excludes
+all previously used ids (a cumulative ``burn list''); manifest SHA-256
+prefixes are recorded in the corresponding preregistration document before
+collection and verified in the released manifests
+(the 600-state prospective manifest \texttt{a535d8edce3aa822}; the
+sequential 300-state manifest \texttt{4196e1abbead1506}; the v3 manifest
+\texttt{7bc5ec8a8eb9a61f}; the nonlinear-head 400-state manifest
+\texttt{7312457434be55f3}; the representation--head 400-state manifest
+\texttt{af41a4ac740a9ecb}; the adjudication sample mapping
+\texttt{1384f99672bc8d65}).
+
+\paragraph{Prospective-set separation and sequential development.}
+The one-step selector (600), sequential (300), hidden-state (300),
+nonlinear-head (400), and representation--head (400) prospective evaluation
+sets are mutually disjoint, disjoint from the Gate-0 development set (200,
+val split) and from the train-split development, lockbox, and held-out sets
+(250 each); pairwise overlap is zero for all nine sets. Each controller is
+evaluated only on a set that was never used for its own training or model
+selection. The research program is sequential rather than a collection of
+statistically independent replications: later controllers use previously
+analyzed sets in their training pools (1,350 and 1,750 states), but are
+evaluated on newly drawn untouched sets. Accordingly, the paper treats the
+preregistered primary endpoints as distinct prospective follow-ups and makes
+no familywise-confirmatory omnibus claim across them.
+
+\paragraph{Statistics.}
+State-level bootstrap (10{,}000 draws) over independent perceptual states;
+paired resampling for policy differences; no rollout-level resampling
+anywhere. Preregistered primary endpoints are single comparisons; all
+secondary comparisons are reported unadjusted and labeled as such.
+
+% ======================================================================
+\section{Contents of the Supplementary ZIP}
+\label{sec:zip}
+
+\begin{description}[style=nextline]
+\item[\texttt{supplementary.pdf}] This document.
+\item[\texttt{code/}] The complete audit framework and experiment scripts:
+  \texttt{ppu/} (the library: budget accounting, actions, regions, OCR,
+  prompts, replays, evaluator, cache, runner, audit), \texttt{scripts/}
+  (every collection, analysis, and figure script named in the result
+  files), \texttt{tests/} (offline tests exercising the full pipeline with
+  stub readers --- no GPU or data required), and a README with environment
+  and reproduction instructions. Absolute paths have been replaced by
+  placeholders for anonymity.
+\item[\texttt{preregistrations/}] All preregistration documents used in
+  the study, verbatim, including the withdrawn original human-audit
+  preregistration and the later preregistered prospective follow-ups
+  (nonlinear-head, representation--head) and human-adjudication protocol.
+\item[\texttt{results/}] Machine-readable result files (JSON) and their
+  human-readable summaries (Markdown) for every analysis cited in the
+  paper or in this document --- including the action-matched oracle
+  analyses, the human-adjudication summaries (blinded sample mapping, the
+  three verdict files, and the analysis output), the nonlinear-head
+  follow-up, the representation--head grid, the replay-pairwise and
+  conditional cross-reader analyses --- plus per-state CSV rows for the
+  sequential prospective oracle and history analyses, and the frozen
+  results digest.
+\item[\texttt{models/}] Freeze artifacts for every learned component
+  (pickle + JSON manifest with weights, scaler, confidence ECDF, feature
+  list, and seed), matching the SHA-256 prefixes cited above.
+\item[\texttt{logs/}] Complete raw rollout logs (gzipped JSONL) for every
+  core experiment: the Gate-0 audits (both readers), the 600-state one-step
+  prospective evaluation, the sequential development and 300-state
+  prospective collections, the v3 prospective collection, the 400-state
+  nonlinear-head and representation--head prospective collections, the
+  held-out multi-action arms, the multi-replay robustness collections, the
+  answer-format intervention arms, and the sealed binary-utility sets.
+  Each row stores the full prompt metadata, served question, view labels
+  and realized token costs, the \emph{raw generation}, extracted answer,
+  per-metric score, and (for \textsc{Stop}) token log-probabilities ---
+  every number in the paper is recomputable from these files without GPU
+  inference, including under alternative scoring rules.
+\item[\texttt{manifests/}] Evaluation-set manifests (sample ids,
+  questions, references, native sizes, relative image paths) for all
+  prospective, held-out, lockbox, and fresh sets (including the
+  nonlinear-head and representation--head 400-state sets and the frozen
+  300-pair adjudication sample), verifying the preregistered SHA-256
+  prefixes. Images themselves are from the public
+  TextVQA, VQAv2, and MME-RealWorld-Lite releases and are not
+  redistributed.
+\end{description}
+
+\paragraph{Reproduction.}
+Scoring, audit, and policy analyses are reproducible offline from
+\texttt{results/} and \texttt{manifests/} without GPU inference (raw
+generations are embedded in the result JSONs where needed; the evaluator
+is deterministic). Full re-collection requires serving the two readers
+with vLLM (scripts provided; prefix caching must remain disabled) and the
+public benchmark images. The offline test suite
+(\texttt{python -m pytest tests -q}) exercises every code path with stub
+readers and stub OCR.
+
+\end{document}

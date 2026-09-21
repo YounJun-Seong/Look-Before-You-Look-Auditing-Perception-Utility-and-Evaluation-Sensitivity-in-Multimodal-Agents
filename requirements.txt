@@ -1,0 +1,11 @@
+# analysis / offline reproduction (no GPU)
+numpy>=2.0
+scipy
+scikit-learn>=1.7
+xgboost>=3.0
+pillow
+openai
+rapidocr-onnxruntime
+matplotlib
+pytest
+# serving (separate environment): vllm==0.11.0, torch==2.8.0 (CUDA 12.8), transformers==4.56.2

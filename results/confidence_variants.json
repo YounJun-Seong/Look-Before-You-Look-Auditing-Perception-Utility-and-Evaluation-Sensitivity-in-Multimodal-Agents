@@ -1,0 +1,335 @@
+[
+ {
+  "backbone": "Qwen2.5-VL-7B",
+  "regime": "textvqa",
+  "log": "logs/lockbox_textvqa.jsonl",
+  "n_eval": 233,
+  "n_help": 35,
+  "labels": {
+   "NEUTRAL": 189,
+   "HELP": 35,
+   "AMBIGUOUS": 17,
+   "HARM": 9
+  },
+  "mean_lp": {
+   "roc": 0.7959595959595959,
+   "ci": [
+    0.7060952254708882,
+    0.874874419630245
+   ]
+  },
+  "min_lp": {
+   "roc": 0.7858585858585858,
+   "ci": [
+    0.6995670995670996,
+    0.861278653951953
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 134,
+   "n_help": 18,
+   "roc": 0.7399425287356322
+  },
+  "min_lp_oneword_only": {
+   "n": 134,
+   "n_help": 18,
+   "roc": 0.7136015325670498
+  }
+ },
+ {
+  "backbone": "Qwen2.5-VL-7B",
+  "regime": "vqav2",
+  "log": "logs/lockbox_vqav2.jsonl",
+  "n_eval": 202,
+  "n_help": 44,
+  "labels": {
+   "NEUTRAL": 156,
+   "HELP": 44,
+   "AMBIGUOUS": 48,
+   "HARM": 2
+  },
+  "mean_lp": {
+   "roc": 0.423331415420023,
+   "ci": [
+    0.3280856932419432,
+    0.5208738315065339
+   ]
+  },
+  "min_lp": {
+   "roc": 0.5292002301495973,
+   "ci": [
+    0.44323143602827886,
+    0.6185316014872847
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 120,
+   "n_help": 14,
+   "roc": 0.6327493261455526
+  },
+  "min_lp_oneword_only": {
+   "n": 120,
+   "n_help": 14,
+   "roc": 0.6940700808625337
+  }
+ },
+ {
+  "backbone": "Qwen2.5-VL-7B (one-word)",
+  "regime": "vqav2",
+  "log": "logs/lockbox_vqav2_qwen_oneword.jsonl",
+  "n_eval": 236,
+  "n_help": 20,
+  "labels": {
+   "NEUTRAL": 209,
+   "AMBIGUOUS": 14,
+   "HELP": 20,
+   "HARM": 7
+  },
+  "mean_lp": {
+   "roc": 0.7150462962962962,
+   "ci": [
+    0.6010082917847823,
+    0.8160339664750321
+   ]
+  },
+  "min_lp": {
+   "roc": 0.7236111111111111,
+   "ci": [
+    0.6132453201733847,
+    0.8239147662855563
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 229,
+   "n_help": 18,
+   "roc": 0.737230121116377
+  },
+  "min_lp_oneword_only": {
+   "n": 229,
+   "n_help": 18,
+   "roc": 0.7293312269615587
+  }
+ },
+ {
+  "backbone": "Phi-4-MM-5.6B",
+  "regime": "textvqa",
+  "log": "logs/lockbox_textvqa_phi4.jsonl",
+  "n_eval": 223,
+  "n_help": 42,
+  "labels": {
+   "NEUTRAL": 178,
+   "HARM": 3,
+   "AMBIGUOUS": 27,
+   "HELP": 42
+  },
+  "mean_lp": {
+   "roc": 0.8392528282031044,
+   "ci": [
+    0.7757934646654159,
+    0.8954668729707019
+   ]
+  },
+  "min_lp": {
+   "roc": 0.8551696921862668,
+   "ci": [
+    0.7919376899696048,
+    0.9084448243025289
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 165,
+   "n_help": 31,
+   "roc": 0.876263842079923
+  },
+  "min_lp_oneword_only": {
+   "n": 165,
+   "n_help": 31,
+   "roc": 0.9049109292248435
+  }
+ },
+ {
+  "backbone": "Phi-4-MM-5.6B",
+  "regime": "vqav2",
+  "log": "logs/lockbox_vqav2_phi4.jsonl",
+  "n_eval": 234,
+  "n_help": 10,
+  "labels": {
+   "NEUTRAL": 215,
+   "AMBIGUOUS": 16,
+   "HELP": 10,
+   "HARM": 9
+  },
+  "mean_lp": {
+   "roc": 0.8178571428571428,
+   "ci": [
+    0.6410524691358025,
+    0.9590925652791433
+   ]
+  },
+  "min_lp": {
+   "roc": 0.8294642857142857,
+   "ci": [
+    0.6598965371621622,
+    0.9532163742690057
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 222,
+   "n_help": 10,
+   "roc": 0.834433962264151
+  },
+  "min_lp_oneword_only": {
+   "n": 222,
+   "n_help": 10,
+   "roc": 0.8466981132075471
+  }
+ },
+ {
+  "backbone": "FRESH Qwen original",
+  "regime": "vqav2",
+  "log": "logs/fresh_vqav2_orig.jsonl",
+  "n_eval": 179,
+  "n_help": 30,
+  "labels": {
+   "NEUTRAL": 140,
+   "HARM": 9,
+   "AMBIGUOUS": 71,
+   "HELP": 30
+  },
+  "mean_lp": {
+   "roc": 0.42774049217002236,
+   "ci": [
+    0.3184686423821894,
+    0.5406000047160914
+   ]
+  },
+  "min_lp": {
+   "roc": 0.5621923937360178,
+   "ci": [
+    0.45955105051467277,
+    0.6647188572273464
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 107,
+   "n_help": 5,
+   "roc": 0.7274509803921569
+  },
+  "min_lp_oneword_only": {
+   "n": 107,
+   "n_help": 5,
+   "roc": 0.6509803921568628
+  }
+ },
+ {
+  "backbone": "FRESH Qwen one-word",
+  "regime": "vqav2",
+  "log": "logs/fresh_vqav2_oneword.jsonl",
+  "n_eval": 228,
+  "n_help": 14,
+  "labels": {
+   "NEUTRAL": 206,
+   "HARM": 8,
+   "AMBIGUOUS": 22,
+   "HELP": 14
+  },
+  "mean_lp": {
+   "roc": 0.8965287049399199,
+   "ci": [
+    0.8413138002325882,
+    0.9476000576526277
+   ]
+  },
+  "min_lp": {
+   "roc": 0.8718291054739653,
+   "ci": [
+    0.8050033196956646,
+    0.9316529158171933
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 220,
+   "n_help": 12,
+   "roc": 0.9006410256410258
+  },
+  "min_lp_oneword_only": {
+   "n": 220,
+   "n_help": 12,
+   "roc": 0.8770032051282051
+  }
+ },
+ {
+  "backbone": "FRESH Qwen original",
+  "regime": "textvqa",
+  "log": "logs/fresh_textvqa_orig.jsonl",
+  "n_eval": 225,
+  "n_help": 29,
+  "labels": {
+   "NEUTRAL": 189,
+   "AMBIGUOUS": 25,
+   "HARM": 7,
+   "HELP": 29
+  },
+  "mean_lp": {
+   "roc": 0.7855383532723434,
+   "ci": [
+    0.7067657472898282,
+    0.8602248005801305
+   ]
+  },
+  "min_lp": {
+   "roc": 0.8471147079521464,
+   "ci": [
+    0.78099,
+    0.9036657402910797
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 131,
+   "n_help": 14,
+   "roc": 0.7893772893772895
+  },
+  "min_lp_oneword_only": {
+   "n": 131,
+   "n_help": 14,
+   "roc": 0.8534798534798534
+  }
+ },
+ {
+  "backbone": "FRESH Qwen one-word",
+  "regime": "textvqa",
+  "log": "logs/fresh_textvqa_oneword.jsonl",
+  "n_eval": 225,
+  "n_help": 18,
+  "labels": {
+   "AMBIGUOUS": 25,
+   "NEUTRAL": 201,
+   "HELP": 18,
+   "HARM": 6
+  },
+  "mean_lp": {
+   "roc": 0.8153515834675255,
+   "ci": [
+    0.7149966000816168,
+    0.89844278943805
+   ]
+  },
+  "min_lp": {
+   "roc": 0.7705314009661836,
+   "ci": [
+    0.6537966470258136,
+    0.8687224481100254
+   ]
+  },
+  "mean_lp_oneword_only": {
+   "n": 170,
+   "n_help": 16,
+   "roc": 0.8116883116883117
+  },
+  "min_lp_oneword_only": {
+   "n": 170,
+   "n_help": 16,
+   "roc": 0.7881493506493507
+  }
+ }
+]

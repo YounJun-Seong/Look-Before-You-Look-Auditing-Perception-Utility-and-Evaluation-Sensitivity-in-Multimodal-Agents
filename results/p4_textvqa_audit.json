@@ -1,0 +1,232 @@
+{
+  "pooled": {
+    "label": "pooled",
+    "n": 200,
+    "accuracy": {
+      "coarse_stop_r2": 0.2583333333333333,
+      "coarse_stop_r1": 0.22833333333333333,
+      "full_image_r2": 0.33666666666666667,
+      "oracle_cf": 0.43333333333333335,
+      "oracle_naive_r1": 0.49666666666666665,
+      "oracle_dummy_cf": 0.4533333333333333,
+      "fixed_policies": {
+        "HIGHRES#0": 0.33833333333333326,
+        "OCR#0": 0.3583333333333333,
+        "STOP#0": 0.2583333333333333,
+        "CROP#0": 0.3,
+        "CROP#1": 0.31666666666666665,
+        "CROP#2": 0.31,
+        "CROP#3": 0.295,
+        "CROP#4": 0.29666666666666663,
+        "CROP#5": 0.2866666666666666,
+        "CROP#6": 0.28333333333333327,
+        "CROP#7": 0.29666666666666663
+      },
+      "best_fixed_cf": 0.3331666666666667,
+      "best_fixed_choice": "OCR#0:11,CROP#1:4,HIGHRES#0:4"
+    },
+    "headroom": {
+      "H_net": -0.0033333333333333305,
+      "H_ci": [
+        -0.07333333333333333,
+        0.06666666666666668
+      ],
+      "H_floor": "dummy",
+      "P_policy": 0.10016666666666665,
+      "P_ci": [
+        0.05966249999999999,
+        0.14033749999999995
+      ],
+      "oracle_minus_base": 0.17500000000000004,
+      "luck_floor_gain": 0.195
+    },
+    "diversity": {
+      "n_decisive": 61,
+      "distribution": {
+        "STOP": 0.22950819672131148,
+        "CROP": 0.32786885245901637,
+        "OCR": 0.3770491803278688,
+        "HIGHRES": 0.06557377049180328
+      },
+      "counts": {
+        "STOP": 14,
+        "CROP": 20,
+        "OCR": 23,
+        "HIGHRES": 4
+      },
+      "max_share": 0.3770491803278688,
+      "n_families_over_10pct": 3
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.06,
+      "OCR": 0.035,
+      "HIGHRES": 0.02
+    },
+    "harm": {
+      "dmg_rate": 0.07,
+      "by_family": {
+        "CROP": 0.2619047619047619,
+        "OCR": 0.09523809523809523,
+        "HIGHRES": 0.07142857142857142
+      }
+    },
+    "recovery_overlap": {
+      "none": 111,
+      "CROP": 12,
+      "CROP+HIGHRES": 8,
+      "CROP+OCR": 7,
+      "OCR": 7,
+      "CROP+HIGHRES+OCR": 5,
+      "HIGHRES+OCR": 4,
+      "HIGHRES": 4
+    },
+    "reliability": {
+      "per_action_agreement": 0.9318181818181818,
+      "top1_family_agreement": 0.7540983606557377,
+      "parse_failures": 0,
+      "rows": 7000
+    }
+  },
+  "per_dataset": [
+    {
+      "label": "textvqa",
+      "n": 200,
+      "accuracy": {
+        "coarse_stop_r2": 0.2583333333333333,
+        "coarse_stop_r1": 0.22833333333333333,
+        "full_image_r2": 0.33666666666666667,
+        "oracle_cf": 0.43333333333333335,
+        "oracle_naive_r1": 0.49666666666666665,
+        "oracle_dummy_cf": 0.4533333333333333,
+        "fixed_policies": {
+          "HIGHRES#0": 0.33833333333333326,
+          "OCR#0": 0.3583333333333333,
+          "STOP#0": 0.2583333333333333,
+          "CROP#0": 0.3,
+          "CROP#1": 0.31666666666666665,
+          "CROP#2": 0.31,
+          "CROP#3": 0.295,
+          "CROP#4": 0.29666666666666663,
+          "CROP#5": 0.2866666666666666,
+          "CROP#6": 0.28333333333333327,
+          "CROP#7": 0.29666666666666663
+        },
+        "best_fixed_cf": 0.3331666666666667,
+        "best_fixed_choice": "OCR#0:11,CROP#1:4,HIGHRES#0:4"
+      },
+      "headroom": {
+        "H_net": -0.0033333333333333305,
+        "H_ci": [
+          -0.07333333333333333,
+          0.06666666666666668
+        ],
+        "H_floor": "dummy",
+        "P_policy": 0.10016666666666665,
+        "P_ci": [
+          0.0621625,
+          0.14117499999999994
+        ],
+        "oracle_minus_base": 0.17500000000000004,
+        "luck_floor_gain": 0.195
+      },
+      "diversity": {
+        "n_decisive": 61,
+        "distribution": {
+          "STOP": 0.22950819672131148,
+          "CROP": 0.32786885245901637,
+          "OCR": 0.3770491803278688,
+          "HIGHRES": 0.06557377049180328
+        },
+        "counts": {
+          "STOP": 14,
+          "CROP": 20,
+          "OCR": 23,
+          "HIGHRES": 4
+        },
+        "max_share": 0.3770491803278688,
+        "n_families_over_10pct": 3
+      },
+      "exclusive_solve": {
+        "STOP": 0.0,
+        "CROP": 0.06,
+        "OCR": 0.035,
+        "HIGHRES": 0.02
+      },
+      "harm": {
+        "dmg_rate": 0.07,
+        "by_family": {
+          "CROP": 0.2619047619047619,
+          "OCR": 0.09523809523809523,
+          "HIGHRES": 0.07142857142857142
+        }
+      },
+      "recovery_overlap": {
+        "none": 111,
+        "CROP": 12,
+        "CROP+HIGHRES": 8,
+        "CROP+OCR": 7,
+        "OCR": 7,
+        "CROP+HIGHRES+OCR": 5,
+        "HIGHRES+OCR": 4,
+        "HIGHRES": 4
+      },
+      "reliability": {
+        "per_action_agreement": 0.9318181818181818,
+        "top1_family_agreement": 0.7540983606557377,
+        "parse_failures": 0,
+        "rows": 7000
+      }
+    }
+  ],
+  "verdict": {
+    "verdict": "STOP",
+    "H_net": -0.0033333333333333305,
+    "H_ci_low": -0.07333333333333333,
+    "P_policy": 0.10016666666666665,
+    "P_ci_low": 0.05966249999999999,
+    "dmg_rate": 0.07,
+    "datasets_diverse": 1,
+    "n_datasets": 1
+  },
+  "bottleneck": {
+    "n": 18,
+    "share_of_all": 0.09,
+    "recovery_rate": 0.8333333333333334,
+    "solve_rate_by_family": {
+      "STOP": 0.0,
+      "CROP": 0.6666666666666666,
+      "OCR": 0.3333333333333333,
+      "HIGHRES": 0.5
+    },
+    "best_family": {
+      "STOP": 0.0,
+      "CROP": 0.5333333333333333,
+      "OCR": 0.4,
+      "HIGHRES": 0.06666666666666667
+    },
+    "best_family_counts": {
+      "STOP": 0,
+      "CROP": 8,
+      "OCR": 6,
+      "HIGHRES": 1
+    },
+    "exclusive_solve": {
+      "STOP": 0.0,
+      "CROP": 0.2222222222222222,
+      "OCR": 0.05555555555555555,
+      "HIGHRES": 0.05555555555555555
+    },
+    "overlap": {
+      "CROP+HIGHRES": 4,
+      "CROP": 4,
+      "none": 3,
+      "CROP+HIGHRES+OCR": 3,
+      "HIGHRES": 1,
+      "HIGHRES+OCR": 1,
+      "OCR": 1,
+      "CROP+OCR": 1
+    }
+  },
+  "strata": {}
+}

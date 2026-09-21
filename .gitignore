@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+.pylib/
+*.sqlite
+*.log
+data/textvqa/
+data/vqav2/
+data/mme_realworld/
+data/gqa/
+logs/*.jsonl
+!logs/*.jsonl.gz
+paper/human_adjudication_sheet.html
+*.zip
